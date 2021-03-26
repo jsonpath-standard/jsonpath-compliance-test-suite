@@ -872,6 +872,40 @@
       "result": []
     },
     {
+      "name": "union array access, duplicate nodes removed",
+      "selector": "$[0,0]",
+      "document": [
+        {
+          "a": "b"
+        }
+      ],
+      "result": [
+        {
+          "a": "b"
+        }
+      ]
+    },
+    {
+      "name": "duplicate values",
+      "selector": "$.*",
+      "document": {
+        "x": {
+          "a": "b"
+        },
+        "y": {
+          "a": "b"
+        }
+      },
+      "result": [
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        }
+      ]
+    },
+    {
       "name": "union array access, on object",
       "selector": "$[0]",
       "document": {
