@@ -15,6 +15,16 @@
       ]
     },
     {
+      "name": "no leading whitespace",
+      "selector": " $",
+      "invalid_selector": true
+    },
+    {
+      "name": "no trailing whitespace",
+      "selector": "$ ",
+      "invalid_selector": true
+    },
+    {
       "name": "dot child",
       "selector": "$.a",
       "document": {
