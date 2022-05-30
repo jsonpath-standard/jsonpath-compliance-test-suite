@@ -381,8 +381,18 @@
       ]
     },
     {
-      "name": "union child, double quotes, escaped ☺",
+      "name": "union child, double quotes, escaped ☺, upper case hex",
       "selector": "$[\"\\u263A\"]",
+      "document": {
+        "☺": "A"
+      },
+      "result": [
+        "A"
+      ]
+    },
+    {
+      "name": "union child, double quotes, escaped ☺, lower case hex",
+      "selector": "$[\"\\u263a\"]",
       "document": {
         "☺": "A"
       },
@@ -409,11 +419,6 @@
       "result": [
         "A"
       ]
-    },
-    {
-      "name": "union child, double quotes, invalid escaped ☺",
-      "selector": "$[\"\\u263a\"]",
-      "invalid_selector": true
     },
     {
       "name": "union child, double quotes, invalid escaped single quote",
@@ -710,8 +715,18 @@
       ]
     },
     {
-      "name": "union child, single quotes, escaped ☺",
+      "name": "union child, single quotes, escaped ☺, upper case hex",
       "selector": "$['\\u263A']",
+      "document": {
+        "☺": "A"
+      },
+      "result": [
+        "A"
+      ]
+    },
+    {
+      "name": "union child, single quotes, escaped ☺, lower case hex",
+      "selector": "$['\\u263a']",
       "document": {
         "☺": "A"
       },
@@ -738,11 +753,6 @@
       "result": [
         "A"
       ]
-    },
-    {
-      "name": "union child, single quotes, invalid escaped ☺",
-      "selector": "$['\\u263a']",
-      "invalid_selector": true
     },
     {
       "name": "union child, single quotes, invalid escaped double quote",
