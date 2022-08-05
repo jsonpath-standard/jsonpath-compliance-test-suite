@@ -84,6 +84,18 @@
       ]
     },
     {
+      "name": "wildcarded index of array",
+      "selector": "$[*]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": [
+        "first",
+        "second"
+      ]
+    },
+    {
       "name": "wildcarded child dot child",
       "selector": "$.*.a",
       "document": {
@@ -1602,6 +1614,15 @@
      ]
     },
     {
+      "name": "descendant selector, index wildcard, array",
+      "selector" : "$..[*]",
+      "document" : [0, 1],
+      "result": [
+        0,
+        1
+     ]
+    },
+    {
       "name": "descendant selector, wildcard, object",
       "selector" : "$..*",
       "document" : {"a": "b"},
@@ -1625,6 +1646,17 @@
            "a" : "b"
         },
         "b"
+     ]
+    },
+    {
+      "name": "descendant selector, list",
+      "selector" : "$..['a', 'd']",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        "b",
+        "e",
+        "c",
+        "f"
      ]
     },
     {
