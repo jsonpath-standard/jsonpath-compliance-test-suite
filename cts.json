@@ -1785,7 +1785,7 @@
     {
       "name": "filter, equals true",
       "selector" : "$[?@.a==true]",
-      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"},],
+      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
       "result": [
         {"a": true, "d": "e"}
       ]
@@ -1878,6 +1878,192 @@
       "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
       "result": [
         {"a":"c", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, less than string, single quotes",
+      "selector" : "$[?@.a<'c']",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": "b", "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, less than string, double quotes",
+      "selector" : "$[?@.a<\"c\"]",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": "b", "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, less than number",
+      "selector" : "$[?@.a<10]",
+      "document" : [{"a": 1, "d": "e"}, {"a": 10, "d": "e"}, {"a":"c", "d": "f"}, {"a":20, "d": "f"}],
+      "result": [
+        {"a": 1, "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, less than null",
+      "selector" : "$[?@.a<null]",
+      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [ ]
+    },
+    {
+      "name": "filter, less than true",
+      "selector" : "$[?@.a<true]",
+      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [ ]
+    },
+    {
+      "name": "filter, less than false",
+      "selector" : "$[?@.a<false]",
+      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [ ]
+    },
+    {
+      "name": "filter, less than or equal to string, single quotes",
+      "selector" : "$[?@.a<='c']",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": "b", "d": "e"},
+        {"a":"c", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, less than or equal to string, double quotes",
+      "selector" : "$[?@.a<=\"c\"]",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": "b", "d": "e"},
+        {"a":"c", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, less than or equal to number",
+      "selector" : "$[?@.a<=10]",
+      "document" : [{"a": 1, "d": "e"}, {"a": 10, "d": "e"}, {"a":"c", "d": "f"}, {"a":20, "d": "f"}],
+      "result": [
+        {"a": 1, "d": "e"},
+        {"a": 10, "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, less than or equal to null",
+      "selector" : "$[?@.a<=null]",
+      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": null, "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, less than or equal to true",
+      "selector" : "$[?@.a<=true]",
+      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": true, "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, less than or equal to false",
+      "selector" : "$[?@.a<=false]",
+      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": false, "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, greater than string, single quotes",
+      "selector" : "$[?@.a>'c']",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
+      "result": [
+        {"a":"d", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, greater than string, double quotes",
+      "selector" : "$[?@.a>\"c\"]",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
+      "result": [
+        {"a":"d", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, greater than number",
+      "selector" : "$[?@.a>10]",
+      "document" : [{"a": 1, "d": "e"}, {"a": 10, "d": "e"}, {"a":"c", "d": "f"}, {"a":20, "d": "f"}],
+      "result": [
+        {"a":20, "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, greater than null",
+      "selector" : "$[?@.a>null]",
+      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [ ]
+    },
+    {
+      "name": "filter, greater than true",
+      "selector" : "$[?@.a>true]",
+      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [ ]
+    },
+    {
+      "name": "filter, greater than false",
+      "selector" : "$[?@.a>false]",
+      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [ ]
+    },
+    {
+      "name": "filter, greater than or equal to string, single quotes",
+      "selector" : "$[?@.a>='c']",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
+      "result": [
+        {"a":"c", "d": "f"},
+        {"a":"d", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to string, double quotes",
+      "selector" : "$[?@.a>=\"c\"]",
+      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
+      "result": [
+        {"a":"c", "d": "f"},
+        {"a":"d", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to number",
+      "selector" : "$[?@.a>=10]",
+      "document" : [{"a": 1, "d": "e"}, {"a": 10, "d": "e"}, {"a":"c", "d": "f"}, {"a":20, "d": "f"}],
+      "result": [
+        {"a": 10, "d": "e"},
+        {"a":20, "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to null",
+      "selector" : "$[?@.a>=null]",
+      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": null, "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to true",
+      "selector" : "$[?@.a>=true]",
+      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": true, "d": "e"}
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to false",
+      "selector" : "$[?@.a>=false]",
+      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
+      "result": [
+        {"a": false, "d": "e"}
       ]
     },
 
