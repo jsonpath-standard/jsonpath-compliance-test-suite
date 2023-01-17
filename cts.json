@@ -1869,7 +1869,7 @@
       "selector" : "$[?@.a!=true]",
       "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
       "result": [
-        {"a": true, "d": "e"}
+        {"a":"c", "d": "f"}
       ]
     },
     {
@@ -1877,7 +1877,7 @@
       "selector" : "$[?@.a!=false]",
       "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
       "result": [
-        {"a": false, "d": "e"}
+        {"a":"c", "d": "f"}
       ]
     },
 
