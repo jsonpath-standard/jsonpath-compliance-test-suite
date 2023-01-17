@@ -2066,13 +2066,54 @@
         {"a": false, "d": "e"}
       ]
     },
-
     {
       "name": "filter, exists and not-equals null, absent from data",
       "selector" : "$[?@.a&&@.a!=null]",
       "document" : [{"d": "e"}, {"a":"c", "d": "f"}],
       "result": [
         {"a":"c", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, and",
+      "selector" : "$[?@.a>0&&@.a<10]",
+      "document" : [{"a": -10, "d": "e"}, {"a":5, "d": "f"}, {"a":20, "d": "f"}],
+      "result": [
+        {"a":5, "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, or",
+      "selector" : "$[?@.a=='b'||@.a=='d']",
+      "document" : [{"a": "a", "d": "e"}, {"a":"b", "d": "f"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
+      "result": [
+        {"a":"b", "d": "f"},
+        {"a":"d", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, not expression",
+      "selector" : "$[?!(@.a=='b')]",
+      "document" : [{"a": "a", "d": "e"}, {"a":"b", "d": "f"}, {"a":"d", "d": "f"}],
+      "result": [
+        {"a": "a", "d": "e"},
+        {"a":"d", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, not exists",
+      "selector" : "$[?!@.a]",
+      "document" : [{"a": "a", "d": "e"}, {"d": "f"}, {"a":"d", "d": "f"}],
+      "result": [
+        {"d": "f"}
+      ]
+    },
+    {
+      "name": "filter, not exists, data null",
+      "selector" : "$[?!@.a]",
+      "document" : [{"a": null, "d": "e"}, {"d": "f"}, {"a":"d", "d": "f"}],
+      "result": [
+        {"d": "f"}
       ]
     }
   ]
