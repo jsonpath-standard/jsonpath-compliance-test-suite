@@ -2139,6 +2139,16 @@
       "result": []
     },
     {
+      "name": "filter, length function, non-array/string arg",
+      "selector" : "$[?length(1)>=2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, length function, result must be compared",
+      "selector" : "$[?length(@.a)]",
+      "invalid_selector": true
+    },
+    {
       "name": "filter, count function",
       "selector" : "$[?count(@..*)>2]",
       "document" : [
@@ -2150,6 +2160,16 @@
         {"a": [1,2,3]},
         {"a": [1], "d":"f"}
       ]
+    },
+    {
+      "name": "filter, count function, non-array/string arg",
+      "selector" : "$[?count(1)>2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, count function, result must be compared",
+      "selector" : "$[?count(@..*)]",
+      "invalid_selector": true
     },
     {
       "name": "filter, match function, found match",
@@ -2177,6 +2197,21 @@
       "selector" : "$[?!match(@.a, '2022-01-[0-9]{2}')]",
       "document" : [{"a": "not a match"}],
       "result": [{"a": "not a match"}]
+    },
+    {
+      "name": "filter, match function, invalid first arg",
+      "selector" : "$[?match(1, '2022-01-[0-9]{2}')]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, match function, invalid second arg",
+      "selector" : "$[?match(@.a, 1)]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, match function, result cannot be compared",
+      "selector" : "$[?match(@.a, '2022-01-[0-9]{2}')==true]",
+      "invalid_selector": true
     },
     {
       "name": "filter, search function, at the end",
@@ -2219,6 +2254,21 @@
       "selector" : "$[?!search(@.a, '2022-01-[0-9]{2}')]",
       "document" : [{"a": "not a match"}],
       "result": [{"a": "not a match"}]
+    },
+    {
+      "name": "filter, search function, invalid first arg",
+      "selector" : "$[?search(1, '2022-01-[0-9]{2}')]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, search function, invalid second arg",
+      "selector" : "$[?search(@.a, 1)]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, search function, result cannot be compared",
+      "selector" : "$[?search(@.a, '2022-01-[0-9]{2}')==true]",
+      "invalid_selector": true
     }
   ]
 }
