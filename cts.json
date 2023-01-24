@@ -2160,10 +2160,23 @@
       ]
     },
     {
+      "name": "filter, match function, don't select match",
+      "selector" : "$[?!match(@.a, '2022-01-[0-9]{2}')]",
+      "document" : [{"a": "2022-01-18"}],
+      "result": [
+      ]
+    },
+    {
       "name": "filter, match function, not a match",
       "selector" : "$[?match(@.a, '2022-01-[0-9]{2}')]",
       "document" : [{"a": "not a match"}],
       "result": []
+    },
+    {
+      "name": "filter, match function, select non-match",
+      "selector" : "$[?!match(@.a, '2022-01-[0-9]{2}')]",
+      "document" : [{"a": "not a match"}],
+      "result": [{"a": "not a match"}]
     },
     {
       "name": "filter, search function, at the end",
@@ -2190,10 +2203,22 @@
       ]
     },
     {
+      "name": "filter, search function, don't select match",
+      "selector" : "$[?!search(@.a, '2022-01-[0-9]{2}')]",
+      "document" : [{"a": "contains 2022-01-18 in the middle"}],
+      "result": []
+    },
+    {
       "name": "filter, search function, not a match",
       "selector" : "$[?search(@.a, '2022-01-[0-9]{2}')]",
       "document" : [{"a": "not a match"}],
       "result": []
+    },
+    {
+      "name": "filter, search function, select non-match",
+      "selector" : "$[?!search(@.a, '2022-01-[0-9]{2}')]",
+      "document" : [{"a": "not a match"}],
+      "result": [{"a": "not a match"}]
     }
   ]
 }
