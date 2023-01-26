@@ -2185,6 +2185,14 @@
       ]
     },
     {
+      "name": "filter, match function, double quotes",
+      "selector" : "$[?match(@.a, \"a.*\")]",
+      "document" : [{"a": "ab"}],
+      "result": [
+        {"a":"ab"}
+      ]
+    },
+    {
       "name": "filter, match function, don't select match",
       "selector" : "$[?!match(@.a, 'a.*')]",
       "document" : [{"a": "ab"}],
@@ -2221,6 +2229,14 @@
     {
       "name": "filter, search function, at the end",
       "selector" : "$[?search(@.a, 'a.*')]",
+      "document" : [{"a": "the end is ab"}],
+      "result": [
+        {"a": "the end is ab"}
+      ]
+    },
+    {
+      "name": "filter, search function, double quotes",
+      "selector" : "$[?search(@.a, \"a.*\")]",
       "document" : [{"a": "the end is ab"}],
       "result": [
         {"a": "the end is ab"}
