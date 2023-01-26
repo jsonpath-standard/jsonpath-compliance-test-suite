@@ -961,6 +961,11 @@
       "invalid_selector": true
     },
     {
+      "name": "index selector, not actually an index, overflowing index leads into general text",
+      "selector": "$[231584178474632390847141970017375815706539969331281128078915168SomeRandomText]",
+      "invalid_selector": true
+    },
+    {
       "name": "index selector, negative",
       "selector": "$[-1]",
       "document": [
@@ -2173,34 +2178,34 @@
     },
     {
       "name": "filter, match function, found match",
-      "selector" : "$[?match(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "2022-01-18"}],
+      "selector" : "$[?match(@.a, 'a.*')]",
+      "document" : [{"a": "ab"}],
       "result": [
-        {"a":"2022-01-18"}
+        {"a":"ab"}
       ]
     },
     {
       "name": "filter, match function, don't select match",
-      "selector" : "$[?!match(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "2022-01-18"}],
+      "selector" : "$[?!match(@.a, 'a.*')]",
+      "document" : [{"a": "ab"}],
       "result": [
       ]
     },
     {
       "name": "filter, match function, not a match",
-      "selector" : "$[?match(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "not a match"}],
+      "selector" : "$[?match(@.a, 'a.*')]",
+      "document" : [{"a": "bc"}],
       "result": []
     },
     {
       "name": "filter, match function, select non-match",
-      "selector" : "$[?!match(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "not a match"}],
-      "result": [{"a": "not a match"}]
+      "selector" : "$[?!match(@.a, 'a.*')]",
+      "document" : [{"a": "bc"}],
+      "result": [{"a": "bc"}]
     },
     {
       "name": "filter, match function, invalid first arg",
-      "selector" : "$[?match(1, '2022-01-[0-9]{2}')]",
+      "selector" : "$[?match(1, 'a.*')]",
       "invalid_selector": true
     },
     {
@@ -2210,54 +2215,54 @@
     },
     {
       "name": "filter, match function, result cannot be compared",
-      "selector" : "$[?match(@.a, '2022-01-[0-9]{2}')==true]",
+      "selector" : "$[?match(@.a, 'a.*')==true]",
       "invalid_selector": true
     },
     {
       "name": "filter, search function, at the end",
-      "selector" : "$[?search(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "at the end is 2022-01-84"}],
+      "selector" : "$[?search(@.a, 'a.*')]",
+      "document" : [{"a": "the end is ab"}],
       "result": [
-        {"a": "at the end is 2022-01-84"}
+        {"a": "the end is ab"}
       ]
     },
     {
       "name": "filter, search function, at the start",
-      "selector" : "$[?search(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "2022-01-84 is at the start"}],
+      "selector" : "$[?search(@.a, 'a.*')]",
+      "document" : [{"a": "ab is at the start"}],
       "result": [
-        {"a": "2022-01-84 is at the start"}
+        {"a": "ab is at the start"}
       ]
     },
     {
       "name": "filter, search function, in the middle",
-      "selector" : "$[?search(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "contains 2022-01-18 in the middle"}],
+      "selector" : "$[?search(@.a, 'a.*')]",
+      "document" : [{"a": "contains two matches"}],
       "result": [
-        {"a": "contains 2022-01-18 in the middle"}
+        {"a": "contains two matches"}
       ]
     },
     {
       "name": "filter, search function, don't select match",
-      "selector" : "$[?!search(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "contains 2022-01-18 in the middle"}],
+      "selector" : "$[?!search(@.a, 'a.*')]",
+      "document" : [{"a": "contains two matches"}],
       "result": []
     },
     {
       "name": "filter, search function, not a match",
-      "selector" : "$[?search(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "not a match"}],
+      "selector" : "$[?search(@.a, 'a.*')]",
+      "document" : [{"a": "bc"}],
       "result": []
     },
     {
       "name": "filter, search function, select non-match",
-      "selector" : "$[?!search(@.a, '2022-01-[0-9]{2}')]",
-      "document" : [{"a": "not a match"}],
-      "result": [{"a": "not a match"}]
+      "selector" : "$[?!search(@.a, 'a.*')]",
+      "document" : [{"a": "bc"}],
+      "result": [{"a": "bc"}]
     },
     {
       "name": "filter, search function, invalid first arg",
-      "selector" : "$[?search(1, '2022-01-[0-9]{2}')]",
+      "selector" : "$[?search(1, 'a.*')]",
       "invalid_selector": true
     },
     {
@@ -2267,7 +2272,7 @@
     },
     {
       "name": "filter, search function, result cannot be compared",
-      "selector" : "$[?search(@.a, '2022-01-[0-9]{2}')==true]",
+      "selector" : "$[?search(@.a, 'a.*')==true]",
       "invalid_selector": true
     }
   ]
