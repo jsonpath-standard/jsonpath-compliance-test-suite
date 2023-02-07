@@ -2155,6 +2155,16 @@
       "invalid_selector": true
     },
     {
+      "name": "filter, length function, no params",
+      "selector" : "$[?length()==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, length function, too many params",
+      "selector" : "$[?length(@.a,@.b)==1]",
+      "invalid_selector": true
+    },
+    {
       "name": "filter, count function",
       "selector" : "$[?count(@..*)>2]",
       "document" : [
@@ -2180,6 +2190,16 @@
     {
       "name": "filter, count function, result must be compared",
       "selector" : "$[?count(@..*)]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, count function, no params",
+      "selector" : "$[?count()==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, count function, too many params",
+      "selector" : "$[?count(@.a,@.b)==1]",
       "invalid_selector": true
     },
     {
@@ -2232,6 +2252,16 @@
     {
       "name": "filter, match function, result cannot be compared",
       "selector" : "$[?match(@.a, 'a.*')==true]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, match function, too few params",
+      "selector" : "$[?match(@.a)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, match function, too many params",
+      "selector" : "$[?match(@.a,@.b,@.c)==1]",
       "invalid_selector": true
     },
     {
@@ -2299,6 +2329,16 @@
     {
       "name": "filter, search function, result cannot be compared",
       "selector" : "$[?search(@.a, 'a.*')==true]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, search function, too few params",
+      "selector" : "$[?search(@.a)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, search function, too many params",
+      "selector" : "$[?search(@.a,@.b,@.c)==1]",
       "invalid_selector": true
     }
   ]
