@@ -2146,7 +2146,8 @@
     {
       "name": "filter, length function, non-array/string arg",
       "selector" : "$[?length(1)>=2]",
-      "invalid_selector": true
+      "document" : [{"a": "ab"}, {"a": "d"}],
+      "result": []
     },
     {
       "name": "filter, length function, result must be compared",
@@ -2169,7 +2170,12 @@
     {
       "name": "filter, count function, non-array/string arg",
       "selector" : "$[?count(1)>2]",
-      "invalid_selector": true
+      "document" : [
+        {"a": [1, 2, 3]},
+        {"a": [1], "d": "f"},
+        {"a": 1, "d": "f"}
+      ],
+      "result": []
     },
     {
       "name": "filter, count function, result must be compared",
@@ -2214,12 +2220,14 @@
     {
       "name": "filter, match function, invalid first arg",
       "selector" : "$[?match(1, 'a.*')]",
-      "invalid_selector": true
+      "document" : [{"a": "ab"}],
+      "result": []
     },
     {
       "name": "filter, match function, invalid second arg",
       "selector" : "$[?match(@.a, 1)]",
-      "invalid_selector": true
+      "document" : [{"a": "ab"}],
+      "result": []
     },
     {
       "name": "filter, match function, result cannot be compared",
@@ -2279,12 +2287,14 @@
     {
       "name": "filter, search function, invalid first arg",
       "selector" : "$[?search(1, 'a.*')]",
-      "invalid_selector": true
+      "document" : [{"a": "ab"}],
+      "result": []
     },
     {
       "name": "filter, search function, invalid second arg",
       "selector" : "$[?search(@.a, 1)]",
-      "invalid_selector": true
+      "document" : [{"a": "ab"}],
+      "result": []
     },
     {
       "name": "filter, search function, result cannot be compared",
