@@ -47,6 +47,17 @@
       ]
     },
     {
+      "name": "name shorthand, underscore",
+      "selector": "$._",
+      "document": {
+        "_": "A",
+        "_foo": "B"
+      },
+      "result": [
+        "A"
+      ]
+    },
+    {
       "name": "name shorthand, symbol",
       "selector": "$.&",
       "invalid_selector": true
@@ -54,16 +65,6 @@
     {
       "name": "name shorthand, number",
       "selector": "$.1",
-      "invalid_selector": true
-    },
-    {
-      "name": "name shorthand, underscore",
-      "selector": "$._",
-      "invalid_selector": true
-    },
-    {
-      "name": "name shorthand, underscore start",
-      "selector": "$._a",
       "invalid_selector": true
     },
     {
