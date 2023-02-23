@@ -2146,8 +2146,7 @@
     {
       "name": "filter, length function, non-array/string arg",
       "selector" : "$[?length(1)>=2]",
-      "document" : [{"a": "ab"}, {"a": "d"}],
-      "result": []
+      "invalid_selector": true
     },
     {
       "name": "filter, length function, result must be compared",
@@ -2180,12 +2179,7 @@
     {
       "name": "filter, count function, non-array/string arg",
       "selector" : "$[?count(1)>2]",
-      "document" : [
-        {"a": [1, 2, 3]},
-        {"a": [1], "d": "f"},
-        {"a": 1, "d": "f"}
-      ],
-      "result": []
+      "invalid_selector": true
     },
     {
       "name": "filter, count function, result must be compared",
@@ -2240,14 +2234,12 @@
     {
       "name": "filter, match function, invalid first arg",
       "selector" : "$[?match(1, 'a.*')]",
-      "document" : [{"a": "ab"}],
-      "result": []
+      "invalid_selector": true
     },
     {
       "name": "filter, match function, invalid second arg",
       "selector" : "$[?match(@.a, 1)]",
-      "document" : [{"a": "ab"}],
-      "result": []
+      "invalid_selector": true
     },
     {
       "name": "filter, match function, result cannot be compared",
@@ -2317,14 +2309,12 @@
     {
       "name": "filter, search function, invalid first arg",
       "selector" : "$[?search(1, 'a.*')]",
-      "document" : [{"a": "ab"}],
-      "result": []
+      "invalid_selector": true
     },
     {
       "name": "filter, search function, invalid second arg",
       "selector" : "$[?search(@.a, 1)]",
-      "document" : [{"a": "ab"}],
-      "result": []
+      "invalid_selector": true
     },
     {
       "name": "filter, search function, result cannot be compared",
@@ -2333,12 +2323,12 @@
     },
     {
       "name": "filter, search function, too few params",
-      "selector" : "$[?search(@.a)==1]",
+      "selector" : "$[?search(@.a)]",
       "invalid_selector": true
     },
     {
       "name": "filter, search function, too many params",
-      "selector" : "$[?search(@.a,@.b,@.c)==1]",
+      "selector" : "$[?search(@.a,@.b,@.c)]",
       "invalid_selector": true
     }
   ]
