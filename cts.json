@@ -1680,7 +1680,7 @@
       "result": [
         0,
         1
-     ]
+      ]
     },
     {
       "name": "descendant segment, wildcard selector, array data",
@@ -1707,12 +1707,12 @@
       },
       "result": [
         [
-           {
-              "a" : "b"
-           }
+          {
+            "a" : "b"
+          }
         ],
         {
-           "a" : "b"
+          "a" : "b"
         },
         "b"
       ]
@@ -2214,6 +2214,12 @@
       ]
     },
     {
+      "name": "filter, match function, regex from the document",
+      "selector" : "$.values[?match(@, $.regex)]",
+      "document" : {"regex": "b.?b", "values": ["abc", "bcd", "bab", "bba", "bbab", "b", true, [], {}]},
+      "result": ["bab"]
+    },
+    {
       "name": "filter, match function, don't select match",
       "selector" : "$[?!match(@.a, 'a.*')]",
       "document" : [{"a": "ab"}],
@@ -2288,6 +2294,12 @@
       "result": [
         {"a": "contains two matches"}
       ]
+    },
+    {
+      "name": "filter, search function, regex from the document",
+      "selector" : "$.values[?search(@, $.regex)]",
+      "document" : {"regex": "b.?b", "values": ["abc", "bcd", "bab", "bba", "bbab", "b", true, [], {}]},
+      "result": ["bab", "bba", "bbab"]
     },
     {
       "name": "filter, search function, don't select match",
