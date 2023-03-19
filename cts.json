@@ -2123,6 +2123,26 @@
       ]
     },
     {
+      "name": "filter, non-singular query in comparison, slice",
+      "selector" : "$[?@[0:0]==0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, non-singular query in comparison, all children",
+      "selector" : "$[?@[*]==0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, non-singular query in comparison, descendants",
+      "selector" : "$[?@..a==0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, non-singular query in comparison, combined",
+      "selector" : "$[?@.a[*].a==0]",
+      "invalid_selector": true
+    },
+    {
       "name": "filter, length function, string data",
       "selector" : "$[?length(@.a)>=2]",
       "document" : [{"a": "ab"}, {"a": "d"}],
