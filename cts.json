@@ -2358,12 +2358,17 @@
     },
     {
       "name": "filter, value function, too few params",
-      "selector" : "$[?value()]",
+      "selector" : "$[?value()==4]",
       "invalid_selector": true
     },
     {
       "name": "filter, value function, too many params",
-      "selector" : "$[?value(@.a,@.b)]",
+      "selector" : "$[?value(@.a,@.b)==4]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, value function, result must be compared",
+      "selector" : "$[?value(@.a)]",
       "invalid_selector": true
     }
   ]
