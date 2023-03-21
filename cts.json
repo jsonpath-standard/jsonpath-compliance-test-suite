@@ -1758,6 +1758,14 @@
       ]
     },
     {
+      "name": "filter, equals numeric string, single quotes",
+      "selector" : "$[?@.a=='1']",
+      "document" : [{"a": "1", "d": "e"}, {"a":1, "d": "f"}],
+      "result": [
+        {"a": "1", "d": "e"}
+      ]
+    },
+    {
       "name": "filter, equals string, double quotes",
       "selector" : "$[?@.a==\"b\"]",
       "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
@@ -1766,9 +1774,17 @@
       ]
     },
     {
+      "name": "filter, equals numeric string, double quotes",
+      "selector" : "$[?@.a==\"1\"]",
+      "document" : [{"a": "1", "d": "e"}, {"a":1, "d": "f"}],
+      "result": [
+        {"a": "1", "d": "e"}
+      ]
+    },
+    {
       "name": "filter, equals number",
       "selector" : "$[?@.a==1]",
-      "document" : [{"a": 1, "d": "e"}, {"a":"c", "d": "f"}, {"a":2, "d": "f"}],
+      "document" : [{"a": 1, "d": "e"}, {"a":"c", "d": "f"}, {"a":2, "d": "f"}, {"a":"1", "d": "f"}],
       "result": [
         {"a": 1, "d": "e"}
       ]
@@ -1804,13 +1820,20 @@
         {"a": false, "d": "e"}
       ]
     },
-
     {
       "name": "filter, not-equals string, single quotes",
       "selector" : "$[?@.a!='b']",
       "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
       "result": [
         {"a":"c", "d": "f"}
+      ]
+    },
+    {
+      "name": "filter, not-equals numeric string, single quotes",
+      "selector" : "$[?@.a!='1']",
+      "document" : [{"a": "1", "d": "e"}, {"a":1, "d": "f"}],
+      "result": [
+        {"a":1, "d": "f"}
       ]
     },
     {
@@ -1830,6 +1853,14 @@
       ]
     },
     {
+      "name": "filter, not-equals numeric string, double quotes",
+      "selector" : "$[?@.a!=\"1\"]",
+      "document" : [{"a": "1", "d": "e"}, {"a":1, "d": "f"}],
+      "result": [
+        {"a":1, "d": "f"}
+      ]
+    },
+    {
       "name": "filter, not-equals string, double quotes, different types",
       "selector" : "$[?@.a!=\"b\"]",
       "document" : [{"a": "b", "d": "e"}, {"a":1, "d": "f"}],
@@ -1840,9 +1871,10 @@
     {
       "name": "filter, not-equals number",
       "selector" : "$[?@.a!=1]",
-      "document" : [{"a": 1, "d": "e"}, {"a":2, "d": "f"}],
+      "document" : [{"a": 1, "d": "e"}, {"a":2, "d": "f"}, {"a":"1", "d": "f"}],
       "result": [
-        {"a":2, "d": "f"}
+        {"a":2, "d": "f"},
+        {"a":"1", "d": "f"}
       ]
     },
     {
