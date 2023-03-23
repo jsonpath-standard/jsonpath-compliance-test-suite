@@ -2175,6 +2175,15 @@
       "invalid_selector": true
     },
     {
+      "name": "filter, nested",
+      "selector": "$.a[?@>count($.b[?@>5])]",
+      "document": {"a":[1, 2, 3, 4], "b": [3, 4, 5, 6, 7]},
+      "result": [
+        3,
+        4
+      ]
+    },
+    {
       "name": "filter, length function, string data",
       "selector" : "$[?length(@.a)>=2]",
       "document" : [{"a": "ab"}, {"a": "d"}],
