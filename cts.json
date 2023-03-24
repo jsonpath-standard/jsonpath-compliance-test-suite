@@ -1,9 +1,9 @@
 {
   "tests": [
     {
-      "name": " root",
+      "name": "root",
       "selector": "$",
-      "doc": [
+      "document": [
         "first",
         "second"
       ],
@@ -17,7 +17,7 @@
     {
       "name": "no leading whitespace",
       "selector": " $",
-      "invalid_selector": false
+      "invalid_selector": true
     },
     {
       "name": "no trailing whitespace",
