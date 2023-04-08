@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "name": "root",
+      "name": "basic, root",
       "selector": "$",
       "document": [
         "first",
@@ -15,17 +15,17 @@
       ]
     },
     {
-      "name": "no leading whitespace",
+      "name": "basic, no leading whitespace",
       "selector": " $",
       "invalid_selector": true
     },
     {
-      "name": "no trailing whitespace",
+      "name": "basic, no trailing whitespace",
       "selector": "$ ",
       "invalid_selector": true
     },
     {
-      "name": "name shorthand",
+      "name": "basic, name shorthand",
       "selector": "$.a",
       "document": {
         "a": "A",
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "name": "name shorthand, extended unicode ☺",
+      "name": "basic, name shorthand, extended unicode ☺",
       "selector": "$.☺",
       "document": {
         "☺": "A",
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "name": "name shorthand, underscore",
+      "name": "basic, name shorthand, underscore",
       "selector": "$._",
       "document": {
         "_": "A",
@@ -58,17 +58,17 @@
       ]
     },
     {
-      "name": "name shorthand, symbol",
+      "name": "basic, name shorthand, symbol",
       "selector": "$.&",
       "invalid_selector": true
     },
     {
-      "name": "name shorthand, number",
+      "name": "basic, name shorthand, number",
       "selector": "$.1",
       "invalid_selector": true
     },
     {
-      "name": "name shorthand, absent data",
+      "name": "basic, name shorthand, absent data",
       "selector": "$.c",
       "document": {
         "a": "A",
@@ -77,7 +77,7 @@
       "result": []
     },
     {
-      "name": "name shorthand, array data",
+      "name": "basic, name shorthand, array data",
       "selector": "$.a",
       "document": [
         "first",
@@ -86,7 +86,7 @@
       "result": []
     },
     {
-      "name": "wildcard shorthand, object data",
+      "name": "basic, wildcard shorthand, object data",
       "selector": "$.*",
       "document": {
         "a": "A",
@@ -98,7 +98,7 @@
       ]
     },
     {
-      "name": "wildcard shorthand, array data",
+      "name": "basic, wildcard shorthand, array data",
       "selector": "$.*",
       "document": [
         "first",
@@ -110,7 +110,7 @@
       ]
     },
     {
-      "name": "wildcard selector, array data",
+      "name": "basic, wildcard selector, array data",
       "selector": "$[*]",
       "document": [
         "first",
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "name": "wildcard shorthand, then name shorthand",
+      "name": "basic, wildcard shorthand, then name shorthand",
       "selector": "$.*.a",
       "document": {
         "x": {
@@ -138,6 +138,1706 @@
         "Ax",
         "Ay"
       ]
+    },
+    {
+      "name": "basic, multiple selectors",
+      "selector": "$[0,2]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "basic, multiple selectors with whitespace",
+      "selector": "$[ 0 , 1 ]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "basic, multiple selectors, name and index, array data",
+      "selector": "$['a',1]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        1
+      ]
+    },
+    {
+      "name": "basic, multiple selectors, name and index, object data",
+      "selector": "$['a',1]",
+      "document": {
+        "a": 1,
+        "b": 2
+      },
+      "result": [
+        1
+      ]
+    },
+    {
+      "name": "basic, multiple selectors, index and slice",
+      "selector": "$[1,5:7]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "name": "basic, multiple selectors, index and slice, overlapping",
+      "selector": "$[1,0:3]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "basic, empty segment",
+      "selector": "$[]",
+      "invalid_selector": true
+    },
+    {
+      "name": "basic, descendant segment, index",
+      "selector": "$..[1]",
+      "document": {
+        "o": [
+          0,
+          1,
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "result": [
+        1,
+        3
+      ]
+    },
+    {
+      "name": "basic, descendant segment, name shorthand",
+      "selector": "$..a",
+      "document": {
+        "o": [
+          {
+            "a": "b"
+          },
+          {
+            "a": "c"
+          }
+        ]
+      },
+      "result": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "basic, descendant segment, wildcard shorthand, array data",
+      "selector": "$..*",
+      "document": [
+        0,
+        1
+      ],
+      "result": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "basic, descendant segment, wildcard selector, array data",
+      "selector": "$..[*]",
+      "document": [
+        0,
+        1
+      ],
+      "result": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "basic, descendant segment, wildcard shorthand, object data",
+      "selector": "$..*",
+      "document": {
+        "a": "b"
+      },
+      "result": [
+        "b"
+      ]
+    },
+    {
+      "name": "basic, descendant segment, wildcard shorthand, nested data",
+      "selector": "$..*",
+      "document": {
+        "o": [
+          {
+            "a": "b"
+          }
+        ]
+      },
+      "result": [
+        [
+          {
+            "a": "b"
+          }
+        ],
+        {
+          "a": "b"
+        },
+        "b"
+      ]
+    },
+    {
+      "name": "basic, descendant segment, multiple selectors",
+      "selector": "$..['a', 'd']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        "b",
+        "e",
+        "c",
+        "f"
+      ]
+    },
+    {
+      "name": "basic, bald descendant segment",
+      "selector": "$..",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, existence",
+      "selector": "$[?@.a]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, existence, present with null",
+      "selector": "$[?@.a]",
+      "document": [
+        {
+          "a": null,
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": null,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals string, single quotes",
+      "selector": "$[?@.a=='b']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals numeric string, single quotes",
+      "selector": "$[?@.a=='1']",
+      "document": [
+        {
+          "a": "1",
+          "d": "e"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "1",
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals string, double quotes",
+      "selector": "$[?@.a==\"b\"]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals numeric string, double quotes",
+      "selector": "$[?@.a==\"1\"]",
+      "document": [
+        {
+          "a": "1",
+          "d": "e"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "1",
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals number",
+      "selector": "$[?@.a==1]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": 2,
+          "d": "f"
+        },
+        {
+          "a": "1",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals null",
+      "selector": "$[?@.a==null]",
+      "document": [
+        {
+          "a": null,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": null,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals null, absent from data",
+      "selector": "$[?@.a==null]",
+      "document": [
+        {
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, equals true",
+      "selector": "$[?@.a==true]",
+      "document": [
+        {
+          "a": true,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": true,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals false",
+      "selector": "$[?@.a==false]",
+      "document": [
+        {
+          "a": false,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": false,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, deep equality, arrays",
+      "selector": "$[?@.a==@.b]",
+      "document": [
+        {
+          "a": false,
+          "b": [
+            1,
+            2
+          ]
+        },
+        {
+          "a": [
+            [
+              1,
+              [
+                2
+              ]
+            ]
+          ],
+          "b": [
+            [
+              1,
+              [
+                2
+              ]
+            ]
+          ]
+        },
+        {
+          "a": [
+            [
+              1,
+              [
+                2
+              ]
+            ]
+          ],
+          "b": [
+            [
+              [
+                2
+              ],
+              1
+            ]
+          ]
+        },
+        {
+          "a": [
+            [
+              1,
+              [
+                2
+              ]
+            ]
+          ],
+          "b": [
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      ],
+      "result": [
+        {
+          "a": [
+            [
+              1,
+              [
+                2
+              ]
+            ]
+          ],
+          "b": [
+            [
+              1,
+              [
+                2
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filter, deep equality, objects",
+      "selector": "$[?@.a==@.b]",
+      "document": [
+        {
+          "a": false,
+          "b": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          }
+        },
+        {
+          "a": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          },
+          "b": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          }
+        },
+        {
+          "a": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          },
+          "b": {
+            "y": {
+              "z": 1
+            },
+            "x": 1
+          }
+        },
+        {
+          "a": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          },
+          "b": {
+            "x": 1
+          }
+        },
+        {
+          "a": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          },
+          "b": {
+            "x": 1,
+            "y": {
+              "z": 2
+            }
+          }
+        }
+      ],
+      "result": [
+        {
+          "a": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          },
+          "b": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          }
+        },
+        {
+          "a": {
+            "x": 1,
+            "y": {
+              "z": 1
+            }
+          },
+          "b": {
+            "y": {
+              "z": 1
+            },
+            "x": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals string, single quotes",
+      "selector": "$[?@.a!='b']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals numeric string, single quotes",
+      "selector": "$[?@.a!='1']",
+      "document": [
+        {
+          "a": "1",
+          "d": "e"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals string, single quotes, different type",
+      "selector": "$[?@.a!='b']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals string, double quotes",
+      "selector": "$[?@.a!=\"b\"]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals numeric string, double quotes",
+      "selector": "$[?@.a!=\"1\"]",
+      "document": [
+        {
+          "a": "1",
+          "d": "e"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals string, double quotes, different types",
+      "selector": "$[?@.a!=\"b\"]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals number",
+      "selector": "$[?@.a!=1]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 2,
+          "d": "f"
+        },
+        {
+          "a": "1",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 2,
+          "d": "f"
+        },
+        {
+          "a": "1",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals number, different types",
+      "selector": "$[?@.a!=1]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals null",
+      "selector": "$[?@.a!=null]",
+      "document": [
+        {
+          "a": null,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals null, absent from data",
+      "selector": "$[?@.a!=null]",
+      "document": [
+        {
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals true",
+      "selector": "$[?@.a!=true]",
+      "document": [
+        {
+          "a": true,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not-equals false",
+      "selector": "$[?@.a!=false]",
+      "document": [
+        {
+          "a": false,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than string, single quotes",
+      "selector": "$[?@.a<'c']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than string, double quotes",
+      "selector": "$[?@.a<\"c\"]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than number",
+      "selector": "$[?@.a<10]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 10,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": 20,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than null",
+      "selector": "$[?@.a<null]",
+      "document": [
+        {
+          "a": null,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, less than true",
+      "selector": "$[?@.a<true]",
+      "document": [
+        {
+          "a": true,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, less than false",
+      "selector": "$[?@.a<false]",
+      "document": [
+        {
+          "a": false,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, less than or equal to string, single quotes",
+      "selector": "$[?@.a<='c']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than or equal to string, double quotes",
+      "selector": "$[?@.a<=\"c\"]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than or equal to number",
+      "selector": "$[?@.a<=10]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 10,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": 20,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 10,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than or equal to null",
+      "selector": "$[?@.a<=null]",
+      "document": [
+        {
+          "a": null,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": null,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than or equal to true",
+      "selector": "$[?@.a<=true]",
+      "document": [
+        {
+          "a": true,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": true,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, less than or equal to false",
+      "selector": "$[?@.a<=false]",
+      "document": [
+        {
+          "a": false,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": false,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than string, single quotes",
+      "selector": "$[?@.a>'c']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than string, double quotes",
+      "selector": "$[?@.a>\"c\"]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than number",
+      "selector": "$[?@.a>10]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 10,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": 20,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 20,
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than null",
+      "selector": "$[?@.a>null]",
+      "document": [
+        {
+          "a": null,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, greater than true",
+      "selector": "$[?@.a>true]",
+      "document": [
+        {
+          "a": true,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, greater than false",
+      "selector": "$[?@.a>false]",
+      "document": [
+        {
+          "a": false,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, greater than or equal to string, single quotes",
+      "selector": "$[?@.a>='c']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to string, double quotes",
+      "selector": "$[?@.a>=\"c\"]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to number",
+      "selector": "$[?@.a>=10]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 10,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": 20,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 10,
+          "d": "e"
+        },
+        {
+          "a": 20,
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to null",
+      "selector": "$[?@.a>=null]",
+      "document": [
+        {
+          "a": null,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": null,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to true",
+      "selector": "$[?@.a>=true]",
+      "document": [
+        {
+          "a": true,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": true,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, greater than or equal to false",
+      "selector": "$[?@.a>=false]",
+      "document": [
+        {
+          "a": false,
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": false,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, exists and not-equals null, absent from data",
+      "selector": "$[?@.a&&@.a!=null]",
+      "document": [
+        {
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, and",
+      "selector": "$[?@.a>0&&@.a<10]",
+      "document": [
+        {
+          "a": -10,
+          "d": "e"
+        },
+        {
+          "a": 5,
+          "d": "f"
+        },
+        {
+          "a": 20,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": 5,
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, or",
+      "selector": "$[?@.a=='b'||@.a=='d']",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "b",
+          "d": "f"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not expression",
+      "selector": "$[?!(@.a=='b')]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "b",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not exists",
+      "selector": "$[?!@.a]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, not exists, data null",
+      "selector": "$[?!@.a]",
+      "document": [
+        {
+          "a": null,
+          "d": "e"
+        },
+        {
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, non-singular query in comparison, slice",
+      "selector": "$[?@[0:0]==0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, non-singular query in comparison, all children",
+      "selector": "$[?@[*]==0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, non-singular query in comparison, descendants",
+      "selector": "$[?@..a==0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, non-singular query in comparison, combined",
+      "selector": "$[?@.a[*].a==0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, nested",
+      "selector": "$[?@[?@>1]]",
+      "document": [
+        [
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          42
+        ]
+      ],
+      "result": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          42
+        ]
+      ]
+    },
+    {
+      "name": "index selector, index selector",
+      "selector": "$[0]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": [
+        "first"
+      ]
+    },
+    {
+      "name": "index selector, 1",
+      "selector": "$[1]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": [
+        "second"
+      ]
+    },
+    {
+      "name": "index selector, out of bound",
+      "selector": "$[2]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": []
+    },
+    {
+      "name": "index selector, overflowing index",
+      "selector": "$[231584178474632390847141970017375815706539969331281128078915168015826259279872]",
+      "invalid_selector": true
+    },
+    {
+      "name": "index selector, not actually an index, overflowing index leads into general text",
+      "selector": "$[231584178474632390847141970017375815706539969331281128078915168SomeRandomText]",
+      "invalid_selector": true
+    },
+    {
+      "name": "index selector, negative",
+      "selector": "$[-1]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": [
+        "second"
+      ]
+    },
+    {
+      "name": "index selector, more negative",
+      "selector": "$[-2]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": [
+        "first"
+      ]
+    },
+    {
+      "name": "index selector, negative out of bound",
+      "selector": "$[-3]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": []
+    },
+    {
+      "name": "index selector, on object",
+      "selector": "$[0]",
+      "document": {
+        "foo": 1
+      },
+      "result": []
+    },
+    {
+      "name": "index selector, leading 0",
+      "selector": "$[01]",
+      "invalid_selector": true
+    },
+    {
+      "name": "index selector, leading -0",
+      "selector": "$[-01]",
+      "invalid_selector": true
     },
     {
       "name": "name selector, double quotes",
@@ -210,42 +1910,42 @@
     },
     {
       "name": "name selector, double quotes, embedded U+0008",
-      "selector": "$[\"\u0008\"]",
+      "selector": "$[\"\b\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+0009",
-      "selector": "$[\"\u0009\"]",
+      "selector": "$[\"\t\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+000A",
-      "selector": "$[\"\u000A\"]",
+      "selector": "$[\"\n\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+000B",
-      "selector": "$[\"\u000B\"]",
+      "selector": "$[\"\u000b\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+000C",
-      "selector": "$[\"\u000C\"]",
+      "selector": "$[\"\f\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+000D",
-      "selector": "$[\"\u000D\"]",
+      "selector": "$[\"\r\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+000E",
-      "selector": "$[\"\u000E\"]",
+      "selector": "$[\"\u000e\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+000F",
-      "selector": "$[\"\u000F\"]",
+      "selector": "$[\"\u000f\"]",
       "invalid_selector": true
     },
     {
@@ -300,39 +2000,39 @@
     },
     {
       "name": "name selector, double quotes, embedded U+001A",
-      "selector": "$[\"\u001A\"]",
+      "selector": "$[\"\u001a\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+001B",
-      "selector": "$[\"\u001B\"]",
+      "selector": "$[\"\u001b\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+001C",
-      "selector": "$[\"\u001C\"]",
+      "selector": "$[\"\u001c\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+001D",
-      "selector": "$[\"\u001D\"]",
+      "selector": "$[\"\u001d\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+001E",
-      "selector": "$[\"\u001E\"]",
+      "selector": "$[\"\u001e\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+001F",
-      "selector": "$[\"\u001F\"]",
+      "selector": "$[\"\u001f\"]",
       "invalid_selector": true
     },
     {
       "name": "name selector, double quotes, embedded U+0020",
-      "selector": "$[\"\u0020\"]",
+      "selector": "$[\" \"]",
       "document": {
-        "\u0020": "A"
+        " ": "A"
       },
       "result": [
         "A"
@@ -372,7 +2072,7 @@
       "name": "name selector, double quotes, escaped backspace",
       "selector": "$[\"\\b\"]",
       "document": {
-        "\u0008": "A"
+        "\b": "A"
       },
       "result": [
         "A"
@@ -382,7 +2082,7 @@
       "name": "name selector, double quotes, escaped form feed",
       "selector": "$[\"\\f\"]",
       "document": {
-        "\u000C": "A"
+        "\f": "A"
       },
       "result": [
         "A"
@@ -392,7 +2092,7 @@
       "name": "name selector, double quotes, escaped line feed",
       "selector": "$[\"\\n\"]",
       "document": {
-        "\u000A": "A"
+        "\n": "A"
       },
       "result": [
         "A"
@@ -402,7 +2102,7 @@
       "name": "name selector, double quotes, escaped carriage return",
       "selector": "$[\"\\r\"]",
       "document": {
-        "\u000D": "A"
+        "\r": "A"
       },
       "result": [
         "A"
@@ -412,7 +2112,7 @@
       "name": "name selector, double quotes, escaped tab",
       "selector": "$[\"\\t\"]",
       "document": {
-        "\u0009": "A"
+        "\t": "A"
       },
       "result": [
         "A"
@@ -544,42 +2244,42 @@
     },
     {
       "name": "name selector, single quotes, embedded U+0008",
-      "selector": "$['\u0008']",
+      "selector": "$['\b']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+0009",
-      "selector": "$['\u0009']",
+      "selector": "$['\t']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+000A",
-      "selector": "$['\u000A']",
+      "selector": "$['\n']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+000B",
-      "selector": "$['\u000B']",
+      "selector": "$['\u000b']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+000C",
-      "selector": "$['\u000C']",
+      "selector": "$['\f']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+000D",
-      "selector": "$['\u000D']",
+      "selector": "$['\r']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+000E",
-      "selector": "$['\u000E']",
+      "selector": "$['\u000e']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+000F",
-      "selector": "$['\u000F']",
+      "selector": "$['\u000f']",
       "invalid_selector": true
     },
     {
@@ -634,39 +2334,39 @@
     },
     {
       "name": "name selector, single quotes, embedded U+001A",
-      "selector": "$['\u001A']",
+      "selector": "$['\u001a']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+001B",
-      "selector": "$['\u001B']",
+      "selector": "$['\u001b']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+001C",
-      "selector": "$['\u001C']",
+      "selector": "$['\u001c']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+001D",
-      "selector": "$['\u001D']",
+      "selector": "$['\u001d']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+001E",
-      "selector": "$['\u001E']",
+      "selector": "$['\u001e']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+001F",
-      "selector": "$['\u001F']",
+      "selector": "$['\u001f']",
       "invalid_selector": true
     },
     {
       "name": "name selector, single quotes, embedded U+0020",
-      "selector": "$['\u0020']",
+      "selector": "$[' ']",
       "document": {
-        "\u0020": "A"
+        " ": "A"
       },
       "result": [
         "A"
@@ -706,7 +2406,7 @@
       "name": "name selector, single quotes, escaped backspace",
       "selector": "$['\\b']",
       "document": {
-        "\u0008": "A"
+        "\b": "A"
       },
       "result": [
         "A"
@@ -716,7 +2416,7 @@
       "name": "name selector, single quotes, escaped form feed",
       "selector": "$['\\f']",
       "document": {
-        "\u000C": "A"
+        "\f": "A"
       },
       "result": [
         "A"
@@ -726,7 +2426,7 @@
       "name": "name selector, single quotes, escaped line feed",
       "selector": "$['\\n']",
       "document": {
-        "\u000A": "A"
+        "\n": "A"
       },
       "result": [
         "A"
@@ -736,7 +2436,7 @@
       "name": "name selector, single quotes, escaped carriage return",
       "selector": "$['\\r']",
       "document": {
-        "\u000D": "A"
+        "\r": "A"
       },
       "result": [
         "A"
@@ -746,7 +2446,7 @@
       "name": "name selector, single quotes, escaped tab",
       "selector": "$['\\t']",
       "document": {
-        "\u0009": "A"
+        "\t": "A"
       },
       "result": [
         "A"
@@ -808,215 +2508,7 @@
       "invalid_selector": true
     },
     {
-      "name": "multiple selectors",
-      "selector": "$[0,2]",
-      "document": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "result": [
-        0,
-        2
-      ]
-    },
-    {
-      "name": "multiple selectors with whitespace",
-      "selector": "$[ 0 , 1 ]",
-      "document": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "result": [
-        0,
-        1
-      ]
-    },
-    {
-      "name": "multiple selectors, name and index, array data",
-      "selector": "$['a',1]",
-      "document": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "result": [
-        1
-      ]
-    },
-    {
-      "name": "multiple selectors, name and index, object data",
-      "selector": "$['a',1]",
-      "document": {
-        "a": 1,
-        "b": 2
-      },
-      "result": [
-        1
-      ]
-    },
-    {
-      "name": "multiple selectors, index and slice",
-      "selector": "$[1,5:7]",
-      "document": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "result": [
-        1,
-        5,
-        6
-      ]
-    },
-    {
-      "name": "multiple selectors, index and slice, overlapping",
-      "selector": "$[1,0:3]",
-      "document": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "result": [
-        1,
-        0,
-        1,
-        2
-      ]
-    },
-    {
-      "name": "empty segment",
-      "selector": "$[]",
-      "invalid_selector": true
-    },
-    {
-      "name": "index selector",
-      "selector": "$[0]",
-      "document": [
-        "first",
-        "second"
-      ],
-      "result": [
-        "first"
-      ]
-    },
-    {
-      "name": "index selector, 1",
-      "selector": "$[1]",
-      "document": [
-        "first",
-        "second"
-      ],
-      "result": [
-        "second"
-      ]
-    },
-    {
-      "name": "index selector, out of bound",
-      "selector": "$[2]",
-      "document": [
-        "first",
-        "second"
-      ],
-      "result": []
-    },
-    {
-      "name": "index selector, overflowing index",
-      "selector": "$[231584178474632390847141970017375815706539969331281128078915168015826259279872]",
-      "invalid_selector": true
-    },
-    {
-      "name": "index selector, not actually an index, overflowing index leads into general text",
-      "selector": "$[231584178474632390847141970017375815706539969331281128078915168SomeRandomText]",
-      "invalid_selector": true
-    },
-    {
-      "name": "index selector, negative",
-      "selector": "$[-1]",
-      "document": [
-        "first",
-        "second"
-      ],
-      "result": [
-        "second"
-      ]
-    },
-    {
-      "name": "index selector, more negative",
-      "selector": "$[-2]",
-      "document": [
-        "first",
-        "second"
-      ],
-      "result": [
-        "first"
-      ]
-    },
-    {
-      "name": "index selector, negative out of bound",
-      "selector": "$[-3]",
-      "document": [
-        "first",
-        "second"
-      ],
-      "result": []
-    },
-    {
-      "name": "index selector, on object",
-      "selector": "$[0]",
-      "document": {
-        "foo": 1
-      },
-      "result": []
-    },
-    {
-      "name": "index selector, leading 0",
-      "selector": "$[01]",
-      "invalid_selector": true
-    },
-    {
-      "name": "index selector, leading -0",
-      "selector": "$[-01]",
-      "invalid_selector": true
-    },
-    {
-      "name": "slice selector",
+      "name": "slice selector, slice selector",
       "selector": "$[1:3]",
       "document": [
         0,
@@ -1036,7 +2528,7 @@
       ]
     },
     {
-      "name": "slice selector with step",
+      "name": "slice selector, slice selector with step",
       "selector": "$[1:6:2]",
       "document": [
         0,
@@ -1057,7 +2549,7 @@
       ]
     },
     {
-      "name": "slice selector with everything omitted, short form",
+      "name": "slice selector, slice selector with everything omitted, short form",
       "selector": "$[:]",
       "document": [
         0,
@@ -1073,7 +2565,7 @@
       ]
     },
     {
-      "name": "slice selector with everything omitted, long form",
+      "name": "slice selector, slice selector with everything omitted, long form",
       "selector": "$[::]",
       "document": [
         0,
@@ -1089,7 +2581,7 @@
       ]
     },
     {
-      "name": "slice selector with start omitted",
+      "name": "slice selector, slice selector with start omitted",
       "selector": "$[:2]",
       "document": [
         0,
@@ -1109,7 +2601,7 @@
       ]
     },
     {
-      "name": "slice selector with start and end omitted",
+      "name": "slice selector, slice selector with start and end omitted",
       "selector": "$[::2]",
       "document": [
         0,
@@ -1427,7 +2919,7 @@
       "result": []
     },
     {
-      "name": "slice selector with everything omitted with empty array",
+      "name": "slice selector, slice selector with everything omitted with empty array",
       "selector": "$[:]",
       "document": [],
       "result": []
@@ -1656,819 +3148,483 @@
       "invalid_selector": true
     },
     {
-      "name": "descendant segment, index",
-      "selector" : "$..[1]",
-      "document" : {"o": [0, 1, [2, 3]]},
+      "name": "functions, count, count function",
+      "selector": "$[?count(@..*)>2]",
+      "document": [
+        {
+          "a": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "a": [
+            1
+          ],
+          "d": "f"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
       "result": [
-        1,
-        3
+        {
+          "a": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "a": [
+            1
+          ],
+          "d": "f"
+        }
       ]
     },
     {
-      "name": "descendant segment, name shorthand",
-      "selector" : "$..a",
-      "document" : {"o": [{"a": "b"}, {"a":"c"}]},
+      "name": "functions, count, non-array/string arg",
+      "selector": "$[?count(1)>2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, count, result must be compared",
+      "selector": "$[?count(@..*)]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, count, no params",
+      "selector": "$[?count()==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, count, too many params",
+      "selector": "$[?count(@.a,@.b)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, length, string data",
+      "selector": "$[?length(@.a)>=2]",
+      "document": [
+        {
+          "a": "ab"
+        },
+        {
+          "a": "d"
+        }
+      ],
       "result": [
-        "b",
-        "c"
+        {
+          "a": "ab"
+        }
       ]
     },
     {
-      "name": "descendant segment, wildcard shorthand, array data",
-      "selector" : "$..*",
-      "document" : [0, 1],
+      "name": "functions, length, string data, unicode",
+      "selector": "$[?length(@)==2]",
+      "document": [
+        "☺",
+        "☺☺",
+        "☺☺☺",
+        "ж",
+        "жж",
+        "жжж",
+        "磨",
+        "阿美",
+        "形声字"
+      ],
       "result": [
-        0,
-        1
+        "☺☺",
+        "жж",
+        "阿美"
       ]
     },
     {
-      "name": "descendant segment, wildcard selector, array data",
-      "selector" : "$..[*]",
-      "document" : [0, 1],
+      "name": "functions, length, array data",
+      "selector": "$[?length(@.a)>=2]",
+      "document": [
+        {
+          "a": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "a": [
+            1
+          ]
+        }
+      ],
       "result": [
-        0,
-        1
+        {
+          "a": [
+            1,
+            2,
+            3
+          ]
+        }
       ]
     },
     {
-      "name": "descendant segment, wildcard shorthand, object data",
-      "selector" : "$..*",
-      "document" : {"a": "b"},
+      "name": "functions, length, missing data",
+      "selector": "$[?length(@.a)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, length, non-array/string arg",
+      "selector": "$[?length(1)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, length, result must be compared",
+      "selector": "$[?length(@.a)]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, length, no params",
+      "selector": "$[?length()==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, length, too many params",
+      "selector": "$[?length(@.a,@.b)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, match, found match",
+      "selector": "$[?match(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "ab"
+        }
+      ],
       "result": [
-        "b"
+        {
+          "a": "ab"
+        }
       ]
     },
     {
-      "name": "descendant segment, wildcard shorthand, nested data",
-      "selector" : "$..*",
-      "document" : {
-        "o": [{"a": "b"}]
+      "name": "functions, match, double quotes",
+      "selector": "$[?match(@.a, \"a.*\")]",
+      "document": [
+        {
+          "a": "ab"
+        }
+      ],
+      "result": [
+        {
+          "a": "ab"
+        }
+      ]
+    },
+    {
+      "name": "functions, match, regex from the document",
+      "selector": "$.values[?match(@, $.regex)]",
+      "document": {
+        "regex": "b.?b",
+        "values": [
+          "abc",
+          "bcd",
+          "bab",
+          "bba",
+          "bbab",
+          "b",
+          true,
+          [],
+          {}
+        ]
       },
       "result": [
+        "bab"
+      ]
+    },
+    {
+      "name": "functions, match, don't select match",
+      "selector": "$[?!match(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "ab"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, match, not a match",
+      "selector": "$[?match(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "bc"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, match, select non-match",
+      "selector": "$[?!match(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "bc"
+        }
+      ],
+      "result": [
+        {
+          "a": "bc"
+        }
+      ]
+    },
+    {
+      "name": "functions, match, non-string first arg",
+      "selector": "$[?match(1, 'a.*')]",
+      "document": [
+        {
+          "a": "bc"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, match, non-string second arg",
+      "selector": "$[?match(@.a, 1)]",
+      "document": [
+        {
+          "a": "bc"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, match, result cannot be compared",
+      "selector": "$[?match(@.a, 'a.*')==true]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, match, too few params",
+      "selector": "$[?match(@.a)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, match, too many params",
+      "selector": "$[?match(@.a,@.b,@.c)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, search, at the end",
+      "selector": "$[?search(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "the end is ab"
+        }
+      ],
+      "result": [
+        {
+          "a": "the end is ab"
+        }
+      ]
+    },
+    {
+      "name": "functions, search, double quotes",
+      "selector": "$[?search(@.a, \"a.*\")]",
+      "document": [
+        {
+          "a": "the end is ab"
+        }
+      ],
+      "result": [
+        {
+          "a": "the end is ab"
+        }
+      ]
+    },
+    {
+      "name": "functions, search, at the start",
+      "selector": "$[?search(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "ab is at the start"
+        }
+      ],
+      "result": [
+        {
+          "a": "ab is at the start"
+        }
+      ]
+    },
+    {
+      "name": "functions, search, in the middle",
+      "selector": "$[?search(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "contains two matches"
+        }
+      ],
+      "result": [
+        {
+          "a": "contains two matches"
+        }
+      ]
+    },
+    {
+      "name": "functions, search, regex from the document",
+      "selector": "$.values[?search(@, $.regex)]",
+      "document": {
+        "regex": "b.?b",
+        "values": [
+          "abc",
+          "bcd",
+          "bab",
+          "bba",
+          "bbab",
+          "b",
+          true,
+          [],
+          {}
+        ]
+      },
+      "result": [
+        "bab",
+        "bba",
+        "bbab"
+      ]
+    },
+    {
+      "name": "functions, search, don't select match",
+      "selector": "$[?!search(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "contains two matches"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, search, not a match",
+      "selector": "$[?search(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "bc"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, search, select non-match",
+      "selector": "$[?!search(@.a, 'a.*')]",
+      "document": [
+        {
+          "a": "bc"
+        }
+      ],
+      "result": [
+        {
+          "a": "bc"
+        }
+      ]
+    },
+    {
+      "name": "functions, search, non-string first arg",
+      "selector": "$[?search(1, 'a.*')]",
+      "document": [
+        {
+          "a": "bc"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, search, non-string second arg",
+      "selector": "$[?search(@.a, 1)]",
+      "document": [
+        {
+          "a": "bc"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, search, result cannot be compared",
+      "selector": "$[?search(@.a, 'a.*')==true]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, search, too few params",
+      "selector": "$[?search(@.a)]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, search, too many params",
+      "selector": "$[?search(@.a,@.b,@.c)]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, value, single-value nodelist",
+      "selector": "$[?value(@.*)==4]",
+      "document": [
         [
-          {
-            "a" : "b"
-          }
+          4
         ],
         {
-          "a" : "b"
+          "foo": 4
         },
-        "b"
-      ]
-    },
-    {
-      "name": "descendant segment, multiple selectors",
-      "selector" : "$..['a', 'd']",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        "b",
-        "e",
-        "c",
-        "f"
-      ]
-    },
-    {
-      "name": "bald descendant segment",
-      "selector": "$..",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, existence",
-      "selector" : "$[?@.a]",
-      "document" : [{"a": "b", "d": "e"}, {"b":"c", "d": "f"}],
-      "result": [
-        {"a": "b", "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, existence, present with null",
-      "selector" : "$[?@.a]",
-      "document" : [{"a": null, "d": "e"}, {"b":"c", "d": "f"}],
-      "result": [
-        {"a": null, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, equals string, single quotes",
-      "selector" : "$[?@.a=='b']",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": "b", "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, equals numeric string, single quotes",
-      "selector" : "$[?@.a=='1']",
-      "document" : [{"a": "1", "d": "e"}, {"a":1, "d": "f"}],
-      "result": [
-        {"a": "1", "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, equals string, double quotes",
-      "selector" : "$[?@.a==\"b\"]",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": "b", "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, equals numeric string, double quotes",
-      "selector" : "$[?@.a==\"1\"]",
-      "document" : [{"a": "1", "d": "e"}, {"a":1, "d": "f"}],
-      "result": [
-        {"a": "1", "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, equals number",
-      "selector" : "$[?@.a==1]",
-      "document" : [{"a": 1, "d": "e"}, {"a":"c", "d": "f"}, {"a":2, "d": "f"}, {"a":"1", "d": "f"}],
-      "result": [
-        {"a": 1, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, equals null",
-      "selector" : "$[?@.a==null]",
-      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": null, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, equals null, absent from data",
-      "selector" : "$[?@.a==null]",
-      "document" : [{"d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-      ]
-    },
-    {
-      "name": "filter, equals true",
-      "selector" : "$[?@.a==true]",
-      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": true, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, equals false",
-      "selector" : "$[?@.a==false]",
-      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": false, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, deep equality, arrays",
-      "selector" : "$[?@.a==@.b]",
-      "document" : [
-        {"a": false, "b": [1, 2]},
-        {"a": [[1, [2]]], "b": [[1, [2]]]},
-        {"a": [[1, [2]]], "b": [[[2], 1]]},
-        {"a": [[1, [2]]], "b": [[1, 2]]}
+        [
+          5
+        ],
+        {
+          "foo": 5
+        },
+        4
       ],
       "result": [
-        {"a": [[1, [2]]], "b": [[1, [2]]]}
+        [
+          4
+        ],
+        {
+          "foo": 4
+        }
       ]
     },
     {
-      "name": "filter, deep equality, objects",
-      "selector" : "$[?@.a==@.b]",
-      "document" : [
-        {"a": false, "b": {"x": 1, "y": {"z": 1}}},
-        {"a": {"x": 1, "y": {"z": 1}}, "b": {"x": 1, "y": {"z": 1}}},
-        {"a": {"x": 1, "y": {"z": 1}}, "b": {"y": {"z": 1}, "x": 1}},
-        {"a": {"x": 1, "y": {"z": 1}}, "b": {"x": 1}},
-        {"a": {"x": 1, "y": {"z": 1}}, "b": {"x": 1, "y": {"z": 2}}}
+      "name": "functions, value, multi-value nodelist",
+      "selector": "$[?value(@.*)==4]",
+      "document": [
+        [
+          4,
+          4
+        ],
+        {
+          "foo": 4,
+          "bar": 4
+        }
       ],
-      "result": [
-        {"a": {"x": 1, "y": {"z": 1}}, "b": {"x": 1, "y": {"z": 1}}},
-        {"a": {"x": 1, "y": {"z": 1}}, "b": {"y": {"z": 1}, "x": 1}}
-      ]
-    },
-    {
-      "name": "filter, not-equals string, single quotes",
-      "selector" : "$[?@.a!='b']",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals numeric string, single quotes",
-      "selector" : "$[?@.a!='1']",
-      "document" : [{"a": "1", "d": "e"}, {"a":1, "d": "f"}],
-      "result": [
-        {"a":1, "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals string, single quotes, different type",
-      "selector" : "$[?@.a!='b']",
-      "document" : [{"a": "b", "d": "e"}, {"a":1, "d": "f"}],
-      "result": [
-        {"a":1, "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals string, double quotes",
-      "selector" : "$[?@.a!=\"b\"]",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals numeric string, double quotes",
-      "selector" : "$[?@.a!=\"1\"]",
-      "document" : [{"a": "1", "d": "e"}, {"a":1, "d": "f"}],
-      "result": [
-        {"a":1, "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals string, double quotes, different types",
-      "selector" : "$[?@.a!=\"b\"]",
-      "document" : [{"a": "b", "d": "e"}, {"a":1, "d": "f"}],
-      "result": [
-        {"a":1, "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals number",
-      "selector" : "$[?@.a!=1]",
-      "document" : [{"a": 1, "d": "e"}, {"a":2, "d": "f"}, {"a":"1", "d": "f"}],
-      "result": [
-        {"a":2, "d": "f"},
-        {"a":"1", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals number, different types",
-      "selector" : "$[?@.a!=1]",
-      "document" : [{"a": 1, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals null",
-      "selector" : "$[?@.a!=null]",
-      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals null, absent from data",
-      "selector" : "$[?@.a!=null]",
-      "document" : [{"d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"d": "e"},
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals true",
-      "selector" : "$[?@.a!=true]",
-      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not-equals false",
-      "selector" : "$[?@.a!=false]",
-      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, less than string, single quotes",
-      "selector" : "$[?@.a<'c']",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": "b", "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, less than string, double quotes",
-      "selector" : "$[?@.a<\"c\"]",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": "b", "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, less than number",
-      "selector" : "$[?@.a<10]",
-      "document" : [{"a": 1, "d": "e"}, {"a": 10, "d": "e"}, {"a":"c", "d": "f"}, {"a":20, "d": "f"}],
-      "result": [
-        {"a": 1, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, less than null",
-      "selector" : "$[?@.a<null]",
-      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [ ]
-    },
-    {
-      "name": "filter, less than true",
-      "selector" : "$[?@.a<true]",
-      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [ ]
-    },
-    {
-      "name": "filter, less than false",
-      "selector" : "$[?@.a<false]",
-      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [ ]
-    },
-    {
-      "name": "filter, less than or equal to string, single quotes",
-      "selector" : "$[?@.a<='c']",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": "b", "d": "e"},
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, less than or equal to string, double quotes",
-      "selector" : "$[?@.a<=\"c\"]",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": "b", "d": "e"},
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, less than or equal to number",
-      "selector" : "$[?@.a<=10]",
-      "document" : [{"a": 1, "d": "e"}, {"a": 10, "d": "e"}, {"a":"c", "d": "f"}, {"a":20, "d": "f"}],
-      "result": [
-        {"a": 1, "d": "e"},
-        {"a": 10, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, less than or equal to null",
-      "selector" : "$[?@.a<=null]",
-      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": null, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, less than or equal to true",
-      "selector" : "$[?@.a<=true]",
-      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": true, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, less than or equal to false",
-      "selector" : "$[?@.a<=false]",
-      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": false, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, greater than string, single quotes",
-      "selector" : "$[?@.a>'c']",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
-      "result": [
-        {"a":"d", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, greater than string, double quotes",
-      "selector" : "$[?@.a>\"c\"]",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
-      "result": [
-        {"a":"d", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, greater than number",
-      "selector" : "$[?@.a>10]",
-      "document" : [{"a": 1, "d": "e"}, {"a": 10, "d": "e"}, {"a":"c", "d": "f"}, {"a":20, "d": "f"}],
-      "result": [
-        {"a":20, "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, greater than null",
-      "selector" : "$[?@.a>null]",
-      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [ ]
-    },
-    {
-      "name": "filter, greater than true",
-      "selector" : "$[?@.a>true]",
-      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [ ]
-    },
-    {
-      "name": "filter, greater than false",
-      "selector" : "$[?@.a>false]",
-      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [ ]
-    },
-    {
-      "name": "filter, greater than or equal to string, single quotes",
-      "selector" : "$[?@.a>='c']",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"},
-        {"a":"d", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, greater than or equal to string, double quotes",
-      "selector" : "$[?@.a>=\"c\"]",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"},
-        {"a":"d", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, greater than or equal to number",
-      "selector" : "$[?@.a>=10]",
-      "document" : [{"a": 1, "d": "e"}, {"a": 10, "d": "e"}, {"a":"c", "d": "f"}, {"a":20, "d": "f"}],
-      "result": [
-        {"a": 10, "d": "e"},
-        {"a":20, "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, greater than or equal to null",
-      "selector" : "$[?@.a>=null]",
-      "document" : [{"a": null, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": null, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, greater than or equal to true",
-      "selector" : "$[?@.a>=true]",
-      "document" : [{"a": true, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": true, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, greater than or equal to false",
-      "selector" : "$[?@.a>=false]",
-      "document" : [{"a": false, "d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a": false, "d": "e"}
-      ]
-    },
-    {
-      "name": "filter, exists and not-equals null, absent from data",
-      "selector" : "$[?@.a&&@.a!=null]",
-      "document" : [{"d": "e"}, {"a":"c", "d": "f"}],
-      "result": [
-        {"a":"c", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, and",
-      "selector" : "$[?@.a>0&&@.a<10]",
-      "document" : [{"a": -10, "d": "e"}, {"a":5, "d": "f"}, {"a":20, "d": "f"}],
-      "result": [
-        {"a":5, "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, or",
-      "selector" : "$[?@.a=='b'||@.a=='d']",
-      "document" : [{"a": "a", "d": "e"}, {"a":"b", "d": "f"}, {"a":"c", "d": "f"}, {"a":"d", "d": "f"}],
-      "result": [
-        {"a":"b", "d": "f"},
-        {"a":"d", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not expression",
-      "selector" : "$[?!(@.a=='b')]",
-      "document" : [{"a": "a", "d": "e"}, {"a":"b", "d": "f"}, {"a":"d", "d": "f"}],
-      "result": [
-        {"a": "a", "d": "e"},
-        {"a": "d", "d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not exists",
-      "selector" : "$[?!@.a]",
-      "document" : [{"a": "a", "d": "e"}, {"d": "f"}, {"a":"d", "d": "f"}],
-      "result": [
-        {"d": "f"}
-      ]
-    },
-    {
-      "name": "filter, not exists, data null",
-      "selector" : "$[?!@.a]",
-      "document" : [{"a": null, "d": "e"}, {"d": "f"}, {"a":"d", "d": "f"}],
-      "result": [
-        {"d": "f"}
-      ]
-    },
-    {
-      "name": "filter, non-singular query in comparison, slice",
-      "selector" : "$[?@[0:0]==0]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, non-singular query in comparison, all children",
-      "selector" : "$[?@[*]==0]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, non-singular query in comparison, descendants",
-      "selector" : "$[?@..a==0]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, non-singular query in comparison, combined",
-      "selector" : "$[?@.a[*].a==0]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, nested",
-      "selector": "$[?@[?@>1]]",
-      "document": [[0], [0, 1], [0, 1, 2], [42]],
-      "result": [
-        [0, 1, 2],
-        [42]
-      ]
-    },
-    {
-      "name": "filter, length function, string data",
-      "selector" : "$[?length(@.a)>=2]",
-      "document" : [{"a": "ab"}, {"a": "d"}],
-      "result": [
-        {"a": "ab"}
-      ]
-    },
-    {
-      "name": "filter, length function, string data, unicode",
-      "selector": "$[?length(@)==2]",
-      "document": ["☺", "☺☺", "☺☺☺", "ж", "жж", "жжж", "磨", "阿美", "形声字"],
-      "result": ["☺☺", "жж", "阿美"]
-    },
-    {
-      "name": "filter, length function, array data",
-      "selector" : "$[?length(@.a)>=2]",
-      "document" : [{"a": [1,2,3]}, {"a": [1]}],
-      "result": [
-        {"a": [1,2,3]}
-      ]
-    },
-    {
-      "name": "filter, length function, missing data",
-      "selector" : "$[?length(@.a)>=2]",
-      "document" : [{"d": "f"}],
       "result": []
     },
     {
-      "name": "filter, length function, non-array/string arg",
-      "selector" : "$[?length(1)>=2]",
-      "document" : [{"d": "f"}],
-      "result": []
-    },
-    {
-      "name": "filter, length function, result must be compared",
-      "selector" : "$[?length(@.a)]",
+      "name": "functions, value, too few params",
+      "selector": "$[?value()==4]",
       "invalid_selector": true
     },
     {
-      "name": "filter, length function, no params",
-      "selector" : "$[?length()==1]",
+      "name": "functions, value, too many params",
+      "selector": "$[?value(@.a,@.b)==4]",
       "invalid_selector": true
     },
     {
-      "name": "filter, length function, too many params",
-      "selector" : "$[?length(@.a,@.b)==1]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, count function",
-      "selector" : "$[?count(@..*)>2]",
-      "document" : [
-        {"a": [1, 2, 3]},
-        {"a": [1], "d": "f"},
-        {"a": 1, "d": "f"}
-      ],
-      "result": [
-        {"a": [1,2,3]},
-        {"a": [1], "d":"f"}
-      ]
-    },
-    {
-      "name": "filter, count function, non-array/string arg",
-      "selector" : "$[?count(1)>2]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, count function, result must be compared",
-      "selector" : "$[?count(@..*)]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, count function, no params",
-      "selector" : "$[?count()==1]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, count function, too many params",
-      "selector" : "$[?count(@.a,@.b)==1]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, match function, found match",
-      "selector" : "$[?match(@.a, 'a.*')]",
-      "document" : [{"a": "ab"}],
-      "result": [
-        {"a":"ab"}
-      ]
-    },
-    {
-      "name": "filter, match function, double quotes",
-      "selector" : "$[?match(@.a, \"a.*\")]",
-      "document" : [{"a": "ab"}],
-      "result": [
-        {"a":"ab"}
-      ]
-    },
-    {
-      "name": "filter, match function, regex from the document",
-      "selector" : "$.values[?match(@, $.regex)]",
-      "document" : {"regex": "b.?b", "values": ["abc", "bcd", "bab", "bba", "bbab", "b", true, [], {}]},
-      "result": ["bab"]
-    },
-    {
-      "name": "filter, match function, don't select match",
-      "selector" : "$[?!match(@.a, 'a.*')]",
-      "document" : [{"a": "ab"}],
-      "result": [
-      ]
-    },
-    {
-      "name": "filter, match function, not a match",
-      "selector" : "$[?match(@.a, 'a.*')]",
-      "document" : [{"a": "bc"}],
-      "result": []
-    },
-    {
-      "name": "filter, match function, select non-match",
-      "selector" : "$[?!match(@.a, 'a.*')]",
-      "document" : [{"a": "bc"}],
-      "result": [{"a": "bc"}]
-    },
-    {
-      "name": "filter, match function, non-string first arg",
-      "selector" : "$[?match(1, 'a.*')]",
-      "document" : [{"a": "bc"}],
-      "result": []
-    },
-    {
-      "name": "filter, match function, non-string second arg",
-      "selector" : "$[?match(@.a, 1)]",
-      "document" : [{"a": "bc"}],
-      "result": []
-    },
-    {
-      "name": "filter, match function, result cannot be compared",
-      "selector" : "$[?match(@.a, 'a.*')==true]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, match function, too few params",
-      "selector" : "$[?match(@.a)==1]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, match function, too many params",
-      "selector" : "$[?match(@.a,@.b,@.c)==1]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, search function, at the end",
-      "selector" : "$[?search(@.a, 'a.*')]",
-      "document" : [{"a": "the end is ab"}],
-      "result": [
-        {"a": "the end is ab"}
-      ]
-    },
-    {
-      "name": "filter, search function, double quotes",
-      "selector" : "$[?search(@.a, \"a.*\")]",
-      "document" : [{"a": "the end is ab"}],
-      "result": [
-        {"a": "the end is ab"}
-      ]
-    },
-    {
-      "name": "filter, search function, at the start",
-      "selector" : "$[?search(@.a, 'a.*')]",
-      "document" : [{"a": "ab is at the start"}],
-      "result": [
-        {"a": "ab is at the start"}
-      ]
-    },
-    {
-      "name": "filter, search function, in the middle",
-      "selector" : "$[?search(@.a, 'a.*')]",
-      "document" : [{"a": "contains two matches"}],
-      "result": [
-        {"a": "contains two matches"}
-      ]
-    },
-    {
-      "name": "filter, search function, regex from the document",
-      "selector" : "$.values[?search(@, $.regex)]",
-      "document" : {"regex": "b.?b", "values": ["abc", "bcd", "bab", "bba", "bbab", "b", true, [], {}]},
-      "result": ["bab", "bba", "bbab"]
-    },
-    {
-      "name": "filter, search function, don't select match",
-      "selector" : "$[?!search(@.a, 'a.*')]",
-      "document" : [{"a": "contains two matches"}],
-      "result": []
-    },
-    {
-      "name": "filter, search function, not a match",
-      "selector" : "$[?search(@.a, 'a.*')]",
-      "document" : [{"a": "bc"}],
-      "result": []
-    },
-    {
-      "name": "filter, search function, select non-match",
-      "selector" : "$[?!search(@.a, 'a.*')]",
-      "document" : [{"a": "bc"}],
-      "result": [{"a": "bc"}]
-    },
-    {
-      "name": "filter, search function, non-string first arg",
-      "selector" : "$[?search(1, 'a.*')]",
-      "document" : [{"a": "bc"}],
-      "result": []
-    },
-    {
-      "name": "filter, search function, non-string second arg",
-      "selector" : "$[?search(@.a, 1)]",
-      "document" : [{"a": "bc"}],
-      "result": []
-    },
-    {
-      "name": "filter, search function, result cannot be compared",
-      "selector" : "$[?search(@.a, 'a.*')==true]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, search function, too few params",
-      "selector" : "$[?search(@.a)]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, search function, too many params",
-      "selector" : "$[?search(@.a,@.b,@.c)]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, value function, single-value nodelist",
-      "selector" : "$[?value(@.*)==4]",
-      "document" : [[4], {"foo": 4}, [5], {"foo": 5}, 4],
-      "result": [[4], {"foo": 4}]
-    },
-    {
-      "name": "filter, value function, multi-value nodelist",
-      "selector" : "$[?value(@.*)==4]",
-      "document" : [[4,4], {"foo": 4, "bar": 4}],
-      "result": []
-    },
-    {
-      "name": "filter, value function, too few params",
-      "selector" : "$[?value()==4]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, value function, too many params",
-      "selector" : "$[?value(@.a,@.b)==4]",
-      "invalid_selector": true
-    },
-    {
-      "name": "filter, value function, result must be compared",
-      "selector" : "$[?value(@.a)]",
+      "name": "functions, value, result must be compared",
+      "selector": "$[?value(@.a)]",
       "invalid_selector": true
     }
   ]
