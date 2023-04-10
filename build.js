@@ -87,7 +87,7 @@ function readTestsFromDir(dir, relativePath = []) {
         const secondIsDir = isDir(second);
         if (firstIsDir && !secondIsDir) return 1;
         if (!firstIsDir && secondIsDir) return -1;
-        return first.localeCompare(second);
+        return first.localeCompare(second, 'en', {sensitivity: 'base'});
     }
 
     /**
