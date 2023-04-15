@@ -10,5 +10,5 @@ jobs:
       - name: Validate CTS against JSON Schema
         uses: cardinalby/schema-validator-action@v2
         with:
-          file: 'cts.json'
+          file: 'tests/**/*.json|cts.json'
           schema: 'cts.schema.json'
