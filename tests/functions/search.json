@@ -69,6 +69,24 @@
       "result": []
     },
     {
+      "name": "filter, search function, unicode char class, uppercase",
+      "selector": "$[?search(@, '\\\\p{Lu}')]",
+      "document": ["ж", "Ж", "1", "жЖ", true, [], {}],
+      "result": ["Ж", "жЖ"]
+    },
+    {
+      "name": "filter, search function, unicode char class negated, uppercase",
+      "selector": "$[?search(@, '\\\\P{Lu}')]",
+      "document": ["ж", "Ж", "1", true, [], {}],
+      "result": ["ж", "1"]
+    },
+    {
+      "name": "filter, search function, unicode, surrogate pair",
+      "selector": "$[?search(@, 'a.b')]",
+      "document": ["a\uD800\uDD01bc", "abc", "1", true, [], {}],
+      "result": ["a\uD800\uDD01bc"]
+    },
+    {
       "name": "result cannot be compared",
       "selector" : "$[?search(@.a, 'a.*')==true]",
       "invalid_selector": true

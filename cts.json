@@ -1750,7 +1750,7 @@
       ]
     },
     {
-      "name": "index selector, index selector",
+      "name": "index selector, first element",
       "selector": "$[0]",
       "document": [
         "first",
@@ -1761,7 +1761,7 @@
       ]
     },
     {
-      "name": "index selector, 1",
+      "name": "index selector, second element",
       "selector": "$[1]",
       "document": [
         "first",
@@ -3408,6 +3408,53 @@
       "result": []
     },
     {
+      "name": "functions, match, filter, match function, unicode char class, uppercase",
+      "selector": "$[?match(@, '\\\\p{Lu}')]",
+      "document": [
+        "ж",
+        "Ж",
+        "1",
+        "жЖ",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        "Ж"
+      ]
+    },
+    {
+      "name": "functions, match, filter, match function, unicode char class negated, uppercase",
+      "selector": "$[?match(@, '\\\\P{Lu}')]",
+      "document": [
+        "ж",
+        "Ж",
+        "1",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        "ж",
+        "1"
+      ]
+    },
+    {
+      "name": "functions, match, filter, match function, unicode, surrogate pair",
+      "selector": "$[?match(@, 'a.b')]",
+      "document": [
+        "a𐄁b",
+        "ab",
+        "1",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        "a𐄁b"
+      ]
+    },
+    {
       "name": "functions, match, result cannot be compared",
       "selector": "$[?match(@.a, 'a.*')==true]",
       "invalid_selector": true
@@ -3554,6 +3601,54 @@
         }
       ],
       "result": []
+    },
+    {
+      "name": "functions, search, filter, search function, unicode char class, uppercase",
+      "selector": "$[?search(@, '\\\\p{Lu}')]",
+      "document": [
+        "ж",
+        "Ж",
+        "1",
+        "жЖ",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        "Ж",
+        "жЖ"
+      ]
+    },
+    {
+      "name": "functions, search, filter, search function, unicode char class negated, uppercase",
+      "selector": "$[?search(@, '\\\\P{Lu}')]",
+      "document": [
+        "ж",
+        "Ж",
+        "1",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        "ж",
+        "1"
+      ]
+    },
+    {
+      "name": "functions, search, filter, search function, unicode, surrogate pair",
+      "selector": "$[?search(@, 'a.b')]",
+      "document": [
+        "a𐄁bc",
+        "abc",
+        "1",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        "a𐄁bc"
+      ]
     },
     {
       "name": "functions, search, result cannot be compared",
