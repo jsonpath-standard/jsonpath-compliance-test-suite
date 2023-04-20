@@ -14,3 +14,9 @@ To use this test suite, it's recommended you embed this repository as a git subm
 
 Basic conventions around source file formatting are captured in the `.editorconfig` file.
 Many editors support that file natively. Others (such as VS code) require a plugin, see https://editorconfig.org/.
+
+### Contributing
+
+To add or modify a test suite, edit the corresponding file in the `tests` directory.
+To generate `cts.json`, run the `build.sh` located in the root folder. Do not modify `cts.json` directly.
+More details are available in the [Contributor Guide](./CONTRIBUTING.md).
