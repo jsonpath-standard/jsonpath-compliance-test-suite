@@ -160,24 +160,9 @@
       ]
     },
     {
-      "name": "multiple selectors with whitespace",
-      "selector": "$[ 0 , 1 ]",
-      "document": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "result": [
-        0,
-        1
-      ]
+      "name": "multiple selectors, space instead of comma",
+      "selector": "$[0 2]",
+      "invalid_selector": true
     },
     {
       "name": "multiple selectors, name and index, array data",
@@ -321,7 +306,7 @@
     },
     {
       "name": "descendant segment, multiple selectors",
-      "selector" : "$..['a', 'd']",
+      "selector" : "$..['a','d']",
       "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
       "result": [
         "b",
