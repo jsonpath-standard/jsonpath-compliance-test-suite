@@ -23,6 +23,17 @@ git commit -a
 git push origin my-new-feature
 ```
 
+### Making changes to the Test Suite
+
+You need to have [Node.js](https://nodejs.org/en/) (v18 or higher) installed to build the Test Suite.
+
+To add or modify tests:
+- add/edit the corresponding file(s) in the `tests` directory
+- run the `build.sh` script located in the root folder
+- commit the changes to `tests` and `cts.json`
+
+Do not modify `cts.json` directly!
+
 ### Staying In Sync With Upstream
 
 When your branch gets out of sync with the jsonpath-standard/jsonpath-compliance-test-suite/main branch, use the following to update:
