@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 /**
  * The file extension of test files.
  * @type {string}
@@ -37,8 +38,20 @@ function build() {
     const testsFolder = process.argv[2];
     const tests = readTestsFromDir(testsFolder);
     const cts = {'description': description, 'tests': tests};
+    setUpTerminal();
     console.log(JSON.stringify(cts, null, jsonIndent));
     console.error(`Wrote ${tests.length} tests to stdout.`);
+}
+
+/**
+ * This line writes the Unicode BOM (Byte Order Mark) for UTF-8 to stdout. 
+ * While it's generally discouraged to use a BOM with UTF-8, 
+ * Windows uses it to determine that the output is indeed UTF-8.
+ */
+function setUpTerminal() {
+    if (os.platform() === 'win32') {
+        process.stdout.write('\uFEFF');
+    }
 }
 
 
