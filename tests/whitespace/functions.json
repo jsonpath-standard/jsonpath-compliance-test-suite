@@ -7,17 +7,17 @@
     },
     {
       "name": "newline between function name and parenthesis",
-      "selector" : "$[?count\\n(@)==1]",
+      "selector" : "$[?count\n(@)==1]",
       "invalid_selector": true
     },
     {
       "name": "tab between function name and parenthesis",
-      "selector" : "$[?count\\t(@)==1]",
+      "selector" : "$[?count\t(@)==1]",
       "invalid_selector": true
     },
     {
       "name": "return between function name and parenthesis",
-      "selector" : "$[?count\\r(@)==1]",
+      "selector" : "$[?count\r(@)==1]",
       "invalid_selector": true
     },
     {
@@ -28,43 +28,43 @@
     },
     {
       "name": "newline between parenthesis and arg",
-      "selector" : "$[?count(\\n@)==1]",
+      "selector" : "$[?count(\n@)==1]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "tab between parenthesis and arg",
-      "selector" : "$[?count(\\t@)==1]",
+      "selector" : "$[?count(\t@)==1]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "return between parenthesis and arg",
-      "selector" : "$[?count(\\r@)==1]",
+      "selector" : "$[?count(\r@)==1]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "space between arg and comma",
-      "selector" : "$[?search(@ ,'[a-z]*')==1]",
+      "selector" : "$[?search(@ ,'[a-z]*')]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "newline between arg and comma",
-      "selector" : "$[?search(@\\n,'[a-z]*')==1]",
+      "selector" : "$[?search(@\n,'[a-z]*')]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "tab between arg and comma",
-      "selector" : "$[?search(@\\t,'[a-z]*')==1]",
+      "selector" : "$[?search(@\t,'[a-z]*')]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "return between arg and comma",
-      "selector" : "$[?search(@\\r,'[a-z]*')==1]",
+      "selector" : "$[?search(@\r,'[a-z]*')]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
@@ -76,19 +76,19 @@
     },
     {
       "name": "newline between comma and arg",
-      "selector" : "$[?search(@,\\n'[a-z]*')==1]",
+      "selector" : "$[?search(@,\n'[a-z]*')]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "tab between comma and arg",
-      "selector" : "$[?search(@,\\t'[a-z]*')==1]",
+      "selector" : "$[?search(@,\t'[a-z]*')]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "return between comma and arg",
-      "selector" : "$[?search(@,\\r'[a-z]*')==1]",
+      "selector" : "$[?search(@,\r'[a-z]*')]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
@@ -100,19 +100,19 @@
     },
     {
       "name": "newline between arg and parenthesis",
-      "selector" : "$[?count(@\\n)==1]",
+      "selector" : "$[?count(@\n)==1]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "tab between arg and parenthesis",
-      "selector" : "$[?count(@\\t)==1]",
+      "selector" : "$[?count(@\t)==1]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "return between arg and parenthesis",
-      "selector" : "$[?count(@\\r)==1]",
+      "selector" : "$[?count(@\r)==1]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1}, {"b": 2} ]
     }

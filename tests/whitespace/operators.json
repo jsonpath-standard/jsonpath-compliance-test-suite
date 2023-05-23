@@ -8,19 +8,19 @@
     },
     {
       "name": "newline before ||",
-      "selector" : "$[?@.a\\n||@.b]",
+      "selector" : "$[?@.a\n||@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"c": 3} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "tab before ||",
-      "selector" : "$[?@.a\\t||@.b]",
+      "selector" : "$[?@.a\t||@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"c": 3} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "return before ||",
-      "selector" : "$[?@.a\\r||@.b]",
+      "selector" : "$[?@.a\r||@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"c": 3} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
@@ -32,19 +32,19 @@
     },
     {
       "name": "newline after ||",
-      "selector" : "$[?@.a||\\n@.b]",
+      "selector" : "$[?@.a||\n@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"c": 3} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "tab after ||",
-      "selector" : "$[?@.a||\\t@.b]",
+      "selector" : "$[?@.a||\t@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"c": 3} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
     {
       "name": "return after ||",
-      "selector" : "$[?@.a||\\r@.b]",
+      "selector" : "$[?@.a||\r@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"c": 3} ],
       "result": [ {"a": 1}, {"b": 2} ]
     },
@@ -56,19 +56,19 @@
     },
     {
       "name": "newline before &&",
-      "selector" : "$[?@.a\\n&&@.b]",
+      "selector" : "$[?@.a\n&&@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "tab before &&",
-      "selector" : "$[?@.a\\t&&@.b]",
+      "selector" : "$[?@.a\t&&@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "return before &&",
-      "selector" : "$[?@.a\\r&&@.b]",
+      "selector" : "$[?@.a\r&&@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
@@ -104,19 +104,19 @@
     },
     {
       "name": "newline before ==",
-      "selector" : "$[?@.a\\n==@.b]",
+      "selector" : "$[?@.a\n==@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 1} ]
     },
     {
       "name": "tab before ==",
-      "selector" : "$[?@.a\\t==@.b]",
+      "selector" : "$[?@.a\t==@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 1} ]
     },
     {
       "name": "return before ==",
-      "selector" : "$[?@.a\\r==@.b]",
+      "selector" : "$[?@.a\r==@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 1} ]
     },
@@ -128,19 +128,19 @@
     },
     {
       "name": "newline after ==",
-      "selector" : "$[?@.a==\\n@.b]",
+      "selector" : "$[?@.a==\n@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 1} ]
     },
     {
       "name": "tab after ==",
-      "selector" : "$[?@.a==\\t@.b]",
+      "selector" : "$[?@.a==\t@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 1} ]
     },
     {
       "name": "return after ==",
-      "selector" : "$[?@.a==\\r@.b]",
+      "selector" : "$[?@.a==\r@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 1} ]
     },
@@ -152,19 +152,19 @@
     },
     {
       "name": "newline before !=",
-      "selector" : "$[?@.a\\n!=@.b]",
+      "selector" : "$[?@.a\n!=@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "tab before !=",
-      "selector" : "$[?@.a\\t!=@.b]",
+      "selector" : "$[?@.a\t!=@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "return before !=",
-      "selector" : "$[?@.a\\r!=@.b]",
+      "selector" : "$[?@.a\r!=@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
@@ -176,19 +176,19 @@
     },
     {
       "name": "newline after !=",
-      "selector" : "$[?@.a!=\\n@.b]",
+      "selector" : "$[?@.a!=\n@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "tab after !=",
-      "selector" : "$[?@.a!=\\t@.b]",
+      "selector" : "$[?@.a!=\t@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "return after !=",
-      "selector" : "$[?@.a!=\\r@.b]",
+      "selector" : "$[?@.a!=\r@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
@@ -200,19 +200,19 @@
     },
     {
       "name": "newline before <",
-      "selector" : "$[?@.a\\n<@.b]",
+      "selector" : "$[?@.a\n<@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "tab before <",
-      "selector" : "$[?@.a\\t<@.b]",
+      "selector" : "$[?@.a\t<@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "return before <",
-      "selector" : "$[?@.a\\r<@.b]",
+      "selector" : "$[?@.a\r<@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
@@ -224,19 +224,19 @@
     },
     {
       "name": "newline after <",
-      "selector" : "$[?@.a<\\n@.b]",
+      "selector" : "$[?@.a<\n@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "tab after <",
-      "selector" : "$[?@.a<\\t@.b]",
+      "selector" : "$[?@.a<\t@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "return after <",
-      "selector" : "$[?@.a<\\r@.b]",
+      "selector" : "$[?@.a<\r@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
@@ -248,19 +248,19 @@
     },
     {
       "name": "newline before >",
-      "selector" : "$[?@.b\\n>@.a]",
+      "selector" : "$[?@.b\n>@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "tab before >",
-      "selector" : "$[?@.b\\t>@.a]",
+      "selector" : "$[?@.b\t>@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "return before >",
-      "selector" : "$[?@.b\\r>@.a]",
+      "selector" : "$[?@.b\r>@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
@@ -272,19 +272,19 @@
     },
     {
       "name": "newline after >",
-      "selector" : "$[?@.b>\\n@.a]",
+      "selector" : "$[?@.b>\n@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "tab after >",
-      "selector" : "$[?@.b>\\t@.a]",
+      "selector" : "$[?@.b>\t@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
     {
       "name": "return after >",
-      "selector" : "$[?@.b>\\r@.a]",
+      "selector" : "$[?@.b>\r@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ],
       "result": [ {"a": 1, "b": 2} ]
     },
@@ -296,19 +296,19 @@
     },
     {
       "name": "newline before <=",
-      "selector" : "$[?@.a\\n<=@.b]",
+      "selector" : "$[?@.a\n<=@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
     {
       "name": "tab before <=",
-      "selector" : "$[?@.a\\t<=@.b]",
+      "selector" : "$[?@.a\t<=@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
     {
       "name": "return before <=",
-      "selector" : "$[?@.a\\r<=@.b]",
+      "selector" : "$[?@.a\r<=@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
@@ -320,19 +320,19 @@
     },
     {
       "name": "newline after <=",
-      "selector" : "$[?@.a<=\\n@.b]",
+      "selector" : "$[?@.a<=\n@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
     {
       "name": "tab after <=",
-      "selector" : "$[?@.a<=\\t@.b]",
+      "selector" : "$[?@.a<=\t@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
     {
       "name": "return after <=",
-      "selector" : "$[?@.a<=\\r@.b]",
+      "selector" : "$[?@.a<=\r@.b]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
@@ -344,19 +344,19 @@
     },
     {
       "name": "newline before >=",
-      "selector" : "$[?@.b\\n>=@.a]",
+      "selector" : "$[?@.b\n>=@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
     {
       "name": "tab before >=",
-      "selector" : "$[?@.b\\t>=@.a]",
+      "selector" : "$[?@.b\t>=@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
     {
       "name": "return before >=",
-      "selector" : "$[?@.b\\r>=@.a]",
+      "selector" : "$[?@.b\r>=@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
@@ -368,19 +368,19 @@
     },
     {
       "name": "newline after >=",
-      "selector" : "$[?@.b>=\\n@.a]",
+      "selector" : "$[?@.b>=\n@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
     {
       "name": "tab after >=",
-      "selector" : "$[?@.b>=\\t@.a]",
+      "selector" : "$[?@.b>=\t@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     },
     {
       "name": "return after >=",
-      "selector" : "$[?@.b>=\\r@.a]",
+      "selector" : "$[?@.b>=\r@.a]",
       "document" : [ {"a": 1, "b": 1}, {"a": 1, "b": 2}, {"a": 2, "b": 1} ],
       "result": [ {"a": 1, "b": 1}, {"a": 1, "b": 2} ]
     }
