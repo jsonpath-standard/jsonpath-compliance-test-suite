@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "name": "space before ==",
+      "name": "space before ||",
       "selector" : "$[?@.a ||@.b]",
       "document" : [ {"a": 1}, {"b": 2}, {"c": 3} ],
       "result": [ {"a": 1}, {"b": 2} ]

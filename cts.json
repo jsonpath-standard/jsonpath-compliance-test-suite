@@ -160,24 +160,9 @@
       ]
     },
     {
-      "name": "basic, multiple selectors with whitespace",
-      "selector": "$[ 0 , 1 ]",
-      "document": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "result": [
-        0,
-        1
-      ]
+      "name": "basic, multiple selectors, space instead of comma",
+      "selector": "$[0 2]",
+      "invalid_selector": true
     },
     {
       "name": "basic, multiple selectors, name and index, array data",
@@ -351,7 +336,7 @@
     },
     {
       "name": "basic, descendant segment, multiple selectors",
-      "selector": "$..['a', 'd']",
+      "selector": "$..['a','d']",
       "document": [
         {
           "a": "b",
@@ -3186,8 +3171,87 @@
       ]
     },
     {
-      "name": "functions, count, non-array/string arg",
+      "name": "functions, count, single-node arg",
+      "selector": "$[?count(@.a)>1]",
+      "document": [
+        {
+          "a": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "a": [
+            1
+          ],
+          "d": "f"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, count, multiple-selector arg",
+      "selector": "$[?count(@['a','d'])>1]",
+      "document": [
+        {
+          "a": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "a": [
+            1
+          ],
+          "d": "f"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": [
+            1
+          ],
+          "d": "f"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "functions, count, non-query arg, number",
       "selector": "$[?count(1)>2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, count, non-query arg, string",
+      "selector": "$[?count('string')>2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, count, non-query arg, true",
+      "selector": "$[?count(true)>2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, count, non-query arg, false",
+      "selector": "$[?count(false)>2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, count, non-query arg, null",
+      "selector": "$[?count(null)>2]",
       "invalid_selector": true
     },
     {
@@ -3280,8 +3344,38 @@
       "result": []
     },
     {
-      "name": "functions, length, non-array/string arg",
+      "name": "functions, length, number arg",
       "selector": "$[?length(1)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, length, true arg",
+      "selector": "$[?length(true)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, length, false arg",
+      "selector": "$[?length(false)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, length, null arg",
+      "selector": "$[?length(null)>=2]",
       "document": [
         {
           "d": "f"
@@ -3721,6 +3815,2286 @@
       "name": "functions, value, result must be compared",
       "selector": "$[?value(@.a)]",
       "invalid_selector": true
+    },
+    {
+      "name": "whitespace, functions, space between function name and parenthesis",
+      "selector": "$[?count (@.*)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, functions, newline between function name and parenthesis",
+      "selector": "$[?count\n(@.*)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, functions, tab between function name and parenthesis",
+      "selector": "$[?count\t(@.*)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, functions, return between function name and parenthesis",
+      "selector": "$[?count\r(@.*)==1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, functions, space between parenthesis and arg",
+      "selector": "$[?count( @.*)==1]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, functions, newline between parenthesis and arg",
+      "selector": "$[?count(\n@.*)==1]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, functions, tab between parenthesis and arg",
+      "selector": "$[?count(\t@.*)==1]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, functions, return between parenthesis and arg",
+      "selector": "$[?count(\r@.*)==1]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, functions, space between arg and comma",
+      "selector": "$[?search(@ ,'[a-z]+')]",
+      "document": [
+        "foo",
+        "123"
+      ],
+      "result": [
+        "foo"
+      ]
+    },
+    {
+      "name": "whitespace, functions, newline between arg and comma",
+      "selector": "$[?search(@\n,'[a-z]+')]",
+      "document": [
+        "foo",
+        "123"
+      ],
+      "result": [
+        "foo"
+      ]
+    },
+    {
+      "name": "whitespace, functions, tab between arg and comma",
+      "selector": "$[?search(@\t,'[a-z]+')]",
+      "document": [
+        "foo",
+        "123"
+      ],
+      "result": [
+        "foo"
+      ]
+    },
+    {
+      "name": "whitespace, functions, return between arg and comma",
+      "selector": "$[?search(@\r,'[a-z]+')]",
+      "document": [
+        "foo",
+        "123"
+      ],
+      "result": [
+        "foo"
+      ]
+    },
+    {
+      "name": "whitespace, functions, space between comma and arg",
+      "selector": "$[?search(@, '[a-z]+')]",
+      "document": [
+        "foo",
+        "123"
+      ],
+      "result": [
+        "foo"
+      ]
+    },
+    {
+      "name": "whitespace, functions, newline between comma and arg",
+      "selector": "$[?search(@,\n'[a-z]+')]",
+      "document": [
+        "foo",
+        "123"
+      ],
+      "result": [
+        "foo"
+      ]
+    },
+    {
+      "name": "whitespace, functions, tab between comma and arg",
+      "selector": "$[?search(@,\t'[a-z]+')]",
+      "document": [
+        "foo",
+        "123"
+      ],
+      "result": [
+        "foo"
+      ]
+    },
+    {
+      "name": "whitespace, functions, return between comma and arg",
+      "selector": "$[?search(@,\r'[a-z]+')]",
+      "document": [
+        "foo",
+        "123"
+      ],
+      "result": [
+        "foo"
+      ]
+    },
+    {
+      "name": "whitespace, functions, space between arg and parenthesis",
+      "selector": "$[?count(@.* )==1]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, functions, newline between arg and parenthesis",
+      "selector": "$[?count(@.*\n)==1]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, functions, tab between arg and parenthesis",
+      "selector": "$[?count(@.*\t)==1]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, functions, return between arg and parenthesis",
+      "selector": "$[?count(@.*\r)==1]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space before ||",
+      "selector": "$[?@.a ||@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline before ||",
+      "selector": "$[?@.a\n||@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab before ||",
+      "selector": "$[?@.a\t||@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return before ||",
+      "selector": "$[?@.a\r||@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space after ||",
+      "selector": "$[?@.a|| @.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline after ||",
+      "selector": "$[?@.a||\n@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab after ||",
+      "selector": "$[?@.a||\t@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return after ||",
+      "selector": "$[?@.a||\r@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space before &&",
+      "selector": "$[?@.a &&@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline before &&",
+      "selector": "$[?@.a\n&&@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab before &&",
+      "selector": "$[?@.a\t&&@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return before &&",
+      "selector": "$[?@.a\r&&@.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space after &&",
+      "selector": "$[?@.a&& @.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline after &&",
+      "selector": "$[?@.a&& @.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab after &&",
+      "selector": "$[?@.a&& @.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return after &&",
+      "selector": "$[?@.a&& @.b]",
+      "document": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space before ==",
+      "selector": "$[?@.a ==@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline before ==",
+      "selector": "$[?@.a\n==@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab before ==",
+      "selector": "$[?@.a\t==@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return before ==",
+      "selector": "$[?@.a\r==@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space after ==",
+      "selector": "$[?@.a== @.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline after ==",
+      "selector": "$[?@.a==\n@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab after ==",
+      "selector": "$[?@.a==\t@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return after ==",
+      "selector": "$[?@.a==\r@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space before !=",
+      "selector": "$[?@.a !=@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline before !=",
+      "selector": "$[?@.a\n!=@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab before !=",
+      "selector": "$[?@.a\t!=@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return before !=",
+      "selector": "$[?@.a\r!=@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space after !=",
+      "selector": "$[?@.a!= @.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline after !=",
+      "selector": "$[?@.a!=\n@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab after !=",
+      "selector": "$[?@.a!=\t@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return after !=",
+      "selector": "$[?@.a!=\r@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space before <",
+      "selector": "$[?@.a <@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline before <",
+      "selector": "$[?@.a\n<@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab before <",
+      "selector": "$[?@.a\t<@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return before <",
+      "selector": "$[?@.a\r<@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space after <",
+      "selector": "$[?@.a< @.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline after <",
+      "selector": "$[?@.a<\n@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab after <",
+      "selector": "$[?@.a<\t@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return after <",
+      "selector": "$[?@.a<\r@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space before >",
+      "selector": "$[?@.b >@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline before >",
+      "selector": "$[?@.b\n>@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab before >",
+      "selector": "$[?@.b\t>@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return before >",
+      "selector": "$[?@.b\r>@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space after >",
+      "selector": "$[?@.b> @.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline after >",
+      "selector": "$[?@.b>\n@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab after >",
+      "selector": "$[?@.b>\t@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return after >",
+      "selector": "$[?@.b>\r@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space before <=",
+      "selector": "$[?@.a <=@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline before <=",
+      "selector": "$[?@.a\n<=@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab before <=",
+      "selector": "$[?@.a\t<=@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return before <=",
+      "selector": "$[?@.a\r<=@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space after <=",
+      "selector": "$[?@.a<= @.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline after <=",
+      "selector": "$[?@.a<=\n@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab after <=",
+      "selector": "$[?@.a<=\t@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return after <=",
+      "selector": "$[?@.a<=\r@.b]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space before >=",
+      "selector": "$[?@.b >=@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline before >=",
+      "selector": "$[?@.b\n>=@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab before >=",
+      "selector": "$[?@.b\t>=@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return before >=",
+      "selector": "$[?@.b\r>=@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space after >=",
+      "selector": "$[?@.b>= @.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline after >=",
+      "selector": "$[?@.b>=\n@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab after >=",
+      "selector": "$[?@.b>=\t@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return after >=",
+      "selector": "$[?@.b>=\r@.a]",
+      "document": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 2,
+          "b": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "b": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "name": "whitespace, selectors, space between root and bracket",
+      "selector": "$ ['a']",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, newline between root and bracket",
+      "selector": "$\n['a']",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, tab between root and bracket",
+      "selector": "$\t['a']",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, return between root and bracket",
+      "selector": "$\r['a']",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, space between bracket and bracket",
+      "selector": "$['a'] ['b']",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, newline between root and bracket",
+      "selector": "$['a'] \n['b']",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, tab between root and bracket",
+      "selector": "$['a'] \t['b']",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, return between root and bracket",
+      "selector": "$['a'] \r['b']",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, space between root and dot",
+      "selector": "$ .a",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, newline between root and dot",
+      "selector": "$\n.a",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, tab between root and dot",
+      "selector": "$\t.a",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, return between root and dot",
+      "selector": "$\r.a",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, space between dot and name",
+      "selector": "$. a",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, newline between dot and name",
+      "selector": "$.\na",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, tab between dot and name",
+      "selector": "$.\ta",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, return between dot and name",
+      "selector": "$.\ra",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, space between recursive descent and name",
+      "selector": "$.. a",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, newline between recursive descent and name",
+      "selector": "$..\na",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, tab between recursive descent and name",
+      "selector": "$..\ta",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, return between recursive descent and name",
+      "selector": "$..\ra",
+      "invalid_selector": true
+    },
+    {
+      "name": "whitespace, selectors, space between bracket and selector",
+      "selector": "$[ 'a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, newline between bracket and selector",
+      "selector": "$[\n'a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, tab between bracket and selector",
+      "selector": "$[\t'a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, return between bracket and selector",
+      "selector": "$[\r'a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, space between selector and bracket",
+      "selector": "$['a' ]",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, newline between selector and bracket",
+      "selector": "$['a'\n]",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, tab between selector and bracket",
+      "selector": "$['a'\t]",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, return between selector and bracket",
+      "selector": "$['a'\r]",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, space between selector and comma",
+      "selector": "$['a' ,'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, newline between selector and comma",
+      "selector": "$['a'\n,'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, tab between selector and comma",
+      "selector": "$['a'\t,'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, return between selector and comma",
+      "selector": "$['a'\r,'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, space between comma and selector",
+      "selector": "$['a', 'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, newline between comma and selector",
+      "selector": "$['a',\n'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, tab between comma and selector",
+      "selector": "$['a',\t'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ]
+    },
+    {
+      "name": "whitespace, selectors, return between comma and selector",
+      "selector": "$['a',\r'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ]
+    },
+    {
+      "name": "whitespace, slice, space between start and colon",
+      "selector": "$[1 :5:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, newline between start and colon",
+      "selector": "$[1\n:5:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, tab between start and colon",
+      "selector": "$[1\t:5:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, return between start and colon",
+      "selector": "$[1\r:5:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, space between colon and end",
+      "selector": "$[1: 5:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, newline between colon and end",
+      "selector": "$[1:\n5:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, tab between colon and end",
+      "selector": "$[1:\t5:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, return between colon and end",
+      "selector": "$[1:\r5:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, space between end and colon",
+      "selector": "$[1:5 :2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, newline between end and colon",
+      "selector": "$[1:5\n:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, tab between end and colon",
+      "selector": "$[1:5\t:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, return between end and colon",
+      "selector": "$[1:5\r:2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, space between colon and step",
+      "selector": "$[1:5: 2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, newline between colon and step",
+      "selector": "$[1:5:\n2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, tab between colon and step",
+      "selector": "$[1:5:\t2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "whitespace, slice, return between colon and step",
+      "selector": "$[1:5:\r2]",
+      "document": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": [
+        2,
+        4
+      ]
     }
   ]
 }
