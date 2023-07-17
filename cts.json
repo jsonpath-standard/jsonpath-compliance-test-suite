@@ -5568,62 +5568,130 @@
     {
       "name": "whitespace, selectors, space between root and bracket",
       "selector": "$ ['a']",
-      "invalid_selector": true
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, newline between root and bracket",
       "selector": "$\n['a']",
-      "invalid_selector": true
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, tab between root and bracket",
       "selector": "$\t['a']",
-      "invalid_selector": true
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, return between root and bracket",
       "selector": "$\r['a']",
-      "invalid_selector": true
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, space between bracket and bracket",
       "selector": "$['a'] ['b']",
-      "invalid_selector": true
+      "document": {
+        "a": {
+          "b": "ab"
+        }
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, newline between root and bracket",
       "selector": "$['a'] \n['b']",
-      "invalid_selector": true
+      "document": {
+        "a": {
+          "b": "ab"
+        }
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, tab between root and bracket",
       "selector": "$['a'] \t['b']",
-      "invalid_selector": true
+      "document": {
+        "a": {
+          "b": "ab"
+        }
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, return between root and bracket",
       "selector": "$['a'] \r['b']",
-      "invalid_selector": true
+      "document": {
+        "a": {
+          "b": "ab"
+        }
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, space between root and dot",
       "selector": "$ .a",
-      "invalid_selector": true
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, newline between root and dot",
       "selector": "$\n.a",
-      "invalid_selector": true
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, tab between root and dot",
       "selector": "$\t.a",
-      "invalid_selector": true
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, return between root and dot",
       "selector": "$\r.a",
-      "invalid_selector": true
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ]
     },
     {
       "name": "whitespace, selectors, space between dot and name",
