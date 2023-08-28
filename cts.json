@@ -239,6 +239,115 @@
       ]
     },
     {
+      "name": "basic, multiple selectors, duplicate index",
+      "selector": "$[1,1]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "basic, multiple selectors, wildcard and index",
+      "selector": "$[*,1]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        1
+      ]
+    },
+    {
+      "name": "basic, multiple selectors, wildcard and name",
+      "selector": "$[*,'a']",
+      "document": {
+        "a": "A",
+        "b": "B"
+      },
+      "result": [
+        "A",
+        "B",
+        "A"
+      ]
+    },
+    {
+      "name": "basic, multiple selectors, wildcard and slice",
+      "selector": "$[*,0:2]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "basic, multiple selectors, multiple wildcards",
+      "selector": "$[*,*]",
+      "document": [
+        0,
+        1,
+        2
+      ],
+      "result": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ]
+    },
+    {
       "name": "basic, empty segment",
       "selector": "$[]",
       "invalid_selector": true
@@ -1884,6 +1993,188 @@
       "name": "filter, absolute non-singular query, slice, less-or-equal",
       "selector": "$[?($[0:0]<=42)]",
       "invalid_selector": true
+    },
+    {
+      "name": "filter, multiple selectors",
+      "selector": "$[?@.a,?@.b]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, multiple selectors, comparison",
+      "selector": "$[?@.a=='b',?@.b=='x']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, multiple selectors, overlapping",
+      "selector": "$[?@.a,?@.d]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, multiple selectors, filter and index",
+      "selector": "$[?@.a,1]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, multiple selectors, filter and wildcard",
+      "selector": "$[?@.a,*]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "filter, multiple selectors, filter and slice",
+      "selector": "$[?@.a,1:]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        },
+        {
+          "g": "h"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        },
+        {
+          "g": "h"
+        }
+      ]
+    },
+    {
+      "name": "filter, multiple selectors, comparison filter, index and slice",
+      "selector": "$[1, ?@.a=='b', 1:]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "b": "c",
+          "d": "f"
+        },
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ]
     },
     {
       "name": "index selector, first element",
