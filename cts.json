@@ -6455,6 +6455,206 @@
       ]
     },
     {
+      "name": "whitespace, operators, space between logical not and test expression",
+      "selector": "$[?! @.a]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline between logical not and test expression",
+      "selector": "$[?!\n@.a]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab between logical not and test expression",
+      "selector": "$[?!\t@.a]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return between logical not and test expression",
+      "selector": "$[?!\r@.a]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, space between logical not and parenthesized expression",
+      "selector": "$[?! (@.a=='b')]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "b",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, newline between logical not and parenthesized expression",
+      "selector": "$[?!\n(@.a=='b')]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "b",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, tab between logical not and parenthesized expression",
+      "selector": "$[?!\t(@.a=='b')]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "b",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
+      "name": "whitespace, operators, return between logical not and parenthesized expression",
+      "selector": "$[?!\r(@.a=='b')]",
+      "document": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "b",
+          "d": "f"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "a",
+          "d": "e"
+        },
+        {
+          "a": "d",
+          "d": "f"
+        }
+      ]
+    },
+    {
       "name": "whitespace, selectors, space between root and bracket",
       "selector": "$ ['a']",
       "document": {
