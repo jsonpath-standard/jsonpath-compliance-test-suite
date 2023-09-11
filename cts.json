@@ -2935,6 +2935,30 @@
       "invalid_selector": true
     },
     {
+      "name": "name selector, double quotes, empty",
+      "selector": "$[\"\"]",
+      "document": {
+        "a": "A",
+        "b": "B",
+        "": "C"
+      },
+      "result": [
+        "C"
+      ]
+    },
+    {
+      "name": "name selector, single quotes, empty",
+      "selector": "$['']",
+      "document": {
+        "a": "A",
+        "b": "B",
+        "": "C"
+      },
+      "result": [
+        "C"
+      ]
+    },
+    {
       "name": "slice selector, slice selector",
       "selector": "$[1:3]",
       "document": [
