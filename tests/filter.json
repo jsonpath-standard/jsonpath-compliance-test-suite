@@ -693,6 +693,83 @@
         {"a": "b", "d": "e"},
         {"b": "c", "d": "f"}
       ]
+    },
+    {
+      "name": "equals number, zero and negative zero",
+      "selector" : "$[?@.a==-0]",
+      "document" : [{"a": 0, "d": "e"}, {"a":0.1, "d": "f"}, {"a":"0", "d": "g"}],
+      "result": [
+        {"a": 0, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, with and without decimal fraction",
+      "selector" : "$[?@.a==1.0]",
+      "document" : [{"a": 1, "d": "e"}, {"a":2, "d": "f"}, {"a":"1", "d": "g"}],
+      "result": [
+        {"a": 1, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, exponent",
+      "selector" : "$[?@.a==1e2]",
+      "document" : [{"a": 100, "d": "e"}, {"a":100.1, "d": "f"}, {"a":"100", "d": "g"}],
+      "result": [
+        {"a": 100, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, positive exponent",
+      "selector" : "$[?@.a==1e+2]",
+      "document" : [{"a": 100, "d": "e"}, {"a":100.1, "d": "f"}, {"a":"100", "d": "g"}],
+      "result": [
+        {"a": 100, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, negative exponent",
+      "selector" : "$[?@.a==1e-2]",
+      "document" : [{"a": 0.01, "d": "e"}, {"a":0.02, "d": "f"}, {"a":"0.01", "d": "g"}],
+      "result": [
+        {"a": 0.01, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, decimal fraction",
+      "selector" : "$[?@.a==1.1]",
+      "document" : [{"a": 1.1, "d": "e"}, {"a":1.0, "d": "f"}, {"a":"1.1", "d": "g"}],
+      "result": [
+        {"a": 1.1, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, decimal fraction, no fractional digit",
+      "selector" : "$[?@.a==1.]",
+      "invalid_selector": true
+    },
+    {
+      "name": "equals number, decimal fraction, exponent",
+      "selector" : "$[?@.a==1.1e2]",
+      "document" : [{"a": 110, "d": "e"}, {"a":110.1, "d": "f"}, {"a":"110", "d": "g"}],
+      "result": [
+        {"a": 110, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, decimal fraction, positive exponent",
+      "selector" : "$[?@.a==1.1e+2]",
+      "document" : [{"a": 110, "d": "e"}, {"a":110.1, "d": "f"}, {"a":"110", "d": "g"}],
+      "result": [
+        {"a": 110, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, decimal fraction, negative exponent",
+      "selector" : "$[?@.a==1.1e-2]",
+      "document" : [{"a": 0.011, "d": "e"}, {"a":0.012, "d": "f"}, {"a":"0.011", "d": "g"}],
+      "result": [
+        {"a": 0.011, "d": "e"}
+      ]
     }
   ]
 }
