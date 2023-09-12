@@ -1,0 +1,25 @@
+{
+  "tests": [
+    {
+      "name": "parenthesized expression",
+      "selector": "$[?match((@.a), ('a.*'))]",
+      "document" : [{"a": "ab"}, {"a": "ba"}],
+      "result": [
+        {"a": "ab"}
+      ]
+    },
+    {
+      "name": "function expression",
+      "selector": "$.values[?match(@.a, value($..['regex']))]",
+      "document" : {"regex": "a.*", "values": [{"a": "ab"}, {"a": "ba"}]},
+      "result": [
+        {"a": "ab"}
+      ]
+    },
+    {
+      "name": "type mismatch, value type and logical type",
+      "selector": "$[?length(@.a==@.b)>2]",
+      "invalid_selector": true
+    }
+  ]
+}

@@ -3820,6 +3820,48 @@
       "invalid_selector": true
     },
     {
+      "name": "functions, arguments, parenthesized expression",
+      "selector": "$[?match((@.a), ('a.*'))]",
+      "document": [
+        {
+          "a": "ab"
+        },
+        {
+          "a": "ba"
+        }
+      ],
+      "result": [
+        {
+          "a": "ab"
+        }
+      ]
+    },
+    {
+      "name": "functions, arguments, function expression",
+      "selector": "$.values[?match(@.a, value($..['regex']))]",
+      "document": {
+        "regex": "a.*",
+        "values": [
+          {
+            "a": "ab"
+          },
+          {
+            "a": "ba"
+          }
+        ]
+      },
+      "result": [
+        {
+          "a": "ab"
+        }
+      ]
+    },
+    {
+      "name": "functions, arguments, type mismatch, value type and logical type",
+      "selector": "$[?length(@.a==@.b)>2]",
+      "invalid_selector": true
+    },
+    {
       "name": "functions, count, count function",
       "selector": "$[?count(@..*)>2]",
       "document": [
