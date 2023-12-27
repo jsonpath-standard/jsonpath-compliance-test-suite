@@ -2398,6 +2398,32 @@
       ]
     },
     {
+      "name": "filter, equals, special nothing",
+      "selector": "$.values[?length(@.a) == value($..c)]",
+      "document": {
+        "c": "cd",
+        "values": [
+          {
+            "a": "ab"
+          },
+          {
+            "c": "d"
+          },
+          {
+            "a": null
+          }
+        ]
+      },
+      "result": [
+        {
+          "c": "d"
+        },
+        {
+          "a": null
+        }
+      ]
+    },
+    {
       "name": "index selector, first element",
       "selector": "$[0]",
       "document": [
@@ -4086,6 +4112,51 @@
       "invalid_selector": true
     },
     {
+      "name": "functions, length, non-singular query arg",
+      "selector": "$[?length(@.*)<3]",
+      "invalid_selector": true
+    },
+    {
+      "name": "functions, length, arg is a function expression",
+      "selector": "$.values[?length(@.a)==length(value($..c))]",
+      "document": {
+        "c": "cd",
+        "values": [
+          {
+            "a": "ab"
+          },
+          {
+            "a": "d"
+          }
+        ]
+      },
+      "result": [
+        {
+          "a": "ab"
+        }
+      ]
+    },
+    {
+      "name": "functions, length, arg is special nothing",
+      "selector": "$[?length(value(@.a))>0]",
+      "document": [
+        {
+          "a": "ab"
+        },
+        {
+          "c": "d"
+        },
+        {
+          "a": null
+        }
+      ],
+      "result": [
+        {
+          "a": "ab"
+        }
+      ]
+    },
+    {
       "name": "functions, match, found match",
       "selector": "$[?match(@.a, 'a.*')]",
       "document": [
@@ -4249,6 +4320,26 @@
       "name": "functions, match, too many params",
       "selector": "$[?match(@.a,@.b,@.c)==1]",
       "invalid_selector": true
+    },
+    {
+      "name": "functions, match, arg is a function expression",
+      "selector": "$.values[?match(@.a, value($..['regex']))]",
+      "document": {
+        "regex": "a.*",
+        "values": [
+          {
+            "a": "ab"
+          },
+          {
+            "a": "ba"
+          }
+        ]
+      },
+      "result": [
+        {
+          "a": "ab"
+        }
+      ]
     },
     {
       "name": "functions, search, at the end",
@@ -4445,6 +4536,29 @@
       "name": "functions, search, too many params",
       "selector": "$[?search(@.a,@.b,@.c)]",
       "invalid_selector": true
+    },
+    {
+      "name": "functions, search, arg is a function expression",
+      "selector": "$.values[?search(@, value($..['regex']))]",
+      "document": {
+        "regex": "b.?b",
+        "values": [
+          "abc",
+          "bcd",
+          "bab",
+          "bba",
+          "bbab",
+          "b",
+          true,
+          [],
+          {}
+        ]
+      },
+      "result": [
+        "bab",
+        "bba",
+        "bbab"
+      ]
     },
     {
       "name": "functions, value, single-value nodelist",
