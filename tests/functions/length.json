@@ -82,6 +82,18 @@
       "result": [
         {"a": "ab"}
       ]
+    },
+    {
+      "name": "arg is special nothing",
+      "selector" : "$[?length(value(@.a))>0]",
+      "document" : [
+          {"a": "ab"},
+          {"c": "d"},
+          {"a": null}
+      ],
+      "result": [
+        {"a": "ab"}
+      ]
     }
   ]
 }

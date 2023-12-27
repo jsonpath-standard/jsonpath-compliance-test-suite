@@ -2398,6 +2398,32 @@
       ]
     },
     {
+      "name": "filter, equals, special nothing",
+      "selector": "$.values[?length(@.a) == value($..c)]",
+      "document": {
+        "c": "cd",
+        "values": [
+          {
+            "a": "ab"
+          },
+          {
+            "c": "d"
+          },
+          {
+            "a": null
+          }
+        ]
+      },
+      "result": [
+        {
+          "c": "d"
+        },
+        {
+          "a": null
+        }
+      ]
+    },
+    {
       "name": "index selector, first element",
       "selector": "$[0]",
       "document": [
@@ -4104,6 +4130,26 @@
           }
         ]
       },
+      "result": [
+        {
+          "a": "ab"
+        }
+      ]
+    },
+    {
+      "name": "functions, length, arg is special nothing",
+      "selector": "$[?length(value(@.a))>0]",
+      "document": [
+        {
+          "a": "ab"
+        },
+        {
+          "c": "d"
+        },
+        {
+          "a": null
+        }
+      ],
       "result": [
         {
           "a": "ab"
