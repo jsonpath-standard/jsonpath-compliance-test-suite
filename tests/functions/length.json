@@ -53,13 +53,13 @@
       "result": []
     },
     {
-      "name": "filter on primitive array element (@ refers to array elements, not the array)",
+      "name": "filter on primitive array element, selects nothing",
       "selector": "$[?length(@)==1]",
       "document": [1],
       "result": []
     },
     {
-      "name": "filter on primitive object member value (@ refers to member values, not the object)",
+      "name": "filter on primitive object member value, selects nothing",
       "selector": "$[?length(@)==1]",
       "document": {"a": 1},
       "result": []

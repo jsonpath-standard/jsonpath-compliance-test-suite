@@ -23,7 +23,7 @@
       "result": [{}, 1]
     },
     {
-      "name": "existence test on primitive (not supported)",
+      "name": "existence test on primitive, selects nothing",
       "selector": "$.a[?@]",
       "document": {"a": 1},
       "result": []
@@ -491,20 +491,20 @@
       ]
     },
     {
-      "name": "on primitive (not supported)",
+      "name": "on primitive, selects nothing",
       "selector": "$.a[?@ == 1]",
       "document": {"a": 1},
       "result": []
     },
     {
-      "name": "on primitive object member value (@ refers to member values, not the object)",
+      "name": "on primitive object member value, selects nothing",
       "selector": "$[?@.a == 1]",
       "document": {"a": 1},
       "result": []
     },
     {
       "name": "name selector on array",
-      "selector": "$[?@[\"0\"] == 5]",
+      "selector": "$[?@['0'] == 5]",
       "document": [[5, 6]],
       "result": []
     },

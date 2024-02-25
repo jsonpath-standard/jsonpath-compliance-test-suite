@@ -522,7 +522,7 @@
       ]
     },
     {
-      "name": "filter, existence test on primitive (not supported)",
+      "name": "filter, existence test on primitive, selects nothing",
       "selector": "$.a[?@]",
       "document": {
         "a": 1
@@ -1865,7 +1865,7 @@
       ]
     },
     {
-      "name": "filter, on primitive (not supported)",
+      "name": "filter, on primitive, selects nothing",
       "selector": "$.a[?@ == 1]",
       "document": {
         "a": 1
@@ -1873,7 +1873,7 @@
       "result": []
     },
     {
-      "name": "filter, on primitive object member value (@ refers to member values, not the object)",
+      "name": "filter, on primitive object member value, selects nothing",
       "selector": "$[?@.a == 1]",
       "document": {
         "a": 1
@@ -1882,7 +1882,7 @@
     },
     {
       "name": "filter, name selector on array",
-      "selector": "$[?@[\"0\"] == 5]",
+      "selector": "$[?@['0'] == 5]",
       "document": [
         [
           5,
@@ -4154,7 +4154,7 @@
       "result": []
     },
     {
-      "name": "functions, length, filter on primitive array element (@ refers to array elements, not the array)",
+      "name": "functions, length, filter on primitive array element, selects nothing",
       "selector": "$[?length(@)==1]",
       "document": [
         1
@@ -4162,7 +4162,7 @@
       "result": []
     },
     {
-      "name": "functions, length, filter on primitive object member value (@ refers to member values, not the object)",
+      "name": "functions, length, filter on primitive object member value, selects nothing",
       "selector": "$[?length(@)==1]",
       "document": {
         "a": 1
