@@ -53,6 +53,18 @@
       "result": []
     },
     {
+      "name": "filter on primitive array element (@ refers to array elements, not the array)",
+      "selector": "$[?length(@)==1]",
+      "document": [1],
+      "result": []
+    },
+    {
+      "name": "filter on primitive object member value (@ refers to member values, not the object)",
+      "selector": "$[?length(@)==1]",
+      "document": {"a": 1},
+      "result": []
+    },
+    {
       "name": "result must be compared",
       "selector" : "$[?length(@.a)]",
       "invalid_selector": true

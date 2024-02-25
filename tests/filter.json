@@ -17,6 +17,18 @@
       ]
     },
     {
+      "name": "existence without selector",
+      "selector": "$[?@]",
+      "document": {"a": {}, "b": 1},
+      "result": [{}, 1]
+    },
+    {
+      "name": "existence test on primitive (not supported)",
+      "selector": "$.a[?@]",
+      "document": {"a": 1},
+      "result": []
+    },
+    {
       "name": "equals string, single quotes",
       "selector" : "$[?@.a=='b']",
       "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
@@ -477,6 +489,30 @@
         [0, 1, 2],
         [42]
       ]
+    },
+    {
+      "name": "on primitive (not supported)",
+      "selector": "$.a[?@ == 1]",
+      "document": {"a": 1},
+      "result": []
+    },
+    {
+      "name": "on primitive object member value (@ refers to member values, not the object)",
+      "selector": "$[?@.a == 1]",
+      "document": {"a": 1},
+      "result": []
+    },
+    {
+      "name": "name selector on array",
+      "selector": "$[?@[\"0\"] == 5]",
+      "document": [[5, 6]],
+      "result": []
+    },
+    {
+      "name": "index selector on object",
+      "selector": "$[?@[0] == 5]",
+      "document": [{"0": 5}],
+      "result": []
     },
     {
       "name": "relative non-singular query, index, equal",

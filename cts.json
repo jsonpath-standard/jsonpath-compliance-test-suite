@@ -510,6 +510,26 @@
       ]
     },
     {
+      "name": "filter, existence without selector",
+      "selector": "$[?@]",
+      "document": {
+        "a": {},
+        "b": 1
+      },
+      "result": [
+        {},
+        1
+      ]
+    },
+    {
+      "name": "filter, existence test on primitive (not supported)",
+      "selector": "$.a[?@]",
+      "document": {
+        "a": 1
+      },
+      "result": []
+    },
+    {
       "name": "filter, equals string, single quotes",
       "selector": "$[?@.a=='b']",
       "document": [
@@ -1843,6 +1863,43 @@
           42
         ]
       ]
+    },
+    {
+      "name": "filter, on primitive (not supported)",
+      "selector": "$.a[?@ == 1]",
+      "document": {
+        "a": 1
+      },
+      "result": []
+    },
+    {
+      "name": "filter, on primitive object member value (@ refers to member values, not the object)",
+      "selector": "$[?@.a == 1]",
+      "document": {
+        "a": 1
+      },
+      "result": []
+    },
+    {
+      "name": "filter, name selector on array",
+      "selector": "$[?@[\"0\"] == 5]",
+      "document": [
+        [
+          5,
+          6
+        ]
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, index selector on object",
+      "selector": "$[?@[0] == 5]",
+      "document": [
+        {
+          "0": 5
+        }
+      ],
+      "result": []
     },
     {
       "name": "filter, relative non-singular query, index, equal",
@@ -4094,6 +4151,22 @@
           "d": "f"
         }
       ],
+      "result": []
+    },
+    {
+      "name": "functions, length, filter on primitive array element (@ refers to array elements, not the array)",
+      "selector": "$[?length(@)==1]",
+      "document": [
+        1
+      ],
+      "result": []
+    },
+    {
+      "name": "functions, length, filter on primitive object member value (@ refers to member values, not the object)",
+      "selector": "$[?length(@)==1]",
+      "document": {
+        "a": 1
+      },
       "result": []
     },
     {
