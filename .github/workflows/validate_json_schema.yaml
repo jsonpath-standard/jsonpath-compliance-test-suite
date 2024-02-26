@@ -6,7 +6,7 @@ jobs:
   verify-json-validation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Validate CTS against JSON Schema
         uses: cardinalby/schema-validator-action@v2
         with:
