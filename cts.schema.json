@@ -48,13 +48,19 @@
           "required": [
             "document",
             "result"
-          ]
+          ],
+          "properties": {
+            "results": false
+          }
         },
         {
           "required": [
             "document",
             "results"
-          ]
+          ],
+          "properties": {
+            "result": false
+          }
         },
         {
           "required": [
