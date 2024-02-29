@@ -52,6 +52,12 @@
         },
         {
           "required": [
+            "document",
+            "results"
+          ]
+        },
+        {
+          "required": [
             "invalid_selector"
           ]
         }
