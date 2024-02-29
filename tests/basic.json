@@ -92,10 +92,13 @@
         "a": "A",
         "b": "B"
       },
-      "result": [
+      "results": [[
         "A",
         "B"
-      ]
+      ],[
+        "B",
+        "A"
+      ]]
     },
     {
       "name": "wildcard shorthand, array data",
@@ -134,10 +137,13 @@
           "b": "By"
         }
       },
-      "result": [
+      "results": [[
         "Ax",
         "Ay"
-      ]
+      ],[
+        "Ay",
+        "Ax"
+      ]]
     },
     {
       "name": "multiple selectors",
@@ -423,6 +429,22 @@
         "c",
         "f"
       ]
+    },
+    {
+      "name": "descendant segment, object traversal, multiple selectors",
+      "selector" : "$..['a','d']",
+      "document" : {"x": {"a": "b", "d": "e"}, "y": {"a":"c", "d": "f"}},
+      "results": [[
+        "b",
+        "e",
+        "c",
+        "f"
+      ],[
+        "c",
+        "f",
+        "b",
+        "e"
+      ]]
     },
     {
       "name": "bald descendant segment",
