@@ -1,15 +1,18 @@
-name: Update 'cts.json'
+name: Build 'cts.json'
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  update-cts:
+  build-cts:
     runs-on: ubuntu-latest
 
     permissions:
       # Allow the job to push the changed file to the repository
+      # For pull requests from forks this seems to be implicitly changed to 'read', as desired, see
+      # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#how-the-permissions-are-calculated-for-a-workflow-job
       contents: write
 
     steps:
@@ -19,7 +22,7 @@ jobs:
       id: setup-node
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 'lts/*'
 
     - name: Run build
       run: ./build.sh
@@ -40,6 +43,8 @@ jobs:
     # Important: The push event will not trigger any other workflows, see
     # https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#commits-made-by-this-action-do-not-trigger-new-workflow-runs
     - name: Commit & push changes
+      # Only run for push events (on `main` branch); don't run for pull requests
+      if: github.event_name == 'push'
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: 'Update `cts.json`'
