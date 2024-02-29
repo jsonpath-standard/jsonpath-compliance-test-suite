@@ -32,6 +32,9 @@
         "result": {
           "$ref": "#/$defs/test_case_result"
         },
+        "results": {
+          "$ref": "#/$defs/test_case_results"
+        },
         "invalid_selector": {
           "$ref": "#/$defs/invalid_selector"
         }
@@ -62,6 +65,10 @@
     "test_case_result": {
       "type": "array",
       "description": "The expected result of applying the selector to the document, contains all the matched values"
+    },
+    "test_case_results": {
+      "type": "array",
+      "description": "An array of possible expected results of applying the selector to the document, each element of which contains all the matched values"
     },
     "selector": {
       "description": "The JSONPath selector",
