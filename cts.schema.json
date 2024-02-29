@@ -74,6 +74,8 @@
     },
     "test_case_results": {
       "type": "array",
+      "items": {"$ref": "#/$defs/test_case_result"},
+      "minItems": 2,
       "description": "An array of possible expected results of applying the selector to the document, each element of which contains all the matched values"
     },
     "selector": {
