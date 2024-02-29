@@ -50,6 +50,7 @@
             "result"
           ],
           "properties": {
+            "invalid_selector": false,
             "results": false
           }
         },
@@ -59,13 +60,20 @@
             "results"
           ],
           "properties": {
+            "invalid_selector": false,
             "result": false
           }
         },
         {
           "required": [
+            "name",
             "invalid_selector"
-          ]
+          ],
+          "properties": {
+            "document": false,
+            "result": false,
+            "results": false
+          }
         }
       ]
     },
