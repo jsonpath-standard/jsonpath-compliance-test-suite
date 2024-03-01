@@ -20,3 +20,7 @@ Many editors support that file natively. Others (such as VS code) require a plug
 To add or modify a test suite, edit the corresponding file in the `tests` directory.
 To generate `cts.json`, run the `build.sh` located in the root folder. Do not modify `cts.json` directly.
 More details are available in the [Contributor Guide](./CONTRIBUTING.md).
+
+### Non-determinism
+
+Where the spec allows non-deterministic results for a given testcase, the testcase should specify an array of all the valid results (each of which is itself an array representing the resultant nodelist from the query) in the "results" member (and should not specify a "result" member).

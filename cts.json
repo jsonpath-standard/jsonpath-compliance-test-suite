@@ -93,9 +93,15 @@
         "a": "A",
         "b": "B"
       },
-      "result": [
-        "A",
-        "B"
+      "results": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "A"
+        ]
       ]
     },
     {
@@ -135,9 +141,15 @@
           "b": "By"
         }
       },
-      "result": [
-        "Ax",
-        "Ay"
+      "results": [
+        [
+          "Ax",
+          "Ay"
+        ],
+        [
+          "Ay",
+          "Ax"
+        ]
       ]
     },
     {
@@ -462,6 +474,34 @@
         "e",
         "c",
         "f"
+      ]
+    },
+    {
+      "name": "basic, descendant segment, object traversal, multiple selectors",
+      "selector": "$..['a','d']",
+      "document": {
+        "x": {
+          "a": "b",
+          "d": "e"
+        },
+        "y": {
+          "a": "c",
+          "d": "f"
+        }
+      },
+      "results": [
+        [
+          "b",
+          "e",
+          "c",
+          "f"
+        ],
+        [
+          "c",
+          "f",
+          "b",
+          "e"
+        ]
       ]
     },
     {

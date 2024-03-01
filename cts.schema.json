@@ -32,6 +32,9 @@
         "result": {
           "$ref": "#/$defs/test_case_result"
         },
+        "results": {
+          "$ref": "#/$defs/test_case_results"
+        },
         "invalid_selector": {
           "$ref": "#/$defs/invalid_selector"
         }
@@ -45,12 +48,31 @@
           "required": [
             "document",
             "result"
-          ]
+          ],
+          "properties": {
+            "invalid_selector": false,
+            "results": false
+          }
+        },
+        {
+          "required": [
+            "document",
+            "results"
+          ],
+          "properties": {
+            "invalid_selector": false,
+            "result": false
+          }
         },
         {
           "required": [
             "invalid_selector"
-          ]
+          ],
+          "properties": {
+            "document": false,
+            "result": false,
+            "results": false
+          }
         }
       ]
     },
@@ -62,6 +84,12 @@
     "test_case_result": {
       "type": "array",
       "description": "The expected result of applying the selector to the document, contains all the matched values"
+    },
+    "test_case_results": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/test_case_result"},
+      "minItems": 2,
+      "description": "An array of possible expected results of applying the selector to the document, each element of which contains all the matched values"
     },
     "selector": {
       "description": "The JSONPath selector",
