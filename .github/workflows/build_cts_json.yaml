@@ -43,8 +43,8 @@ jobs:
     # Important: The push event will not trigger any other workflows, see
     # https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#commits-made-by-this-action-do-not-trigger-new-workflow-runs
     - name: Commit & push changes
-      # Only run for push events (on `main` branch); don't run for pull requests
-      if: github.event_name == 'push'
+      # Only run for push events on `main` branch
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: 'Update `cts.json`'
