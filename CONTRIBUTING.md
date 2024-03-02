@@ -1,5 +1,3 @@
-
-
 # Contributing to jsonpath-compliance-test-suite
 
 The jsonpath-compliance-test-suite project team welcomes contributions from the community.
@@ -29,7 +27,8 @@ You need to have [Node.js](https://nodejs.org/en/) (v18 or higher) installed to 
 
 To add or modify tests:
 - add/edit the corresponding file(s) in the `tests` directory
-- run the `build.sh` script located in the root folder
+- [optional] run the `build.sh` or `build.ps1` script located in the root folder\
+  (this will be performed automatically by GitHub CI after the pull request has been merged to `main`)
 - commit the changes to `tests` and `cts.json`
 
 Do not modify `cts.json` directly!
@@ -73,7 +72,7 @@ notification when you git push.
 
 ### Formatting Commit Messages
 
-We follow the conventions on [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
+We follow the conventions on [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
 
 Be sure to include any related GitHub issue references in the commit message.  See
 [GFM syntax](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown) for referencing issues

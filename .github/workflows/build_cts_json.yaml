@@ -1,0 +1,51 @@
+name: Build 'cts.json'
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-cts:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Allow the job to push the changed file to the repository
+      # For pull requests from forks this seems to be implicitly changed to 'read', as desired, see
+      # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#how-the-permissions-are-calculated-for-a-workflow-job
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      id: setup-node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
+
+    - name: Run build
+      run: ./build.sh
+
+    # To be safe, verify that either there are no changes or only `cts.json` has changed
+    - name: Verify no unexpected changes
+      run: |
+        # Check for changes to any file other than `cts.json`,
+        # see https://stackoverflow.com/a/29374503
+        # Note that this does not detect new untracked files
+        if ! git diff --exit-code --quiet -- . ':!cts.json'; then
+          echo "Unexpected changes:"
+          git diff -- . ':!cts.json'
+          exit 1
+        fi
+
+    # Commit and push changes; has no effect if the file did not change
+    # Important: The push event will not trigger any other workflows, see
+    # https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#commits-made-by-this-action-do-not-trigger-new-workflow-runs
+    - name: Commit & push changes
+      # Only run for push events on `main` branch
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: 'Update `cts.json`'
+        file_pattern: 'cts.json'
