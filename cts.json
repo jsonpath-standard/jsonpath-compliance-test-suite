@@ -2471,6 +2471,25 @@
       ]
     },
     {
+      "name": "filter, object data",
+      "selector": "$[?@<3]",
+      "document": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      },
+      "results": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
       "name": "index selector, first element",
       "selector": "$[0]",
       "document": [
