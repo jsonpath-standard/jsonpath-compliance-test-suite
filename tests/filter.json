@@ -799,6 +799,44 @@
         [1, 2],
         [2, 1]
       ]
+    },
+    {
+      "name": "and binds more tightly than or",
+      "selector" : "$[?@.a || @.b && @.b]",
+      "document" : [{"a": 1}],
+      "result": [
+        {"a": 1}
+      ]
+    },
+    {
+      "name": "left to right evaluation",
+      "selector" : "$[?@.b && @.b || @.a]",
+      "document" : [{"a": 1}],
+      "result": [
+        {"a": 1}
+      ]
+    },
+    {
+      "name": "group terms, left",
+      "selector" : "$[?(@.a || @.b) && @.a]",
+      "document" : [{"a": 1}],
+      "result": [
+        {"a": 1}
+      ]
+    },
+    {
+      "name": "group terms, right",
+      "selector" : "$[?@.a && (@.b || @.a)]",
+      "document" : [{"a": 1}],
+      "result": [
+        {"a": 1}
+      ]
+    },
+    {
+      "name": "group terms, or before and",
+      "selector" : "$[?(@.a || @.b) && @.b]",
+      "document" : [{"a": 1}],
+      "result": []
     }
   ]
 }
