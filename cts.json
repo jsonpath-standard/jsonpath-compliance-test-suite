@@ -2490,6 +2490,72 @@
       ]
     },
     {
+      "name": "filter, and binds more tightly than or",
+      "selector": "$[?@.a || @.b && @.b]",
+      "document": [
+        {
+          "a": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "filter, left to right evaluation",
+      "selector": "$[?@.b && @.b || @.a]",
+      "document": [
+        {
+          "a": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "filter, group terms, left",
+      "selector": "$[?(@.a || @.b) && @.a]",
+      "document": [
+        {
+          "a": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "filter, group terms, right",
+      "selector": "$[?@.a && (@.b || @.a)]",
+      "document": [
+        {
+          "a": 1
+        }
+      ],
+      "result": [
+        {
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "filter, group terms, or before and",
+      "selector": "$[?(@.a || @.b) && @.b]",
+      "document": [
+        {
+          "a": 1
+        }
+      ],
+      "result": []
+    },
+    {
       "name": "index selector, first element",
       "selector": "$[0]",
       "document": [
