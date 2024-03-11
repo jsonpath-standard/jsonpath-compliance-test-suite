@@ -408,6 +408,23 @@
       ]
     },
     {
+      "name": "exists and exists, data false",
+      "selector" : "$[?@.a&&@.b]",
+      "document" : [{"a": false, "b": false}, {"b": false}, {"c": false}],
+      "result": [
+        {"a": false, "b": false}
+      ]
+    },
+    {
+      "name": "exists or exists, data false",
+      "selector" : "$[?@.a||@.b]",
+      "document" : [{"a": false, "b": false}, {"b": false}, {"c": false}],
+      "result": [
+        {"a": false, "b": false},
+        {"b": false}
+      ]
+    },
+    {
       "name": "and",
       "selector" : "$[?@.a>0&&@.a<10]",
       "document" : [{"a": -10, "d": "e"}, {"a":5, "d": "f"}, {"a":20, "d": "f"}],
