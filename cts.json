@@ -1713,6 +1713,53 @@
       ]
     },
     {
+      "name": "filter, exists and exists, data false",
+      "selector": "$[?@.a&&@.b]",
+      "document": [
+        {
+          "a": false,
+          "b": false
+        },
+        {
+          "b": false
+        },
+        {
+          "c": false
+        }
+      ],
+      "result": [
+        {
+          "a": false,
+          "b": false
+        }
+      ]
+    },
+    {
+      "name": "filter, exists or exists, data false",
+      "selector": "$[?@.a||@.b]",
+      "document": [
+        {
+          "a": false,
+          "b": false
+        },
+        {
+          "b": false
+        },
+        {
+          "c": false
+        }
+      ],
+      "result": [
+        {
+          "a": false,
+          "b": false
+        },
+        {
+          "b": false
+        }
+      ]
+    },
+    {
       "name": "filter, and",
       "selector": "$[?@.a>0&&@.a<10]",
       "document": [
