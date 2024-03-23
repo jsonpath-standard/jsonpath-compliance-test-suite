@@ -1,6 +1,15 @@
 {
   "tests": [
     {
+      "name": "existence, without segments",
+      "selector": "$[?@]",
+      "document": {"a": 1, "b": null},
+      "results": [
+        [1, null],
+        [null, 1]
+      ]
+    },
+    {
       "name": "existence",
       "selector" : "$[?@.a]",
       "document" : [{"a": "b", "d": "e"}, {"b":"c", "d": "f"}],
