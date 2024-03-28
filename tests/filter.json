@@ -535,6 +535,24 @@
       ]
     },
     {
+      "name": "name segment on primitive, selects nothing",
+      "selector": "$[?@.a == 1]",
+      "document": {"a": 1},
+      "result": []
+    },
+    {
+      "name": "name segment on array, selects nothing",
+      "selector": "$[?@['0'] == 5]",
+      "document": [[5, 6]],
+      "result": []
+    },
+    {
+      "name": "index segment on object, selects nothing",
+      "selector": "$[?@[0] == 5]",
+      "document": [{"0": 5}],
+      "result": []
+    },
+    {
       "name": "relative non-singular query, index, equal",
       "selector": "$[?(@[0, 0]==42)]",
       "invalid_selector": true
