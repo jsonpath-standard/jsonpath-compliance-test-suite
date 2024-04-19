@@ -891,6 +891,32 @@
       ]
     },
     {
+      "name": "filter, equals self",
+      "selector": "$[?@==@]",
+      "document": [
+        1,
+        null,
+        true,
+        {
+          "a": "b"
+        },
+        [
+          false
+        ]
+      ],
+      "result": [
+        1,
+        null,
+        true,
+        {
+          "a": "b"
+        },
+        [
+          false
+        ]
+      ]
+    },
+    {
       "name": "filter, deep equality, arrays",
       "selector": "$[?@.a==@.b]",
       "document": [
@@ -2040,6 +2066,120 @@
       ]
     },
     {
+      "name": "filter, non-singular existence, wildcard",
+      "selector": "$[?@.*]",
+      "document": [
+        1,
+        [],
+        [
+          2
+        ],
+        {},
+        {
+          "a": 3
+        }
+      ],
+      "result": [
+        [
+          2
+        ],
+        {
+          "a": 3
+        }
+      ]
+    },
+    {
+      "name": "filter, non-singular existence, multiple",
+      "selector": "$[?@[0, 0, 'a']]",
+      "document": [
+        1,
+        [],
+        [
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        {
+          "a": 3
+        },
+        {
+          "b": 4
+        },
+        {
+          "a": 3,
+          "b": 4
+        }
+      ],
+      "result": [
+        [
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        {
+          "a": 3
+        },
+        {
+          "a": 3,
+          "b": 4
+        }
+      ]
+    },
+    {
+      "name": "filter, non-singular existence, slice",
+      "selector": "$[?@[0:2]]",
+      "document": [
+        1,
+        [],
+        [
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        {},
+        {
+          "a": 3
+        }
+      ],
+      "result": [
+        [
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "filter, non-singular existence, negated",
+      "selector": "$[?!@.*]",
+      "document": [
+        1,
+        [],
+        [
+          2
+        ],
+        {},
+        {
+          "a": 3
+        }
+      ],
+      "result": [
+        1,
+        [],
+        {}
+      ]
+    },
+    {
       "name": "filter, non-singular query in comparison, slice",
       "selector": "$[?@[0:0]==0]",
       "invalid_selector": true
@@ -2089,6 +2229,35 @@
           42
         ]
       ]
+    },
+    {
+      "name": "filter, name segment on primitive, selects nothing",
+      "selector": "$[?@.a == 1]",
+      "document": {
+        "a": 1
+      },
+      "result": []
+    },
+    {
+      "name": "filter, name segment on array, selects nothing",
+      "selector": "$[?@['0'] == 5]",
+      "document": [
+        [
+          5,
+          6
+        ]
+      ],
+      "result": []
+    },
+    {
+      "name": "filter, index segment on object, selects nothing",
+      "selector": "$[?@[0] == 5]",
+      "document": [
+        {
+          "0": 5
+        }
+      ],
+      "result": []
     },
     {
       "name": "filter, relative non-singular query, index, equal",
