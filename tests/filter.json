@@ -88,6 +88,18 @@
       ]
     },
     {
+      "name": "equals self",
+      "selector" : "$[?@==@]",
+      "document" : [1, null, true, {"a": "b"}, [false]],
+      "result": [
+        1,
+        null,
+        true,
+        {"a": "b"},
+        [false]
+      ]
+    },
+    {
       "name": "deep equality, arrays",
       "selector" : "$[?@.a==@.b]",
       "document" : [
