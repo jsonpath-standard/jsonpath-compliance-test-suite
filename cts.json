@@ -4825,6 +4825,36 @@
       ]
     },
     {
+      "name": "functions, match, dot matcher on \\u2028",
+      "selector": "$[?match(@, '.')]",
+      "document": [
+        " ",
+        "\r",
+        "\n",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        " "
+      ]
+    },
+    {
+      "name": "functions, match, dot matcher on \\u2029",
+      "selector": "$[?match(@, '.')]",
+      "document": [
+        " ",
+        "\r",
+        "\n",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        " "
+      ]
+    },
+    {
       "name": "functions, match, result cannot be compared",
       "selector": "$[?match(@.a, 'a.*')==true]",
       "invalid_selector": true
@@ -5038,6 +5068,40 @@
       ],
       "result": [
         "a𐄁bc"
+      ]
+    },
+    {
+      "name": "functions, search, dot matcher on \\u2028",
+      "selector": "$[?search(@, '.')]",
+      "document": [
+        " ",
+        "\r \n",
+        "\r",
+        "\n",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        " ",
+        "\r \n"
+      ]
+    },
+    {
+      "name": "functions, search, dot matcher on \\u2029",
+      "selector": "$[?search(@, '.')]",
+      "document": [
+        " ",
+        "\r \n",
+        "\r",
+        "\n",
+        true,
+        [],
+        {}
+      ],
+      "result": [
+        " ",
+        "\r \n"
       ]
     },
     {

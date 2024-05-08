@@ -72,6 +72,18 @@
       "result": ["a\uD800\uDD01b"]
     },
     {
+      "name": "dot matcher on \\u2028",
+      "selector": "$[?match(@, '.')]",
+      "document": ["\u2028", "\r", "\n", true, [], {}],
+      "result": ["\u2028"]
+    },
+    {
+      "name": "dot matcher on \\u2029",
+      "selector": "$[?match(@, '.')]",
+      "document": ["\u2029", "\r", "\n", true, [], {}],
+      "result": ["\u2029"]
+    },
+    {
       "name": "result cannot be compared",
       "selector" : "$[?match(@.a, 'a.*')==true]",
       "invalid_selector": true
