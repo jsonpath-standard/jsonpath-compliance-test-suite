@@ -4890,6 +4890,97 @@
       ]
     },
     {
+      "name": "functions, match, dot in character class",
+      "selector": "$[?match(@, 'a[.b]c')]",
+      "document": [
+        "abc",
+        "a.c",
+        "axc"
+      ],
+      "result": [
+        "abc",
+        "a.c"
+      ]
+    },
+    {
+      "name": "functions, match, escaped dot",
+      "selector": "$[?match(@, 'a\\\\.c')]",
+      "document": [
+        "abc",
+        "a.c",
+        "axc"
+      ],
+      "result": [
+        "a.c"
+      ]
+    },
+    {
+      "name": "functions, match, escaped backslash before dot",
+      "selector": "$[?match(@, 'a\\\\\\\\.c')]",
+      "document": [
+        "abc",
+        "a.c",
+        "axc",
+        "a\\ c"
+      ],
+      "result": [
+        "a\\ c"
+      ]
+    },
+    {
+      "name": "functions, match, escaped left square bracket",
+      "selector": "$[?match(@, 'a\\\\[.c')]",
+      "document": [
+        "abc",
+        "a.c",
+        "a[ c"
+      ],
+      "result": [
+        "a[ c"
+      ]
+    },
+    {
+      "name": "functions, match, escaped right square bracket",
+      "selector": "$[?match(@, 'a[\\\\].]c')]",
+      "document": [
+        "abc",
+        "a.c",
+        "a c",
+        "a]c"
+      ],
+      "result": [
+        "a.c",
+        "a]c"
+      ]
+    },
+    {
+      "name": "functions, match, explicit caret",
+      "selector": "$[?match(@, '^ab.*')]",
+      "document": [
+        "abc",
+        "axc",
+        "ab",
+        "xab"
+      ],
+      "result": [
+        "abc",
+        "ab"
+      ]
+    },
+    {
+      "name": "functions, match, explicit dollar",
+      "selector": "$[?match(@, '.*bc$')]",
+      "document": [
+        "abc",
+        "axc",
+        "ab",
+        "abcx"
+      ],
+      "result": [
+        "abc"
+      ]
+    },
+    {
       "name": "functions, search, at the end",
       "selector": "$[?search(@.a, 'a.*')]",
       "document": [
@@ -5140,6 +5231,70 @@
         "bab",
         "bba",
         "bbab"
+      ]
+    },
+    {
+      "name": "functions, search, dot in character class",
+      "selector": "$[?search(@, 'a[.b]c')]",
+      "document": [
+        "x abc y",
+        "x a.c y",
+        "x axc y"
+      ],
+      "result": [
+        "x abc y",
+        "x a.c y"
+      ]
+    },
+    {
+      "name": "functions, search, escaped dot",
+      "selector": "$[?search(@, 'a\\\\.c')]",
+      "document": [
+        "x abc y",
+        "x a.c y",
+        "x axc y"
+      ],
+      "result": [
+        "x a.c y"
+      ]
+    },
+    {
+      "name": "functions, search, escaped backslash before dot",
+      "selector": "$[?search(@, 'a\\\\\\\\.c')]",
+      "document": [
+        "x abc y",
+        "x a.c y",
+        "x axc y",
+        "x a\\ c y"
+      ],
+      "result": [
+        "x a\\ c y"
+      ]
+    },
+    {
+      "name": "functions, search, escaped left square bracket",
+      "selector": "$[?search(@, 'a\\\\[.c')]",
+      "document": [
+        "x abc y",
+        "x a.c y",
+        "x a[ c y"
+      ],
+      "result": [
+        "x a[ c y"
+      ]
+    },
+    {
+      "name": "functions, search, escaped right square bracket",
+      "selector": "$[?search(@, 'a[\\\\].]c')]",
+      "document": [
+        "x abc y",
+        "x a.c y",
+        "x a c y",
+        "x a]c y"
+      ],
+      "result": [
+        "x a.c y",
+        "x a]c y"
       ]
     },
     {
