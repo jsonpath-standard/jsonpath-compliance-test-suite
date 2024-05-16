@@ -932,6 +932,30 @@
       "selector" : "$[?(@.a || @.b) && @.b]",
       "document" : [{"a": 1}],
       "result": []
+    },
+    {
+      "name": "string literal, single quote in double quotes",
+      "selector" : "$[?@ == \"quoted' literal\"]",
+      "document" : ["quoted' literal", "a", "quoted\\' literal"],
+      "result": ["quoted' literal"]
+    },
+    {
+      "name": "string literal, double quote in single quotes",
+      "selector" : "$[?@ == 'quoted\" literal']",
+      "document" : ["quoted\" literal", "a", "quoted\\\" literal", "'quoted\" literal'"],
+      "result": ["quoted\" literal"]
+    },
+    {
+      "name": "string literal, escaped single quote in single quotes",
+      "selector" : "$[?@ == 'quoted\\' literal']",
+      "document" : ["quoted' literal", "a", "quoted\\' literal", "'quoted\" literal'"],
+      "result": ["quoted' literal"]
+    },
+    {
+      "name": "string literal, escaped double quote in double quotes",
+      "selector" : "$[?@ == \"quoted\\\" literal\"]",
+      "document" : ["quoted\" literal", "a", "quoted\\\" literal", "'quoted\" literal'"],
+      "result": ["quoted\" literal"]
     }
   ]
 }
