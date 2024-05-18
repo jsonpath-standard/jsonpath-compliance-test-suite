@@ -2993,6 +2993,66 @@
       ]
     },
     {
+      "name": "filter, literal true must be compared",
+      "selector": "$[?true]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, literal false must be compared",
+      "selector": "$[?false]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, literal string must be compared",
+      "selector": "$[?'abc']",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, literal int must be compared",
+      "selector": "$[?2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, literal float must be compared",
+      "selector": "$[?2.2]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, literal null must be compared",
+      "selector": "$[?null]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, and, literals must be compared",
+      "selector": "$[?true && false]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, or, literals must be compared",
+      "selector": "$[?true || false]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, and, right hand literal must be compared",
+      "selector": "$[?true == false && false]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, or, right hand literal must be compared",
+      "selector": "$[?true == false || false]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, and, left hand literal must be compared",
+      "selector": "$[?false && true == false]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, or, left hand literal must be compared",
+      "selector": "$[?false || true == false]",
+      "invalid_selector": true
+    },
+    {
       "name": "index selector, first element",
       "selector": "$[0]",
       "document": [
