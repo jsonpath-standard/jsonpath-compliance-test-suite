@@ -2877,69 +2877,185 @@
     },
     {
       "name": "filter, and binds more tightly than or",
-      "selector": "$[?@.a || @.b && @.b]",
+      "selector": "$[?@.a || @.b && @.c]",
       "document": [
         {
           "a": 1
+        },
+        {
+          "b": 2,
+          "c": 3
+        },
+        {
+          "c": 3
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "c": 3
         }
       ],
       "result": [
         {
           "a": 1
+        },
+        {
+          "b": 2,
+          "c": 3
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "c": 3
         }
       ]
     },
     {
       "name": "filter, left to right evaluation",
-      "selector": "$[?@.b && @.b || @.a]",
+      "selector": "$[?@.a && @.b || @.c]",
       "document": [
         {
           "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 1,
+          "c": 3
+        },
+        {
+          "b": 1,
+          "c": 3
+        },
+        {
+          "c": 3
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "c": 3
         }
       ],
       "result": [
         {
-          "a": 1
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 1,
+          "c": 3
+        },
+        {
+          "b": 1,
+          "c": 3
+        },
+        {
+          "c": 3
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "c": 3
         }
       ]
     },
     {
       "name": "filter, group terms, left",
-      "selector": "$[?(@.a || @.b) && @.a]",
+      "selector": "$[?(@.a || @.b) && @.c]",
       "document": [
         {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 1,
+          "c": 3
+        },
+        {
+          "b": 2,
+          "c": 3
+        },
+        {
           "a": 1
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 3
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "c": 3
         }
       ],
       "result": [
         {
-          "a": 1
+          "a": 1,
+          "c": 3
+        },
+        {
+          "b": 2,
+          "c": 3
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "c": 3
         }
       ]
     },
     {
       "name": "filter, group terms, right",
-      "selector": "$[?@.a && (@.b || @.a)]",
+      "selector": "$[?@.a && (@.b || @.c)]",
       "document": [
         {
           "a": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 1,
+          "c": 2
+        },
+        {
+          "b": 2
+        },
+        {
+          "c": 2
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "c": 3
         }
       ],
       "result": [
         {
-          "a": 1
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 1,
+          "c": 2
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "c": 3
         }
       ]
-    },
-    {
-      "name": "filter, group terms, or before and",
-      "selector": "$[?(@.a || @.b) && @.b]",
-      "document": [
-        {
-          "a": 1
-        }
-      ],
-      "result": []
     },
     {
       "name": "filter, string literal, single quote in double quotes",
