@@ -335,6 +335,11 @@
       "invalid_selector": true
     },
     {
+      "name": "double quotes, escape at end of line",
+      "selector": "$[\"\\\n\"]",
+      "invalid_selector": true
+    },
+    {
       "name": "double quotes, question mark escape",
       "selector": "$[\"\\?\"]",
       "invalid_selector": true
