@@ -200,6 +200,16 @@
       ]
     },
     {
+      "name": "double quotes, embedded U+007F",
+      "selector": "$[\"\u007F\"]",
+      "document": {
+        "\u007F": "A"
+      },
+      "result": [
+        "A"
+      ]
+    },
+    {
       "name": "double quotes, supplementary plane character",
       "selector": "$[\"𝄞\"]",
       "document": {
