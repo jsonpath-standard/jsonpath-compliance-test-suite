@@ -335,6 +335,76 @@
       "invalid_selector": true
     },
     {
+      "name": "double quotes, escape at end of line",
+      "selector": "$[\"\\\n\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, question mark escape",
+      "selector": "$[\"\\?\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, bell escape",
+      "selector": "$[\"\\a\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, vertical tab escape",
+      "selector": "$[\"\\v\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, 0 escape",
+      "selector": "$[\"\\0\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, x escape",
+      "selector": "$[\"\\x12\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, n escape",
+      "selector": "$[\"\\N{LATIN CAPITAL LETTER A}\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, unicode escape no hex",
+      "selector": "$[\"\\u\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, unicode escape too few hex",
+      "selector": "$[\"\\u123\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, unicode escape upper u",
+      "selector": "$[\"\\U1234\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, unicode escape upper u long",
+      "selector": "$[\"\\U0010FFFF\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, unicode escape plus",
+      "selector": "$[\"\\u+1234\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, unicode escape brackets",
+      "selector": "$[\"\\u{1234}\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, unicode escape brackets long",
+      "selector": "$[\"\\u{10ffff}\"]",
+      "invalid_selector": true
+    },
+    {
       "name": "single quotes",
       "selector": "$['a']",
       "document": {
