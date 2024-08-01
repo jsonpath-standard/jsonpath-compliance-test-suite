@@ -200,6 +200,16 @@
       ]
     },
     {
+      "name": "double quotes, supplementary plane character",
+      "selector": "$[\"𝄞\"]",
+      "document": {
+        "𝄞": "A"
+      },
+      "result": [
+        "A"
+      ]
+    },
+    {
       "name": "double quotes, escaped double quote",
       "selector": "$[\"\\\"\"]",
       "document": {
@@ -402,6 +412,31 @@
     {
       "name": "double quotes, unicode escape brackets long",
       "selector": "$[\"\\u{10ffff}\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, single high surrogate",
+      "selector": "$[\"\\uD800\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, single low surrogate",
+      "selector": "$[\"\\uDC00\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, high high surrogate",
+      "selector": "$[\"\\uD800\\uD800\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, low low surrogate",
+      "selector": "$[\"\\uDC00\\uDC00\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "double quotes, surrogate non-surrogate",
+      "selector": "$[\"\\uD800\\u1234\"]",
       "invalid_selector": true
     },
     {
