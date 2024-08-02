@@ -171,6 +171,16 @@
       "invalid_selector": true
     },
     {
+      "name": "selector, leading comma",
+      "selector": "$[,0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "selector, trailing comma",
+      "selector": "$[0,]",
+      "invalid_selector": true
+    },
+    {
       "name": "multiple selectors, name and index, array data",
       "selector": "$['a',1]",
       "document": [
@@ -192,6 +202,17 @@
     {
       "name": "multiple selectors, name and index, object data",
       "selector": "$['a',1]",
+      "document": {
+        "a": 1,
+        "b": 2
+      },
+      "result": [
+        1
+      ]
+    },
+    {
+      "name": "multiple selectors, spaces",
+      "selector": "$[ 'a' , 1 ]",
       "document": {
         "a": 1,
         "b": 2

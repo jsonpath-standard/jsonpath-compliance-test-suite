@@ -32,6 +32,34 @@
       "result": []
     },
     {
+      "name": "min exact index",
+      "selector": "$[-9007199254740991]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": []
+    },
+    {
+      "name": "max exact index",
+      "selector": "$[9007199254740991]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": []
+    },
+    {
+      "name": "min exact index - 1",
+      "selector": "$[-9007199254740992]",
+      "invalid_selector": true
+    },
+    {
+      "name": "max exact index + 1",
+      "selector": "$[9007199254740992]",
+      "invalid_selector": true
+    },
+    {
       "name": "overflowing index",
       "selector": "$[231584178474632390847141970017375815706539969331281128078915168015826259279872]",
       "invalid_selector": true
@@ -83,6 +111,26 @@
     {
       "name": "leading 0",
       "selector": "$[01]",
+      "invalid_selector": true
+    },
+    {
+      "name": "decimal",
+      "selector": "$[1.0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "plus",
+      "selector": "$[+1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "minus space",
+      "selector": "$[- 1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "-0",
+      "selector": "$[-0]",
       "invalid_selector": true
     },
     {
