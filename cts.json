@@ -3501,6 +3501,16 @@
       ]
     },
     {
+      "name": "name selector, double quotes, embedded U+007F",
+      "selector": "$[\"\"]",
+      "document": {
+        "": "A"
+      },
+      "result": [
+        "A"
+      ]
+    },
+    {
       "name": "name selector, double quotes, supplementary plane character",
       "selector": "$[\"𝄞\"]",
       "document": {
