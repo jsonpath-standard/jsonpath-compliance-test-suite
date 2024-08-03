@@ -846,7 +846,31 @@
       ]
     },
     {
-      "name": "equals number, exponent leading 0",
+      "name": "equals number, exponent 0",
+      "selector" : "$[?@.a==1e0]",
+      "document" : [{"a": 1, "d": "e"}, {"a":2, "d": "f"}, {"a":"1", "d": "g"}],
+      "result": [
+        {"a": 1, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, exponent -0",
+      "selector" : "$[?@.a==1e-0]",
+      "document" : [{"a": 1, "d": "e"}, {"a":2, "d": "f"}, {"a":"1", "d": "g"}],
+      "result": [
+        {"a": 1, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, exponent +0",
+      "selector" : "$[?@.a==1e+0]",
+      "document" : [{"a": 1, "d": "e"}, {"a":2, "d": "f"}, {"a":"1", "d": "g"}],
+      "result": [
+        {"a": 1, "d": "e"}
+      ]
+    },
+    {
+      "name": "equals number, exponent leading -0",
       "selector" : "$[?@.a==1e-02]",
       "document" : [{"a": 0.01, "d": "e"}, {"a":0.02, "d": "f"}, {"a":"0.01", "d": "g"}],
       "result": [
@@ -854,7 +878,7 @@
       ]
     },
     {
-      "name": "equals number, exponent 00",
+      "name": "equals number, exponent +00",
       "selector" : "$[?@.a==1e+00]",
       "document" : [{"a": 1, "d": "e"}, {"a":2, "d": "f"}, {"a":"1", "d": "g"}],
       "result": [
