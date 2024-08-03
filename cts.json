@@ -3986,6 +3986,26 @@
       ]
     },
     {
+      "name": "name selector, double quotes, before high surrogates",
+      "selector": "$[\"\\uD7FF\\uD7FF\"]",
+      "document": {
+        "퟿퟿": "A"
+      },
+      "result": [
+        "A"
+      ]
+    },
+    {
+      "name": "name selector, double quotes, after low surrogates",
+      "selector": "$[\"\\uE000\\uE000\"]",
+      "document": {
+        "": "A"
+      },
+      "result": [
+        "A"
+      ]
+    },
+    {
       "name": "name selector, double quotes, invalid escaped single quote",
       "selector": "$[\"\\'\"]",
       "invalid_selector": true
@@ -4093,6 +4113,26 @@
     {
       "name": "name selector, double quotes, surrogate non-surrogate",
       "selector": "$[\"\\uD800\\u1234\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "name selector, double quotes, non-surrogate surrogate",
+      "selector": "$[\"\\u1234\\uDC00\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "name selector, double quotes, surrogate supplementary",
+      "selector": "$[\"\\uD800𝄞\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "name selector, double quotes, supplementary surrogate",
+      "selector": "$[\"𝄞\\uDC00\"]",
+      "invalid_selector": true
+    },
+    {
+      "name": "name selector, double quotes, surrogate incomplete low",
+      "selector": "$[\"\\uD800\\uDC0\"]",
       "invalid_selector": true
     },
     {
