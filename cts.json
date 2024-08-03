@@ -2611,6 +2611,30 @@
     },
     {
       "name": "filter, equals number, zero and negative zero",
+      "selector": "$[?@.a==0]",
+      "document": [
+        {
+          "a": 0,
+          "d": "e"
+        },
+        {
+          "a": 0.1,
+          "d": "f"
+        },
+        {
+          "a": "0",
+          "d": "g"
+        }
+      ],
+      "result": [
+        {
+          "a": 0,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals number, negative zero and zero",
       "selector": "$[?@.a==-0]",
       "document": [
         {
@@ -2682,6 +2706,30 @@
       ]
     },
     {
+      "name": "filter, equals number, exponent upper e",
+      "selector": "$[?@.a==1E2]",
+      "document": [
+        {
+          "a": 100,
+          "d": "e"
+        },
+        {
+          "a": 100.1,
+          "d": "f"
+        },
+        {
+          "a": "100",
+          "d": "g"
+        }
+      ],
+      "result": [
+        {
+          "a": 100,
+          "d": "e"
+        }
+      ]
+    },
+    {
       "name": "filter, equals number, positive exponent",
       "selector": "$[?@.a==1e+2]",
       "document": [
@@ -2730,6 +2778,126 @@
       ]
     },
     {
+      "name": "filter, equals number, exponent 0",
+      "selector": "$[?@.a==1e0]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 2,
+          "d": "f"
+        },
+        {
+          "a": "1",
+          "d": "g"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals number, exponent -0",
+      "selector": "$[?@.a==1e-0]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 2,
+          "d": "f"
+        },
+        {
+          "a": "1",
+          "d": "g"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals number, exponent +0",
+      "selector": "$[?@.a==1e+0]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 2,
+          "d": "f"
+        },
+        {
+          "a": "1",
+          "d": "g"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals number, exponent leading -0",
+      "selector": "$[?@.a==1e-02]",
+      "document": [
+        {
+          "a": 0.01,
+          "d": "e"
+        },
+        {
+          "a": 0.02,
+          "d": "f"
+        },
+        {
+          "a": "0.01",
+          "d": "g"
+        }
+      ],
+      "result": [
+        {
+          "a": 0.01,
+          "d": "e"
+        }
+      ]
+    },
+    {
+      "name": "filter, equals number, exponent +00",
+      "selector": "$[?@.a==1e+00]",
+      "document": [
+        {
+          "a": 1,
+          "d": "e"
+        },
+        {
+          "a": 2,
+          "d": "f"
+        },
+        {
+          "a": "1",
+          "d": "g"
+        }
+      ],
+      "result": [
+        {
+          "a": 1,
+          "d": "e"
+        }
+      ]
+    },
+    {
       "name": "filter, equals number, decimal fraction",
       "selector": "$[?@.a==1.1]",
       "document": [
@@ -2754,9 +2922,28 @@
       ]
     },
     {
-      "name": "filter, equals number, decimal fraction, no fractional digit",
-      "selector": "$[?@.a==1.]",
-      "invalid_selector": true
+      "name": "filter, equals number, decimal fraction, trailing 0",
+      "selector": "$[?@.a==1.10]",
+      "document": [
+        {
+          "a": 1.1,
+          "d": "e"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        },
+        {
+          "a": "1.1",
+          "d": "g"
+        }
+      ],
+      "result": [
+        {
+          "a": 1.1,
+          "d": "e"
+        }
+      ]
     },
     {
       "name": "filter, equals number, decimal fraction, exponent",
@@ -2829,6 +3016,91 @@
           "d": "e"
         }
       ]
+    },
+    {
+      "name": "filter, equals number, invalid plus",
+      "selector": "$[?@.a==+1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid minus space",
+      "selector": "$[?@.a==- 1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid double minus",
+      "selector": "$[?@.a==--1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid no int digit",
+      "selector": "$[?@.a==.1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid minus no int digit",
+      "selector": "$[?@.a==-.1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid 00",
+      "selector": "$[?@.a==00]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid leading 0",
+      "selector": "$[?@.a==01]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid no fractional digit",
+      "selector": "$[?@.a==1.]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid middle minus",
+      "selector": "$[?@.a==1.-1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid no fractional digit e",
+      "selector": "$[?@.a==1.e1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid no e digit",
+      "selector": "$[?@.a==1e]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid no e digit minus",
+      "selector": "$[?@.a==1e-]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid double e",
+      "selector": "$[?@.a==1eE1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid e digit double minus",
+      "selector": "$[?@.a==1e--1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid e digit plus minus",
+      "selector": "$[?@.a==1e+-1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid e decimal",
+      "selector": "$[?@.a==1e2.3]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, equals number, invalid multi e",
+      "selector": "$[?@.a==1e2e3]",
+      "invalid_selector": true
     },
     {
       "name": "filter, equals, special nothing",
@@ -3209,6 +3481,21 @@
     {
       "name": "filter, or, left hand literal must be compared",
       "selector": "$[?false || true == false]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, true, incorrectly capitalized",
+      "selector": "$[?@==True]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, false, incorrectly capitalized",
+      "selector": "$[?@==False]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, null, incorrectly capitalized",
+      "selector": "$[?@==Null]",
       "invalid_selector": true
     },
     {
