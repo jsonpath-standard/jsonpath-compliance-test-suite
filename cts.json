@@ -18,12 +18,18 @@
     {
       "name": "basic, no leading whitespace",
       "selector": " $",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "basic, no trailing whitespace",
       "selector": "$ ",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "basic, name shorthand",
@@ -175,7 +181,10 @@
     {
       "name": "basic, multiple selectors, space instead of comma",
       "selector": "$[0 2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "basic, selector, leading comma",
@@ -2290,47 +2299,74 @@
     {
       "name": "filter, relative non-singular query, index, equal",
       "selector": "$[?(@[0, 0]==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, index, not equal",
       "selector": "$[?(@[0, 0]!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, index, less-or-equal",
       "selector": "$[?(@[0, 0]<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, name, equal",
       "selector": "$[?(@['a', 'a']==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, name, not equal",
       "selector": "$[?(@['a', 'a']!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, name, less-or-equal",
       "selector": "$[?(@['a', 'a']<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, combined, equal",
       "selector": "$[?(@[0, '0']==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, combined, not equal",
       "selector": "$[?(@[0, '0']!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, combined, less-or-equal",
       "selector": "$[?(@[0, '0']<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, relative non-singular query, wildcard, equal",
@@ -2365,47 +2401,74 @@
     {
       "name": "filter, absolute non-singular query, index, equal",
       "selector": "$[?($[0, 0]==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, index, not equal",
       "selector": "$[?($[0, 0]!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, index, less-or-equal",
       "selector": "$[?($[0, 0]<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, name, equal",
       "selector": "$[?($['a', 'a']==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, name, not equal",
       "selector": "$[?($['a', 'a']!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, name, less-or-equal",
       "selector": "$[?($['a', 'a']<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, combined, equal",
       "selector": "$[?($[0, '0']==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, combined, not equal",
       "selector": "$[?($[0, '0']!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, combined, less-or-equal",
       "selector": "$[?($[0, '0']<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, absolute non-singular query, wildcard, equal",
@@ -2617,6 +2680,9 @@
           "b": "c",
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3179,6 +3245,9 @@
         {
           "c": 3
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3236,6 +3305,9 @@
           "b": 2,
           "c": 3
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3290,6 +3362,9 @@
           "b": 2,
           "c": 3
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3337,6 +3412,9 @@
           "b": 2,
           "c": 3
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3380,6 +3458,9 @@
           "b": 2,
           "c": 3
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3405,6 +3486,9 @@
       ],
       "result": [
         "quoted\" literal"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3418,6 +3502,9 @@
       ],
       "result": [
         "quoted' literal"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3431,6 +3518,9 @@
       ],
       "result": [
         "quoted\" literal"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -3466,47 +3556,74 @@
     {
       "name": "filter, and, literals must be compared",
       "selector": "$[?true && false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, or, literals must be compared",
       "selector": "$[?true || false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, and, right hand literal must be compared",
       "selector": "$[?true == false && false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, or, right hand literal must be compared",
       "selector": "$[?true == false || false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, and, left hand literal must be compared",
       "selector": "$[?false && true == false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, or, left hand literal must be compared",
       "selector": "$[?false || true == false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "filter, true, incorrectly capitalized",
       "selector": "$[?@==True]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "case"
+      ]
     },
     {
       "name": "filter, false, incorrectly capitalized",
       "selector": "$[?@==False]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "case"
+      ]
     },
     {
       "name": "filter, null, incorrectly capitalized",
       "selector": "$[?@==Null]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "case"
+      ]
     },
     {
       "name": "index selector, first element",
@@ -3517,6 +3634,9 @@
       ],
       "result": [
         "first"
+      ],
+      "tags": [
+        "index"
       ]
     },
     {
@@ -3528,6 +3648,9 @@
       ],
       "result": [
         "second"
+      ],
+      "tags": [
+        "index"
       ]
     },
     {
@@ -3537,7 +3660,11 @@
         "first",
         "second"
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "index"
+      ]
     },
     {
       "name": "index selector, min exact index",
@@ -3546,7 +3673,11 @@
         "first",
         "second"
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "index"
+      ]
     },
     {
       "name": "index selector, max exact index",
@@ -3555,27 +3686,46 @@
         "first",
         "second"
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "index"
+      ]
     },
     {
       "name": "index selector, min exact index - 1",
       "selector": "$[-9007199254740992]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "index"
+      ]
     },
     {
       "name": "index selector, max exact index + 1",
       "selector": "$[9007199254740992]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "index"
+      ]
     },
     {
       "name": "index selector, overflowing index",
       "selector": "$[231584178474632390847141970017375815706539969331281128078915168015826259279872]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "index"
+      ]
     },
     {
       "name": "index selector, not actually an index, overflowing index leads into general text",
       "selector": "$[231584178474632390847141970017375815706539969331281128078915168SomeRandomText]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "index"
+      ]
     },
     {
       "name": "index selector, negative",
@@ -3586,6 +3736,9 @@
       ],
       "result": [
         "second"
+      ],
+      "tags": [
+        "index"
       ]
     },
     {
@@ -3597,6 +3750,9 @@
       ],
       "result": [
         "first"
+      ],
+      "tags": [
+        "index"
       ]
     },
     {
@@ -3606,7 +3762,11 @@
         "first",
         "second"
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "index"
+      ]
     },
     {
       "name": "index selector, on object",
@@ -3614,37 +3774,59 @@
       "document": {
         "foo": 1
       },
-      "result": []
+      "result": [],
+      "tags": [
+        "index"
+      ]
     },
     {
       "name": "index selector, leading 0",
       "selector": "$[01]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "index"
+      ]
     },
     {
       "name": "index selector, decimal",
       "selector": "$[1.0]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "index"
+      ]
     },
     {
       "name": "index selector, plus",
       "selector": "$[+1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "index"
+      ]
     },
     {
       "name": "index selector, minus space",
       "selector": "$[- 1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "index",
+        "whitespace"
+      ]
     },
     {
       "name": "index selector, -0",
       "selector": "$[-0]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "index"
+      ]
     },
     {
       "name": "index selector, leading -0",
       "selector": "$[-01]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "index"
+      ]
     },
     {
       "name": "name selector, double quotes",
@@ -3678,162 +3860,258 @@
     {
       "name": "name selector, double quotes, embedded U+0000",
       "selector": "$[\"\u0000\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0001",
       "selector": "$[\"\u0001\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0002",
       "selector": "$[\"\u0002\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0003",
       "selector": "$[\"\u0003\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0004",
       "selector": "$[\"\u0004\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0005",
       "selector": "$[\"\u0005\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0006",
       "selector": "$[\"\u0006\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0007",
       "selector": "$[\"\u0007\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0008",
       "selector": "$[\"\b\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0009",
       "selector": "$[\"\t\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+000A",
       "selector": "$[\"\n\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+000B",
       "selector": "$[\"\u000b\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+000C",
       "selector": "$[\"\f\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+000D",
       "selector": "$[\"\r\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+000E",
       "selector": "$[\"\u000e\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+000F",
       "selector": "$[\"\u000f\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0010",
       "selector": "$[\"\u0010\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0011",
       "selector": "$[\"\u0011\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0012",
       "selector": "$[\"\u0012\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0013",
       "selector": "$[\"\u0013\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0014",
       "selector": "$[\"\u0014\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0015",
       "selector": "$[\"\u0015\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0016",
       "selector": "$[\"\u0016\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0017",
       "selector": "$[\"\u0017\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0018",
       "selector": "$[\"\u0018\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0019",
       "selector": "$[\"\u0019\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+001A",
       "selector": "$[\"\u001a\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+001B",
       "selector": "$[\"\u001b\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+001C",
       "selector": "$[\"\u001c\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+001D",
       "selector": "$[\"\u001d\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+001E",
       "selector": "$[\"\u001e\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+001F",
       "selector": "$[\"\u001f\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, embedded U+0020",
@@ -3843,6 +4121,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -3853,6 +4134,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -3863,6 +4147,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -3953,6 +4240,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -3963,6 +4253,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -3973,6 +4266,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -3983,6 +4279,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -3993,6 +4292,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -4003,6 +4305,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -4053,87 +4358,138 @@
     {
       "name": "name selector, double quotes, n escape",
       "selector": "$[\"\\N{LATIN CAPITAL LETTER A}\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, unicode escape no hex",
       "selector": "$[\"\\u\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, unicode escape too few hex",
       "selector": "$[\"\\u123\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, unicode escape upper u",
       "selector": "$[\"\\U1234\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, unicode escape upper u long",
       "selector": "$[\"\\U0010FFFF\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, unicode escape plus",
       "selector": "$[\"\\u+1234\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, unicode escape brackets",
       "selector": "$[\"\\u{1234}\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, unicode escape brackets long",
       "selector": "$[\"\\u{10ffff}\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, single high surrogate",
       "selector": "$[\"\\uD800\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, single low surrogate",
       "selector": "$[\"\\uDC00\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, high high surrogate",
       "selector": "$[\"\\uD800\\uD800\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, low low surrogate",
       "selector": "$[\"\\uDC00\\uDC00\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, surrogate non-surrogate",
       "selector": "$[\"\\uD800\\u1234\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, non-surrogate surrogate",
       "selector": "$[\"\\u1234\\uDC00\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, surrogate supplementary",
       "selector": "$[\"\\uD800𝄞\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, supplementary surrogate",
       "selector": "$[\"𝄞\\uDC00\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, double quotes, surrogate incomplete low",
       "selector": "$[\"\\uD800\\uDC0\"]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes",
@@ -4167,162 +4523,258 @@
     {
       "name": "name selector, single quotes, embedded U+0000",
       "selector": "$['\u0000']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0001",
       "selector": "$['\u0001']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0002",
       "selector": "$['\u0002']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0003",
       "selector": "$['\u0003']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0004",
       "selector": "$['\u0004']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0005",
       "selector": "$['\u0005']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0006",
       "selector": "$['\u0006']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0007",
       "selector": "$['\u0007']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0008",
       "selector": "$['\b']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0009",
       "selector": "$['\t']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+000A",
       "selector": "$['\n']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+000B",
       "selector": "$['\u000b']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+000C",
       "selector": "$['\f']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+000D",
       "selector": "$['\r']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+000E",
       "selector": "$['\u000e']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+000F",
       "selector": "$['\u000f']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0010",
       "selector": "$['\u0010']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0011",
       "selector": "$['\u0011']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0012",
       "selector": "$['\u0012']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0013",
       "selector": "$['\u0013']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0014",
       "selector": "$['\u0014']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0015",
       "selector": "$['\u0015']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0016",
       "selector": "$['\u0016']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0017",
       "selector": "$['\u0017']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0018",
       "selector": "$['\u0018']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0019",
       "selector": "$['\u0019']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+001A",
       "selector": "$['\u001a']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+001B",
       "selector": "$['\u001b']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+001C",
       "selector": "$['\u001c']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+001D",
       "selector": "$['\u001d']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+001E",
       "selector": "$['\u001e']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+001F",
       "selector": "$['\u001f']",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "unicode"
+      ]
     },
     {
       "name": "name selector, single quotes, embedded U+0020",
@@ -4332,6 +4784,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -4362,6 +4817,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -4422,6 +4880,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -4432,6 +4893,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -4442,6 +4906,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -4452,6 +4919,9 @@
       },
       "result": [
         "A"
+      ],
+      "tags": [
+        "unicode"
       ]
     },
     {
@@ -4511,6 +4981,9 @@
       "result": [
         1,
         2
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4532,6 +5005,9 @@
         1,
         3,
         5
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4548,6 +5024,9 @@
         1,
         2,
         3
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4564,6 +5043,9 @@
         1,
         2,
         3
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4584,6 +5066,9 @@
       "result": [
         0,
         1
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4607,6 +5092,9 @@
         4,
         6,
         8
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4623,6 +5111,9 @@
         2,
         1,
         0
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4638,6 +5129,9 @@
         3,
         2,
         1
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4653,6 +5147,9 @@
         2,
         1,
         0
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4667,6 +5164,9 @@
       "result": [
         3,
         1
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4684,7 +5184,10 @@
         8,
         9
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, negative range with negative step",
@@ -4704,6 +5207,9 @@
       "result": [
         9,
         8
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4725,6 +5231,9 @@
         9,
         7,
         5
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4746,6 +5255,9 @@
         9,
         7,
         5
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4766,6 +5278,9 @@
       "result": [
         5,
         6
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4786,6 +5301,9 @@
       "result": [
         8,
         9
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4812,6 +5330,9 @@
         6,
         7,
         8
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4838,6 +5359,9 @@
         4,
         3,
         2
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4858,17 +5382,26 @@
       "result": [
         7,
         6
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
       "name": "slice selector, too many colons",
       "selector": "$[1:2:3:4]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, non-integer array index",
       "selector": "$[1:2:a]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, zero step",
@@ -4885,7 +5418,10 @@
         8,
         9
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, empty range",
@@ -4902,19 +5438,28 @@
         8,
         9
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, slice selector with everything omitted with empty array",
       "selector": "$[:]",
       "document": [],
-      "result": []
+      "result": [],
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, negative step with empty array",
       "selector": "$[::-1]",
       "document": [],
-      "result": []
+      "result": [],
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, maximal range with positive step",
@@ -4942,6 +5487,9 @@
         7,
         8,
         9
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4969,6 +5517,9 @@
         3,
         2,
         1
+      ],
+      "tags": [
+        "slice"
       ]
     },
     {
@@ -4995,6 +5546,10 @@
         7,
         8,
         9
+      ],
+      "tags": [
+        "boundary",
+        "slice"
       ]
     },
     {
@@ -5014,6 +5569,10 @@
       ],
       "result": [
         0
+      ],
+      "tags": [
+        "boundary",
+        "slice"
       ]
     },
     {
@@ -5041,6 +5600,10 @@
         3,
         2,
         1
+      ],
+      "tags": [
+        "boundary",
+        "slice"
       ]
     },
     {
@@ -5063,6 +5626,10 @@
         2,
         1,
         0
+      ],
+      "tags": [
+        "boundary",
+        "slice"
       ]
     },
     {
@@ -5082,6 +5649,10 @@
       ],
       "result": [
         1
+      ],
+      "tags": [
+        "boundary",
+        "slice"
       ]
     },
     {
@@ -5101,193 +5672,323 @@
       ],
       "result": [
         9
+      ],
+      "tags": [
+        "boundary",
+        "slice"
       ]
     },
     {
       "name": "slice selector, start, min exact",
       "selector": "$[-9007199254740991::]",
       "document": [],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, max exact",
       "selector": "$[9007199254740991::]",
       "document": [],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, min exact - 1",
       "selector": "$[-9007199254740992::]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, max exact + 1",
       "selector": "$[9007199254740992::]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, min exact",
       "selector": "$[:-9007199254740991:]",
       "document": [],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, max exact",
       "selector": "$[:9007199254740991:]",
       "document": [],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, min exact - 1",
       "selector": "$[:-9007199254740992:]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, max exact + 1",
       "selector": "$[:9007199254740992:]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, min exact",
       "selector": "$[::-9007199254740991]",
       "document": [],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, max exact",
       "selector": "$[::9007199254740991]",
       "document": [],
-      "result": []
+      "result": [],
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, min exact - 1",
       "selector": "$[::-9007199254740992]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, max exact + 1",
       "selector": "$[::9007199254740992]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, overflowing to value",
       "selector": "$[2:231584178474632390847141970017375815706539969331281128078915168015826259279872]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, underflowing from value",
       "selector": "$[-231584178474632390847141970017375815706539969331281128078915168015826259279872:1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, overflowing from value with negative step",
       "selector": "$[231584178474632390847141970017375815706539969331281128078915168015826259279872:0:-1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, underflowing to value with negative step",
       "selector": "$[3:-231584178474632390847141970017375815706539969331281128078915168015826259279872:-1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, overflowing step",
       "selector": "$[1:10:231584178474632390847141970017375815706539969331281128078915168015826259279872]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, underflowing step",
       "selector": "$[-1:-10:-231584178474632390847141970017375815706539969331281128078915168015826259279872]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "boundary",
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, leading 0",
       "selector": "$[01::]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, decimal",
       "selector": "$[1.0::]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, plus",
       "selector": "$[+1::]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, minus space",
       "selector": "$[- 1::]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, -0",
       "selector": "$[-0::]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, start, leading -0",
       "selector": "$[-01::]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, leading 0",
       "selector": "$[:01:]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, decimal",
       "selector": "$[:1.0:]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, plus",
       "selector": "$[:+1:]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, minus space",
       "selector": "$[:- 1:]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, -0",
       "selector": "$[:-0:]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, end, leading -0",
       "selector": "$[:-01:]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, leading 0",
       "selector": "$[::01]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, decimal",
       "selector": "$[::1.0]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, plus",
       "selector": "$[::+1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, minus space",
       "selector": "$[::- 1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, -0",
       "selector": "$[::-0]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "slice selector, step, leading -0",
       "selector": "$[::-01]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "functions, count, count function",
@@ -5325,6 +6026,10 @@
           ],
           "d": "f"
         }
+      ],
+      "tags": [
+        "count",
+        "function"
       ]
     },
     {
@@ -5349,7 +6054,11 @@
           "d": "f"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, count, multiple-selector arg",
@@ -5384,47 +6093,83 @@
           "a": 1,
           "d": "f"
         }
+      ],
+      "tags": [
+        "count",
+        "function"
       ]
     },
     {
       "name": "functions, count, non-query arg, number",
       "selector": "$[?count(1)>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, count, non-query arg, string",
       "selector": "$[?count('string')>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, count, non-query arg, true",
       "selector": "$[?count(true)>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, count, non-query arg, false",
       "selector": "$[?count(false)>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, count, non-query arg, null",
       "selector": "$[?count(null)>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, count, result must be compared",
       "selector": "$[?count(@..*)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, count, no params",
       "selector": "$[?count()==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, count, too many params",
       "selector": "$[?count(@.a,@.b)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function"
+      ]
     },
     {
       "name": "functions, length, string data",
@@ -5441,6 +6186,10 @@
         {
           "a": "ab"
         }
+      ],
+      "tags": [
+        "function",
+        "length"
       ]
     },
     {
@@ -5461,6 +6210,10 @@
         "☺☺",
         "жж",
         "阿美"
+      ],
+      "tags": [
+        "function",
+        "length"
       ]
     },
     {
@@ -5488,6 +6241,10 @@
             3
           ]
         }
+      ],
+      "tags": [
+        "function",
+        "length"
       ]
     },
     {
@@ -5498,7 +6255,11 @@
           "d": "f"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, number arg",
@@ -5508,7 +6269,11 @@
           "d": "f"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, true arg",
@@ -5518,7 +6283,11 @@
           "d": "f"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, false arg",
@@ -5528,7 +6297,11 @@
           "d": "f"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, null arg",
@@ -5538,27 +6311,47 @@
           "d": "f"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, result must be compared",
       "selector": "$[?length(@.a)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, no params",
       "selector": "$[?length()==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, too many params",
       "selector": "$[?length(@.a,@.b)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, non-singular query arg",
       "selector": "$[?length(@.*)<3]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "functions, length, arg is a function expression",
@@ -5578,6 +6371,10 @@
         {
           "a": "ab"
         }
+      ],
+      "tags": [
+        "function",
+        "length"
       ]
     },
     {
@@ -5598,6 +6395,10 @@
         {
           "a": "ab"
         }
+      ],
+      "tags": [
+        "function",
+        "length"
       ]
     },
     {
@@ -5612,6 +6413,10 @@
         {
           "a": "ab"
         }
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5626,6 +6431,10 @@
         {
           "a": "ab"
         }
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5647,6 +6456,10 @@
       },
       "result": [
         "bab"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5657,7 +6470,11 @@
           "a": "ab"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "match"
+      ]
     },
     {
       "name": "functions, match, not a match",
@@ -5667,7 +6484,11 @@
           "a": "bc"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "match"
+      ]
     },
     {
       "name": "functions, match, select non-match",
@@ -5681,6 +6502,10 @@
         {
           "a": "bc"
         }
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5691,7 +6516,11 @@
           "a": "bc"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "match"
+      ]
     },
     {
       "name": "functions, match, non-string second arg",
@@ -5701,7 +6530,11 @@
           "a": "bc"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "match"
+      ]
     },
     {
       "name": "functions, match, filter, match function, unicode char class, uppercase",
@@ -5717,6 +6550,10 @@
       ],
       "result": [
         "Ж"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5733,6 +6570,10 @@
       "result": [
         "ж",
         "1"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5748,6 +6589,10 @@
       ],
       "result": [
         "a𐄁b"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5763,6 +6608,10 @@
       ],
       "result": [
         " "
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5778,22 +6627,38 @@
       ],
       "result": [
         " "
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
       "name": "functions, match, result cannot be compared",
       "selector": "$[?match(@.a, 'a.*')==true]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "match"
+      ]
     },
     {
       "name": "functions, match, too few params",
       "selector": "$[?match(@.a)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "match"
+      ]
     },
     {
       "name": "functions, match, too many params",
       "selector": "$[?match(@.a,@.b,@.c)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "match"
+      ]
     },
     {
       "name": "functions, match, arg is a function expression",
@@ -5813,6 +6678,10 @@
         {
           "a": "ab"
         }
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5826,6 +6695,10 @@
       "result": [
         "abc",
         "a.c"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5838,6 +6711,10 @@
       ],
       "result": [
         "a.c"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5851,6 +6728,10 @@
       ],
       "result": [
         "a\\ c"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5863,6 +6744,10 @@
       ],
       "result": [
         "a[ c"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5877,6 +6762,10 @@
       "result": [
         "a.c",
         "a]c"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5891,6 +6780,10 @@
       "result": [
         "abc",
         "ab"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5904,6 +6797,10 @@
       ],
       "result": [
         "abc"
+      ],
+      "tags": [
+        "function",
+        "match"
       ]
     },
     {
@@ -5918,6 +6815,10 @@
         {
           "a": "the end is ab"
         }
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -5932,6 +6833,10 @@
         {
           "a": "the end is ab"
         }
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -5946,6 +6851,10 @@
         {
           "a": "ab is at the start"
         }
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -5960,6 +6869,10 @@
         {
           "a": "contains two matches"
         }
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -5983,6 +6896,10 @@
         "bab",
         "bba",
         "bbab"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -5993,7 +6910,11 @@
           "a": "contains two matches"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "search"
+      ]
     },
     {
       "name": "functions, search, not a match",
@@ -6003,7 +6924,11 @@
           "a": "bc"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "search"
+      ]
     },
     {
       "name": "functions, search, select non-match",
@@ -6017,6 +6942,10 @@
         {
           "a": "bc"
         }
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6027,7 +6956,11 @@
           "a": "bc"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "search"
+      ]
     },
     {
       "name": "functions, search, non-string second arg",
@@ -6037,7 +6970,11 @@
           "a": "bc"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "search"
+      ]
     },
     {
       "name": "functions, search, filter, search function, unicode char class, uppercase",
@@ -6054,6 +6991,10 @@
       "result": [
         "Ж",
         "жЖ"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6070,6 +7011,10 @@
       "result": [
         "ж",
         "1"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6085,6 +7030,10 @@
       ],
       "result": [
         "a𐄁bc"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6102,6 +7051,10 @@
       "result": [
         " ",
         "\r \n"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6119,22 +7072,38 @@
       "result": [
         " ",
         "\r \n"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
       "name": "functions, search, result cannot be compared",
       "selector": "$[?search(@.a, 'a.*')==true]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "search"
+      ]
     },
     {
       "name": "functions, search, too few params",
       "selector": "$[?search(@.a)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "search"
+      ]
     },
     {
       "name": "functions, search, too many params",
       "selector": "$[?search(@.a,@.b,@.c)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "search"
+      ]
     },
     {
       "name": "functions, search, arg is a function expression",
@@ -6157,6 +7126,10 @@
         "bab",
         "bba",
         "bbab"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6170,6 +7143,10 @@
       "result": [
         "x abc y",
         "x a.c y"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6182,6 +7159,10 @@
       ],
       "result": [
         "x a.c y"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6195,6 +7176,10 @@
       ],
       "result": [
         "x a\\ c y"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6207,6 +7192,10 @@
       ],
       "result": [
         "x a[ c y"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6221,6 +7210,10 @@
       "result": [
         "x a.c y",
         "x a]c y"
+      ],
+      "tags": [
+        "function",
+        "search"
       ]
     },
     {
@@ -6248,6 +7241,10 @@
         {
           "foo": 4
         }
+      ],
+      "tags": [
+        "function",
+        "value"
       ]
     },
     {
@@ -6263,22 +7260,38 @@
           "bar": 4
         }
       ],
-      "result": []
+      "result": [],
+      "tags": [
+        "function",
+        "value"
+      ]
     },
     {
       "name": "functions, value, too few params",
       "selector": "$[?value()==4]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "value"
+      ]
     },
     {
       "name": "functions, value, too many params",
       "selector": "$[?value(@.a,@.b)==4]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "value"
+      ]
     },
     {
       "name": "functions, value, result must be compared",
       "selector": "$[?value(@.a)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "value"
+      ]
     },
     {
       "name": "whitespace, filter, space between question mark and expression",
@@ -6298,6 +7311,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6318,6 +7334,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6338,6 +7357,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6358,6 +7380,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6378,6 +7403,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6398,6 +7426,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6418,6 +7449,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6438,6 +7472,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6458,6 +7495,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6478,6 +7518,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6498,6 +7541,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6518,6 +7564,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6538,6 +7587,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6558,6 +7610,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6578,6 +7633,9 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -6598,27 +7656,50 @@
           "a": "b",
           "d": "e"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
       "name": "whitespace, functions, space between function name and parenthesis",
       "selector": "$[?count (@.*)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, functions, newline between function name and parenthesis",
       "selector": "$[?count\n(@.*)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, functions, tab between function name and parenthesis",
       "selector": "$[?count\t(@.*)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, functions, return between function name and parenthesis",
       "selector": "$[?count\r(@.*)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, functions, space between parenthesis and arg",
@@ -6642,6 +7723,11 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
       ]
     },
     {
@@ -6666,6 +7752,11 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
       ]
     },
     {
@@ -6690,6 +7781,11 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
       ]
     },
     {
@@ -6714,6 +7810,11 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
       ]
     },
     {
@@ -6725,6 +7826,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6736,6 +7842,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6747,6 +7858,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6758,6 +7874,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6769,6 +7890,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6780,6 +7906,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6791,6 +7922,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6802,6 +7938,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6826,6 +7967,11 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "function",
+        "search",
+        "whitespace"
       ]
     },
     {
@@ -6850,6 +7996,11 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
       ]
     },
     {
@@ -6874,6 +8025,11 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
       ]
     },
     {
@@ -6898,6 +8054,11 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "count",
+        "function",
+        "whitespace"
       ]
     },
     {
@@ -6917,6 +8078,11 @@
             "b": "foo"
           }
         }
+      ],
+      "tags": [
+        "function",
+        "length",
+        "whitespace"
       ]
     },
     {
@@ -6936,6 +8102,11 @@
             "b": "foo"
           }
         }
+      ],
+      "tags": [
+        "function",
+        "length",
+        "whitespace"
       ]
     },
     {
@@ -6955,6 +8126,11 @@
             "b": "foo"
           }
         }
+      ],
+      "tags": [
+        "function",
+        "length",
+        "whitespace"
       ]
     },
     {
@@ -6974,6 +8150,11 @@
             "b": "foo"
           }
         }
+      ],
+      "tags": [
+        "function",
+        "length",
+        "whitespace"
       ]
     },
     {
@@ -6987,6 +8168,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "length",
+        "whitespace"
       ]
     },
     {
@@ -7000,6 +8186,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "length",
+        "whitespace"
       ]
     },
     {
@@ -7013,6 +8204,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "length",
+        "whitespace"
       ]
     },
     {
@@ -7026,6 +8222,11 @@
       ],
       "result": [
         "foo"
+      ],
+      "tags": [
+        "function",
+        "length",
+        "whitespace"
       ]
     },
     {
@@ -7049,6 +8250,9 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7072,6 +8276,9 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7095,6 +8302,9 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7118,6 +8328,9 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7141,6 +8354,9 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7164,6 +8380,9 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7187,6 +8406,9 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7210,6 +8432,9 @@
         {
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7232,6 +8457,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7254,6 +8482,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7276,6 +8507,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7298,6 +8532,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7320,6 +8557,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7342,6 +8582,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7364,6 +8607,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7386,6 +8632,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7406,6 +8655,9 @@
           "a": 1,
           "b": 1
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7426,6 +8678,9 @@
           "a": 1,
           "b": 1
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7446,6 +8701,9 @@
           "a": 1,
           "b": 1
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7466,6 +8724,9 @@
           "a": 1,
           "b": 1
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7486,6 +8747,9 @@
           "a": 1,
           "b": 1
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7506,6 +8770,9 @@
           "a": 1,
           "b": 1
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7526,6 +8793,9 @@
           "a": 1,
           "b": 1
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7546,6 +8816,9 @@
           "a": 1,
           "b": 1
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7566,6 +8839,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7586,6 +8862,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7606,6 +8885,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7626,6 +8908,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7646,6 +8931,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7666,6 +8954,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7686,6 +8977,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7706,6 +9000,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7726,6 +9023,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7746,6 +9046,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7766,6 +9069,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7786,6 +9092,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7806,6 +9115,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7826,6 +9138,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7846,6 +9161,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7866,6 +9184,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7886,6 +9207,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7906,6 +9230,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7926,6 +9253,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7946,6 +9276,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7966,6 +9299,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -7986,6 +9322,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8006,6 +9345,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8026,6 +9368,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8054,6 +9399,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8082,6 +9430,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8110,6 +9461,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8138,6 +9492,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8166,6 +9523,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8194,6 +9554,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8222,6 +9585,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8250,6 +9616,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8278,6 +9647,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8306,6 +9678,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8334,6 +9709,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8362,6 +9740,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8390,6 +9771,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8418,6 +9802,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8446,6 +9833,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8474,6 +9864,9 @@
           "a": 1,
           "b": 2
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8496,6 +9889,9 @@
         {
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8518,6 +9914,9 @@
         {
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8540,6 +9939,9 @@
         {
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8562,6 +9964,9 @@
         {
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8590,6 +9995,9 @@
           "a": "d",
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8618,6 +10026,9 @@
           "a": "d",
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8646,6 +10057,9 @@
           "a": "d",
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8674,6 +10088,9 @@
           "a": "d",
           "d": "f"
         }
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8684,6 +10101,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8694,6 +10114,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8704,6 +10127,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8714,6 +10140,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8726,6 +10155,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8738,6 +10170,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8750,6 +10185,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8762,6 +10200,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8772,6 +10213,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8782,6 +10226,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8792,6 +10239,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8802,47 +10252,74 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
       "name": "whitespace, selectors, space between dot and name",
       "selector": "$. a",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, selectors, newline between dot and name",
       "selector": "$.\na",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, selectors, tab between dot and name",
       "selector": "$.\ta",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, selectors, return between dot and name",
       "selector": "$.\ra",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, selectors, space between recursive descent and name",
       "selector": "$.. a",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, selectors, newline between recursive descent and name",
       "selector": "$..\na",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, selectors, tab between recursive descent and name",
       "selector": "$..\ta",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, selectors, return between recursive descent and name",
       "selector": "$..\ra",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "whitespace, selectors, space between bracket and selector",
@@ -8852,6 +10329,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8862,6 +10342,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8872,6 +10355,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8882,6 +10368,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8892,6 +10381,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8902,6 +10394,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8912,6 +10407,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8922,6 +10420,9 @@
       },
       "result": [
         "ab"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8934,6 +10435,9 @@
       "result": [
         "ab",
         "bc"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8946,6 +10450,9 @@
       "result": [
         "ab",
         "bc"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8958,6 +10465,9 @@
       "result": [
         "ab",
         "bc"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8970,6 +10480,9 @@
       "result": [
         "ab",
         "bc"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8982,6 +10495,9 @@
       "result": [
         "ab",
         "bc"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -8994,6 +10510,9 @@
       "result": [
         "ab",
         "bc"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -9006,6 +10525,9 @@
       "result": [
         "ab",
         "bc"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -9018,6 +10540,9 @@
       "result": [
         "ab",
         "bc"
+      ],
+      "tags": [
+        "whitespace"
       ]
     },
     {
@@ -9034,6 +10559,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9050,6 +10579,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9066,6 +10599,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9082,6 +10619,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9098,6 +10639,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9114,6 +10659,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9130,6 +10679,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9146,6 +10699,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9162,6 +10719,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9178,6 +10739,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9194,6 +10759,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9210,6 +10779,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9226,6 +10799,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9242,6 +10819,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9258,6 +10839,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     },
     {
@@ -9274,6 +10859,10 @@
       "result": [
         2,
         4
+      ],
+      "tags": [
+        "index",
+        "whitespace"
       ]
     }
   ]

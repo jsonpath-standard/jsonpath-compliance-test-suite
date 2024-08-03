@@ -37,6 +37,9 @@
         },
         "invalid_selector": {
           "$ref": "#/$defs/invalid_selector"
+        },
+        "tags": {
+          "$ref": "#/$defs/tags"
         }
       },
       "required": [
@@ -94,6 +97,13 @@
     "selector": {
       "description": "The JSONPath selector",
       "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\S.*\\S$"
+      }
     },
     "document": {
       "description": "The document, the selector is applied to"

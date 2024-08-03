@@ -36,7 +36,8 @@
           ],
           "d": "f"
         }
-      ]
+      ],
+      "tags": ["function", "count"]
     },
     {
       "name": "single-node arg",
@@ -60,7 +61,8 @@
           "d": "f"
         }
       ],
-      "result": []
+      "result": [],
+      "tags": ["function", "count"]
     },
     {
       "name": "multiple-selector arg",
@@ -95,47 +97,56 @@
           "a": 1,
           "d": "f"
         }
-      ]
+      ],
+      "tags": ["function", "count"]
     },
     {
       "name": "non-query arg, number",
       "selector": "$[?count(1)>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["function", "count"]
     },
     {
       "name": "non-query arg, string",
       "selector": "$[?count('string')>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["function", "count"]
     },
     {
       "name": "non-query arg, true",
       "selector": "$[?count(true)>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["function", "count"]
     },
     {
       "name": "non-query arg, false",
       "selector": "$[?count(false)>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["function", "count"]
     },
     {
       "name": "non-query arg, null",
       "selector": "$[?count(null)>2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["function", "count"]
     },
     {
       "name": "result must be compared",
       "selector": "$[?count(@..*)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["function", "count"]
     },
     {
       "name": "no params",
       "selector": "$[?count()==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["function", "count"]
     },
     {
       "name": "too many params",
       "selector": "$[?count(@.a,@.b)==1]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["function", "count"]
     }
   ]
 }
