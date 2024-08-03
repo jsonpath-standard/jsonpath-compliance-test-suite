@@ -611,25 +611,69 @@
       ]
     },
     {
-      "name": "min exact",
+      "name": "start, min exact",
+      "selector": "$[-9007199254740991::]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "start, max exact",
+      "selector": "$[9007199254740991::]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "start, min exact - 1",
+      "selector": "$[-9007199254740992::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "start, max exact + 1",
+      "selector": "$[9007199254740992::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "end, min exact",
       "selector": "$[:-9007199254740991:]",
       "document": [],
       "result": []
     },
     {
-      "name": "max exact",
+      "name": "end, max exact",
       "selector": "$[:9007199254740991:]",
       "document": [],
       "result": []
     },
     {
-      "name": "min exact - 1",
+      "name": "end, min exact - 1",
       "selector": "$[:-9007199254740992:]",
       "invalid_selector": true
     },
     {
-      "name": "max exact + 1",
+      "name": "end, max exact + 1",
       "selector": "$[:9007199254740992:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "step, min exact",
+      "selector": "$[::-9007199254740991]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "step, max exact",
+      "selector": "$[::9007199254740991]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "step, min exact - 1",
+      "selector": "$[::-9007199254740992]",
+      "invalid_selector": true
+    },
+    {
+      "name": "step, max exact + 1",
+      "selector": "$[::9007199254740992]",
       "invalid_selector": true
     },
     {
@@ -663,33 +707,93 @@
       "invalid_selector": true
     },
     {
-      "name": "leading 0",
+      "name": "start, leading 0",
+      "selector": "$[01::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "start, decimal",
+      "selector": "$[1.0::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "start, plus",
+      "selector": "$[+1::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "start, minus space",
+      "selector": "$[- 1::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "start, -0",
+      "selector": "$[-0::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "start, leading -0",
+      "selector": "$[-01::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "end, leading 0",
       "selector": "$[:01:]",
       "invalid_selector": true
     },
     {
-      "name": "decimal",
+      "name": "end, decimal",
       "selector": "$[:1.0:]",
       "invalid_selector": true
     },
     {
-      "name": "plus",
+      "name": "end, plus",
       "selector": "$[:+1:]",
       "invalid_selector": true
     },
     {
-      "name": "minus space",
+      "name": "end, minus space",
       "selector": "$[:- 1:]",
       "invalid_selector": true
     },
     {
-      "name": "-0",
+      "name": "end, -0",
       "selector": "$[:-0:]",
       "invalid_selector": true
     },
     {
-      "name": "leading -0",
+      "name": "end, leading -0",
       "selector": "$[:-01:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "step, leading 0",
+      "selector": "$[::01]",
+      "invalid_selector": true
+    },
+    {
+      "name": "step, decimal",
+      "selector": "$[::1.0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "step, plus",
+      "selector": "$[::+1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "step, minus space",
+      "selector": "$[::- 1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "step, -0",
+      "selector": "$[::-0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "step, leading -0",
+      "selector": "$[::-01]",
       "invalid_selector": true
     }
   ]
