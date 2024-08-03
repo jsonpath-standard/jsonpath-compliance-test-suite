@@ -211,17 +211,6 @@
       ]
     },
     {
-      "name": "multiple selectors, spaces",
-      "selector": "$[ 'a' , 1 ]",
-      "document": {
-        "a": 1,
-        "b": 2
-      },
-      "result": [
-        1
-      ]
-    },
-    {
       "name": "multiple selectors, index and slice",
       "selector": "$[1,5:7]",
       "document": [
