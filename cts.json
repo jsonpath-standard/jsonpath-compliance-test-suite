@@ -178,6 +178,16 @@
       "invalid_selector": true
     },
     {
+      "name": "basic, selector, leading comma",
+      "selector": "$[,0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "basic, selector, trailing comma",
+      "selector": "$[0,]",
+      "invalid_selector": true
+    },
+    {
       "name": "basic, multiple selectors, name and index, array data",
       "selector": "$['a',1]",
       "document": [
@@ -3530,6 +3540,34 @@
       "result": []
     },
     {
+      "name": "index selector, min exact index",
+      "selector": "$[-9007199254740991]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": []
+    },
+    {
+      "name": "index selector, max exact index",
+      "selector": "$[9007199254740991]",
+      "document": [
+        "first",
+        "second"
+      ],
+      "result": []
+    },
+    {
+      "name": "index selector, min exact index - 1",
+      "selector": "$[-9007199254740992]",
+      "invalid_selector": true
+    },
+    {
+      "name": "index selector, max exact index + 1",
+      "selector": "$[9007199254740992]",
+      "invalid_selector": true
+    },
+    {
       "name": "index selector, overflowing index",
       "selector": "$[231584178474632390847141970017375815706539969331281128078915168015826259279872]",
       "invalid_selector": true
@@ -3581,6 +3619,26 @@
     {
       "name": "index selector, leading 0",
       "selector": "$[01]",
+      "invalid_selector": true
+    },
+    {
+      "name": "index selector, decimal",
+      "selector": "$[1.0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "index selector, plus",
+      "selector": "$[+1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "index selector, minus space",
+      "selector": "$[- 1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "index selector, -0",
+      "selector": "$[-0]",
       "invalid_selector": true
     },
     {
@@ -5006,6 +5064,72 @@
       ]
     },
     {
+      "name": "slice selector, start, min exact",
+      "selector": "$[-9007199254740991::]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "slice selector, start, max exact",
+      "selector": "$[9007199254740991::]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "slice selector, start, min exact - 1",
+      "selector": "$[-9007199254740992::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, start, max exact + 1",
+      "selector": "$[9007199254740992::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, end, min exact",
+      "selector": "$[:-9007199254740991:]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "slice selector, end, max exact",
+      "selector": "$[:9007199254740991:]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "slice selector, end, min exact - 1",
+      "selector": "$[:-9007199254740992:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, end, max exact + 1",
+      "selector": "$[:9007199254740992:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, step, min exact",
+      "selector": "$[::-9007199254740991]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "slice selector, step, max exact",
+      "selector": "$[::9007199254740991]",
+      "document": [],
+      "result": []
+    },
+    {
+      "name": "slice selector, step, min exact - 1",
+      "selector": "$[::-9007199254740992]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, step, max exact + 1",
+      "selector": "$[::9007199254740992]",
+      "invalid_selector": true
+    },
+    {
       "name": "slice selector, overflowing to value",
       "selector": "$[2:231584178474632390847141970017375815706539969331281128078915168015826259279872]",
       "invalid_selector": true
@@ -5033,6 +5157,96 @@
     {
       "name": "slice selector, underflowing step",
       "selector": "$[-1:-10:-231584178474632390847141970017375815706539969331281128078915168015826259279872]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, start, leading 0",
+      "selector": "$[01::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, start, decimal",
+      "selector": "$[1.0::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, start, plus",
+      "selector": "$[+1::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, start, minus space",
+      "selector": "$[- 1::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, start, -0",
+      "selector": "$[-0::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, start, leading -0",
+      "selector": "$[-01::]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, end, leading 0",
+      "selector": "$[:01:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, end, decimal",
+      "selector": "$[:1.0:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, end, plus",
+      "selector": "$[:+1:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, end, minus space",
+      "selector": "$[:- 1:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, end, -0",
+      "selector": "$[:-0:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, end, leading -0",
+      "selector": "$[:-01:]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, step, leading 0",
+      "selector": "$[::01]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, step, decimal",
+      "selector": "$[::1.0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, step, plus",
+      "selector": "$[::+1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, step, minus space",
+      "selector": "$[::- 1]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, step, -0",
+      "selector": "$[::-0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "slice selector, step, leading -0",
+      "selector": "$[::-01]",
       "invalid_selector": true
     },
     {
