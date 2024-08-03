@@ -171,6 +171,16 @@
       "invalid_selector": true
     },
     {
+      "name": "selector, leading comma",
+      "selector": "$[,0]",
+      "invalid_selector": true
+    },
+    {
+      "name": "selector, trailing comma",
+      "selector": "$[0,]",
+      "invalid_selector": true
+    },
+    {
       "name": "multiple selectors, name and index, array data",
       "selector": "$['a',1]",
       "document": [
