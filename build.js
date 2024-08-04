@@ -91,16 +91,20 @@ function buildTestSuite(testsFolder, tags, all, exclude) {
         ? list => tags.every(t => list.includes(t))
         : list => tags.some(t => list.includes(t))
     const tests = readTestsFromDir(testsFolder)
-        .filter(test => tags.length === 0 || (!tagFilter('tags' in test ? test.tags : []) !== !exclude));
+        .filter(test => tags.length === 0 || (tagFilter(getTags(test)) !== exclude));
     tests.forEach(test => {
         if ('tags' in test) test.tags.sort();
     });
     const cts = {'description': description, 'tests': tests};
     console.log(JSON.stringify(cts, null, jsonIndent));
-    const allTags = Array.from(new Set(tests.flatMap(test => 'tags' in test ? test.tags : [])));
+    const allTags = Array.from(new Set(tests.flatMap(getTags)));
     allTags.sort();
     console.error(`Wrote ${tests.length} tests to stdout.`);
     console.error(`Tags (${allTags.length}): ${allTags.join(', ')}`);
+
+    function getTags(test) {
+        return 'tags' in test ? test.tags : [];
+    }
 }
 
 /**
