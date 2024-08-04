@@ -17,12 +17,14 @@
     {
       "name": "no leading whitespace",
       "selector": " $",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "no trailing whitespace",
       "selector": "$ ",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "name shorthand",
@@ -168,7 +170,8 @@
     {
       "name": "multiple selectors, space instead of comma",
       "selector": "$[0 2]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "selector, leading comma",

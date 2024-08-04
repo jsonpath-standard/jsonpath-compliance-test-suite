@@ -33,6 +33,45 @@ To add or modify tests:
 
 Do not modify `cts.json` directly!
 
+
+### Tags
+
+When adding a new test, please tag it with the appropriate tags. The full list of tags
+is printed (to stderr) when running the build script. Please use the
+existing tags where possible, and add new tags as needed.
+
+You can build a subset of the test suite by specifying the tags you want to include.
+
+_Example 1._ Build only the tests tagged with `index` OR `whitespace` (or both):
+
+``` shell
+node build.js -t index -t whitespace
+```
+
+_Example 2._ Build only the tests tagged with `index` AND `whitespace`:
+
+``` shell
+node build.js -t index -t whitespace -a
+```
+
+Example 3. Build only tests NOT tagged with `index`:
+
+``` shell
+node build.js -t index -e
+```
+
+Example 4. Exclude tests tagged with BOTH `index` AND `whitespace`:
+
+``` shell
+node build.js -t index -t whitespace -t error -e -a
+```
+
+### Checking for potential duplicates
+
+As the test suite grows, it is becoming harder to check for potential duplicates. One way to help with this is to see
+which tests are tagged with the same tags.
+
+
 ### Staying In Sync With Upstream
 
 When your branch gets out of sync with the jsonpath-standard/jsonpath-compliance-test-suite/main branch, use the following to update:

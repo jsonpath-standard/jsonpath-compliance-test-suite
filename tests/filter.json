@@ -576,47 +576,56 @@
     {
       "name": "relative non-singular query, index, equal",
       "selector": "$[?(@[0, 0]==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, index, not equal",
       "selector": "$[?(@[0, 0]!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, index, less-or-equal",
       "selector": "$[?(@[0, 0]<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, name, equal",
       "selector": "$[?(@['a', 'a']==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, name, not equal",
       "selector": "$[?(@['a', 'a']!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, name, less-or-equal",
       "selector": "$[?(@['a', 'a']<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, combined, equal",
       "selector": "$[?(@[0, '0']==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, combined, not equal",
       "selector": "$[?(@[0, '0']!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, combined, less-or-equal",
       "selector": "$[?(@[0, '0']<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "relative non-singular query, wildcard, equal",
@@ -651,47 +660,56 @@
     {
       "name": "absolute non-singular query, index, equal",
       "selector": "$[?($[0, 0]==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, index, not equal",
       "selector": "$[?($[0, 0]!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, index, less-or-equal",
       "selector": "$[?($[0, 0]<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, name, equal",
       "selector": "$[?($['a', 'a']==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, name, not equal",
       "selector": "$[?($['a', 'a']!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, name, less-or-equal",
       "selector": "$[?($['a', 'a']<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, combined, equal",
       "selector": "$[?($[0, '0']==42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, combined, not equal",
       "selector": "$[?($[0, '0']!=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, combined, less-or-equal",
       "selector": "$[?($[0, '0']<=42)]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "absolute non-singular query, wildcard, equal",
@@ -787,7 +805,8 @@
         {"b": "c", "d": "f"},
         {"a": "b", "d": "e"},
         {"b": "c", "d": "f"}
-      ]
+      ],
+      "tags": ["whitespace"]
     },
     {
       "name": "equals number, zero and negative zero",
@@ -1041,7 +1060,8 @@
       "result": [
         {"b": 2},
         {"c": 3}
-      ]
+      ],
+      "tags": ["whitespace"]
     },
     {
       "name": "object data",
@@ -1064,7 +1084,8 @@
         {"a": 1},
         {"b": 2, "c": 3},
         {"a": 1, "b": 2, "c": 3}
-      ]
+      ],
+      "tags": ["whitespace"]
     },
     {
       "name": "left to right evaluation",
@@ -1076,7 +1097,8 @@
         {"b": 1, "c": 3},
         {"c": 3},
         {"a": 1, "b": 2, "c": 3}
-      ]
+      ],
+      "tags": ["whitespace"]
     },
     {
       "name": "group terms, left",
@@ -1086,7 +1108,8 @@
         {"a": 1, "c": 3},
         {"b": 2, "c": 3},
         {"a": 1, "b": 2, "c": 3}
-      ]
+      ],
+      "tags": ["whitespace"]
     },
     {
       "name": "group terms, right",
@@ -1096,7 +1119,8 @@
         {"a": 1, "b": 2},
         {"a": 1, "c": 2},
         {"a": 1, "b": 2, "c": 3}
-      ]
+      ],
+      "tags": ["whitespace"]
     },
     {
       "name": "string literal, single quote in double quotes",
@@ -1108,19 +1132,22 @@
       "name": "string literal, double quote in single quotes",
       "selector" : "$[?@ == 'quoted\" literal']",
       "document" : ["quoted\" literal", "a", "quoted\\\" literal", "'quoted\" literal'"],
-      "result": ["quoted\" literal"]
+      "result": ["quoted\" literal"],
+      "tags": ["whitespace"]
     },
     {
       "name": "string literal, escaped single quote in single quotes",
       "selector" : "$[?@ == 'quoted\\' literal']",
       "document" : ["quoted' literal", "a", "quoted\\' literal", "'quoted\" literal'"],
-      "result": ["quoted' literal"]
+      "result": ["quoted' literal"],
+      "tags": ["whitespace"]
     },
     {
       "name": "string literal, escaped double quote in double quotes",
       "selector" : "$[?@ == \"quoted\\\" literal\"]",
       "document" : ["quoted\" literal", "a", "quoted\\\" literal", "'quoted\" literal'"],
-      "result": ["quoted\" literal"]
+      "result": ["quoted\" literal"],
+      "tags": ["whitespace"]
     },
     {
       "name": "literal true must be compared",
@@ -1155,47 +1182,56 @@
     {
       "name": "and, literals must be compared",
       "selector" : "$[?true && false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "or, literals must be compared",
       "selector" : "$[?true || false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "and, right hand literal must be compared",
       "selector" : "$[?true == false && false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "or, right hand literal must be compared",
       "selector" : "$[?true == false || false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "and, left hand literal must be compared",
       "selector" : "$[?false && true == false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "or, left hand literal must be compared",
       "selector" : "$[?false || true == false]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["whitespace"]
     },
     {
       "name": "true, incorrectly capitalized",
       "selector" : "$[?@==True]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["case"]
     },
     {
       "name": "false, incorrectly capitalized",
       "selector" : "$[?@==False]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["case"]
     },
     {
       "name": "null, incorrectly capitalized",
       "selector" : "$[?@==Null]",
-      "invalid_selector": true
+      "invalid_selector": true,
+      "tags": ["case"]
     }
   ]
 }
