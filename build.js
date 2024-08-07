@@ -62,13 +62,16 @@ const usage = [
     '  -e, --exclude        Flag to exclude the specified tags instead of including them.',
 ]
 
+const exitCodeUsageError = 1;
+const exitCodeDuplicateNames = 2;
+
 main()
 
 function main() {
     const {values, positionals} = parseArgs({options, allowPositionals: true});
     if (positionals.length !== 1) {
         usage.forEach(line => console.error(line));
-        process.exit(1);
+        process.exit(exitCodeUsageError);
     }
     const [testsFolder] = positionals;
     buildTestSuite(testsFolder, values['tag'], values['require-all'], values['exclude']);
@@ -90,8 +93,10 @@ function buildTestSuite(testsFolder, tags, all, exclude) {
     const tagFilter = all
         ? list => tags.every(t => list.includes(t))
         : list => tags.some(t => list.includes(t))
-    const tests = readTestsFromDir(testsFolder)
-        .filter(test => tags.length === 0 || (tagFilter(getTags(test)) !== exclude));
+    let tests = readTestsFromDir(testsFolder);
+    checkDuplicateNames(tests);
+
+    tests = tests.filter(test => tags.length === 0 || (tagFilter(getTags(test)) !== exclude));
     tests.forEach(test => {
         if ('tags' in test) test.tags.sort();
     });
@@ -194,3 +199,27 @@ function prependToTestName(prefix) {
     };
 }
 
+/**
+ * Verifies that no tests have duplicate names.
+ * @param allTests - The list of all tests.
+ */
+function checkDuplicateNames(allTests) {
+    const names = new Set();
+    const duplicates = [];
+
+    for (const test of allTests) {
+        const name = test.name;
+
+        if (names.has(name)) {
+            duplicates.push(name);
+        } else {
+            names.add(name);
+        }
+    }
+
+    if (duplicates.length > 0) {
+        duplicates.sort();
+        console.error(['Error: Duplicate test names:', ...duplicates].join('\n '));
+        process.exit(exitCodeDuplicateNames);
+    }
+}

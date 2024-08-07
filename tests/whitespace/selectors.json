@@ -36,21 +36,21 @@
       "tags": ["whitespace"]
     },
     {
-      "name": "newline between root and bracket",
+      "name": "newline between bracket and bracket",
       "selector" : "$['a'] \n['b']",
       "document" : {"a": {"b": "ab"} },
       "result": [ "ab" ],
       "tags": ["whitespace"]
     },
     {
-      "name": "tab between root and bracket",
+      "name": "tab between bracket and bracket",
       "selector" : "$['a'] \t['b']",
       "document" : {"a": {"b": "ab"} },
       "result": [ "ab" ],
       "tags": ["whitespace"]
     },
     {
-      "name": "return between root and bracket",
+      "name": "return between bracket and bracket",
       "selector" : "$['a'] \r['b']",
       "document" : {"a": {"b": "ab"} },
       "result": [ "ab" ],
