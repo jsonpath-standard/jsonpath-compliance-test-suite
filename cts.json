@@ -10161,7 +10161,7 @@
       ]
     },
     {
-      "name": "whitespace, selectors, newline between root and bracket",
+      "name": "whitespace, selectors, newline between bracket and bracket",
       "selector": "$['a'] \n['b']",
       "document": {
         "a": {
@@ -10176,7 +10176,7 @@
       ]
     },
     {
-      "name": "whitespace, selectors, tab between root and bracket",
+      "name": "whitespace, selectors, tab between bracket and bracket",
       "selector": "$['a'] \t['b']",
       "document": {
         "a": {
@@ -10191,7 +10191,7 @@
       ]
     },
     {
-      "name": "whitespace, selectors, return between root and bracket",
+      "name": "whitespace, selectors, return between bracket and bracket",
       "selector": "$['a'] \r['b']",
       "document": {
         "a": {
