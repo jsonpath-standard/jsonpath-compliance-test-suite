@@ -746,6 +746,48 @@
       ]
     },
     {
+      "name": "filter, absolute existence, without segments",
+      "selector": "$[?$]",
+      "document": {
+        "a": 1,
+        "b": null
+      },
+      "results": [
+        [
+          1,
+          null
+        ],
+        [
+          null,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "filter, absolute existence, with segments",
+      "selector": "$[?$.*.a]",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ],
+      "result": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "b": "c",
+          "d": "f"
+        }
+      ]
+    },
+    {
       "name": "filter, equals string, single quotes",
       "selector": "$[?@.a=='b']",
       "document": [
@@ -930,6 +972,32 @@
     {
       "name": "filter, equals self",
       "selector": "$[?@==@]",
+      "document": [
+        1,
+        null,
+        true,
+        {
+          "a": "b"
+        },
+        [
+          false
+        ]
+      ],
+      "result": [
+        1,
+        null,
+        true,
+        {
+          "a": "b"
+        },
+        [
+          false
+        ]
+      ]
+    },
+    {
+      "name": "filter, absolute, equals self",
+      "selector": "$[?$==$]",
       "document": [
         1,
         null,
