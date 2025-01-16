@@ -3270,6 +3270,9 @@
         {
           "a": null
         }
+      ],
+      "tags": [
+        "function"
       ]
     },
     {
@@ -3315,6 +3318,7 @@
         }
       ],
       "tags": [
+        "function",
         "whitespace"
       ]
     },
