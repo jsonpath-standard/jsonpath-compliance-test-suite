@@ -37,7 +37,14 @@
           "d": "f"
         }
       ],
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
+      ]
     },
     {
       "name": "single-node arg",
@@ -62,7 +69,11 @@
         }
       ],
       "result": [],
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ],
+      "result_paths": []
     },
     {
       "name": "multiple-selector arg",
@@ -98,55 +109,86 @@
           "d": "f"
         }
       ],
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ],
+      "result_paths": [
+        "$[1]",
+        "$[2]"
+      ]
     },
     {
       "name": "non-query arg, number",
       "selector": "$[?count(1)>2]",
       "invalid_selector": true,
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ]
     },
     {
       "name": "non-query arg, string",
       "selector": "$[?count('string')>2]",
       "invalid_selector": true,
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ]
     },
     {
       "name": "non-query arg, true",
       "selector": "$[?count(true)>2]",
       "invalid_selector": true,
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ]
     },
     {
       "name": "non-query arg, false",
       "selector": "$[?count(false)>2]",
       "invalid_selector": true,
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ]
     },
     {
       "name": "non-query arg, null",
       "selector": "$[?count(null)>2]",
       "invalid_selector": true,
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ]
     },
     {
       "name": "result must be compared",
       "selector": "$[?count(@..*)]",
       "invalid_selector": true,
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ]
     },
     {
       "name": "no params",
       "selector": "$[?count()==1]",
       "invalid_selector": true,
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ]
     },
     {
       "name": "too many params",
       "selector": "$[?count(@.a,@.b)==1]",
       "invalid_selector": true,
-      "tags": ["function", "count"]
+      "tags": [
+        "function",
+        "count"
+      ]
     }
   ]
 }

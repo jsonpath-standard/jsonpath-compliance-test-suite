@@ -19,7 +19,13 @@
         1,
         2
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[1]",
+        "$[2]"
+      ]
     },
     {
       "name": "slice selector with step",
@@ -41,7 +47,14 @@
         3,
         5
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[1]",
+        "$[3]",
+        "$[5]"
+      ]
     },
     {
       "name": "slice selector with everything omitted, short form",
@@ -58,7 +71,15 @@
         2,
         3
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]"
+      ]
     },
     {
       "name": "slice selector with everything omitted, long form",
@@ -75,7 +96,15 @@
         2,
         3
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]"
+      ]
     },
     {
       "name": "slice selector with start omitted",
@@ -96,7 +125,13 @@
         0,
         1
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
+      ]
     },
     {
       "name": "slice selector with start and end omitted",
@@ -120,7 +155,16 @@
         6,
         8
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[2]",
+        "$[4]",
+        "$[6]",
+        "$[8]"
+      ]
     },
     {
       "name": "negative step with default start and end",
@@ -137,7 +181,15 @@
         1,
         0
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[3]",
+        "$[2]",
+        "$[1]",
+        "$[0]"
+      ]
     },
     {
       "name": "negative step with default start",
@@ -153,7 +205,14 @@
         2,
         1
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[3]",
+        "$[2]",
+        "$[1]"
+      ]
     },
     {
       "name": "negative step with default end",
@@ -169,7 +228,14 @@
         1,
         0
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[2]",
+        "$[1]",
+        "$[0]"
+      ]
     },
     {
       "name": "larger negative step",
@@ -184,7 +250,13 @@
         3,
         1
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[3]",
+        "$[1]"
+      ]
     },
     {
       "name": "negative range with default step",
@@ -202,7 +274,10 @@
         9
       ],
       "result": [],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": []
     },
     {
       "name": "negative range with negative step",
@@ -223,7 +298,13 @@
         9,
         8
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[9]",
+        "$[8]"
+      ]
     },
     {
       "name": "negative range with larger negative step",
@@ -245,7 +326,14 @@
         7,
         5
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[9]",
+        "$[7]",
+        "$[5]"
+      ]
     },
     {
       "name": "larger negative range with larger negative step",
@@ -267,7 +355,14 @@
         7,
         5
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[9]",
+        "$[7]",
+        "$[5]"
+      ]
     },
     {
       "name": "negative from, positive to",
@@ -288,7 +383,13 @@
         5,
         6
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[5]",
+        "$[6]"
+      ]
     },
     {
       "name": "negative from",
@@ -309,7 +410,13 @@
         8,
         9
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[8]",
+        "$[9]"
+      ]
     },
     {
       "name": "positive from, negative to",
@@ -336,7 +443,19 @@
         7,
         8
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[1]",
+        "$[2]",
+        "$[3]",
+        "$[4]",
+        "$[5]",
+        "$[6]",
+        "$[7]",
+        "$[8]"
+      ]
     },
     {
       "name": "negative from, positive to, negative step",
@@ -363,7 +482,19 @@
         3,
         2
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[9]",
+        "$[8]",
+        "$[7]",
+        "$[6]",
+        "$[5]",
+        "$[4]",
+        "$[3]",
+        "$[2]"
+      ]
     },
     {
       "name": "positive from, negative to, negative step",
@@ -384,19 +515,29 @@
         7,
         6
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[7]",
+        "$[6]"
+      ]
     },
     {
       "name": "too many colons",
       "selector": "$[1:2:3:4]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "non-integer array index",
       "selector": "$[1:2:a]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "zero step",
@@ -414,7 +555,10 @@
         9
       ],
       "result": [],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": []
     },
     {
       "name": "empty range",
@@ -432,21 +576,30 @@
         9
       ],
       "result": [],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": []
     },
     {
       "name": "slice selector with everything omitted with empty array",
       "selector": "$[:]",
       "document": [],
       "result": [],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": []
     },
     {
       "name": "negative step with empty array",
       "selector": "$[::-1]",
       "document": [],
       "result": [],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": []
     },
     {
       "name": "maximal range with positive step",
@@ -475,7 +628,21 @@
         8,
         9
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]",
+        "$[4]",
+        "$[5]",
+        "$[6]",
+        "$[7]",
+        "$[8]",
+        "$[9]"
+      ]
     },
     {
       "name": "maximal range with negative step",
@@ -503,7 +670,20 @@
         2,
         1
       ],
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ],
+      "result_paths": [
+        "$[9]",
+        "$[8]",
+        "$[7]",
+        "$[6]",
+        "$[5]",
+        "$[4]",
+        "$[3]",
+        "$[2]",
+        "$[1]"
+      ]
     },
     {
       "name": "excessively large to value",
@@ -530,7 +710,20 @@
         8,
         9
       ],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": [
+        "$[2]",
+        "$[3]",
+        "$[4]",
+        "$[5]",
+        "$[6]",
+        "$[7]",
+        "$[8]",
+        "$[9]"
+      ]
     },
     {
       "name": "excessively small from value",
@@ -550,7 +743,13 @@
       "result": [
         0
       ],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": [
+        "$[0]"
+      ]
     },
     {
       "name": "excessively large from value with negative step",
@@ -578,7 +777,21 @@
         2,
         1
       ],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": [
+        "$[9]",
+        "$[8]",
+        "$[7]",
+        "$[6]",
+        "$[5]",
+        "$[4]",
+        "$[3]",
+        "$[2]",
+        "$[1]"
+      ]
     },
     {
       "name": "excessively small to value with negative step",
@@ -601,7 +814,16 @@
         1,
         0
       ],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": [
+        "$[3]",
+        "$[2]",
+        "$[1]",
+        "$[0]"
+      ]
     },
     {
       "name": "excessively large step",
@@ -621,7 +843,13 @@
       "result": [
         1
       ],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": [
+        "$[1]"
+      ]
     },
     {
       "name": "excessively small step",
@@ -641,229 +869,331 @@
       "result": [
         9
       ],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": [
+        "$[9]"
+      ]
     },
     {
       "name": "start, min exact",
       "selector": "$[-9007199254740991::]",
       "document": [],
       "result": [],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": []
     },
     {
       "name": "start, max exact",
       "selector": "$[9007199254740991::]",
       "document": [],
       "result": [],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": []
     },
     {
       "name": "start, min exact - 1",
       "selector": "$[-9007199254740992::]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "start, max exact + 1",
       "selector": "$[9007199254740992::]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "end, min exact",
       "selector": "$[:-9007199254740991:]",
       "document": [],
       "result": [],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": []
     },
     {
       "name": "end, max exact",
       "selector": "$[:9007199254740991:]",
       "document": [],
       "result": [],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": []
     },
     {
       "name": "end, min exact - 1",
       "selector": "$[:-9007199254740992:]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "end, max exact + 1",
       "selector": "$[:9007199254740992:]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "step, min exact",
       "selector": "$[::-9007199254740991]",
       "document": [],
       "result": [],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": []
     },
     {
       "name": "step, max exact",
       "selector": "$[::9007199254740991]",
       "document": [],
       "result": [],
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ],
+      "result_paths": []
     },
     {
       "name": "step, min exact - 1",
       "selector": "$[::-9007199254740992]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "step, max exact + 1",
       "selector": "$[::9007199254740992]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "overflowing to value",
       "selector": "$[2:231584178474632390847141970017375815706539969331281128078915168015826259279872]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "underflowing from value",
       "selector": "$[-231584178474632390847141970017375815706539969331281128078915168015826259279872:1]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "overflowing from value with negative step",
       "selector": "$[231584178474632390847141970017375815706539969331281128078915168015826259279872:0:-1]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "underflowing to value with negative step",
       "selector": "$[3:-231584178474632390847141970017375815706539969331281128078915168015826259279872:-1]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "overflowing step",
       "selector": "$[1:10:231584178474632390847141970017375815706539969331281128078915168015826259279872]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "underflowing step",
       "selector": "$[-1:-10:-231584178474632390847141970017375815706539969331281128078915168015826259279872]",
       "invalid_selector": true,
-      "tags": ["slice", "boundary"]
+      "tags": [
+        "slice",
+        "boundary"
+      ]
     },
     {
       "name": "start, leading 0",
       "selector": "$[01::]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "start, decimal",
       "selector": "$[1.0::]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "start, plus",
       "selector": "$[+1::]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "start, minus space",
       "selector": "$[- 1::]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "start, -0",
       "selector": "$[-0::]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "start, leading -0",
       "selector": "$[-01::]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "end, leading 0",
       "selector": "$[:01:]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "end, decimal",
       "selector": "$[:1.0:]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "end, plus",
       "selector": "$[:+1:]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "end, minus space",
       "selector": "$[:- 1:]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "end, -0",
       "selector": "$[:-0:]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "end, leading -0",
       "selector": "$[:-01:]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "step, leading 0",
       "selector": "$[::01]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "step, decimal",
       "selector": "$[::1.0]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "step, plus",
       "selector": "$[::+1]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "step, minus space",
       "selector": "$[::- 1]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "step, -0",
       "selector": "$[::-0]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     },
     {
       "name": "step, leading -0",
       "selector": "$[::-01]",
       "invalid_selector": true,
-      "tags": ["slice"]
+      "tags": [
+        "slice"
+      ]
     }
   ]
 }

@@ -2,112 +2,255 @@
   "tests": [
     {
       "name": "string data",
-      "selector" : "$[?length(@.a)>=2]",
-      "document" : [{"a": "ab"}, {"a": "d"}],
-      "result": [
-        {"a": "ab"}
+      "selector": "$[?length(@.a)>=2]",
+      "document": [
+        {
+          "a": "ab"
+        },
+        {
+          "a": "d"
+        }
       ],
-      "tags": ["function", "length"]
+      "result": [
+        {
+          "a": "ab"
+        }
+      ],
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": [
+        "$[0]"
+      ]
     },
     {
       "name": "string data, unicode",
       "selector": "$[?length(@)==2]",
-      "document": ["☺", "☺☺", "☺☺☺", "ж", "жж", "жжж", "磨", "阿美", "形声字"],
-      "result": ["☺☺", "жж", "阿美"],
-      "tags": ["function", "length"]
+      "document": [
+        "☺",
+        "☺☺",
+        "☺☺☺",
+        "ж",
+        "жж",
+        "жжж",
+        "磨",
+        "阿美",
+        "形声字"
+      ],
+      "result": [
+        "☺☺",
+        "жж",
+        "阿美"
+      ],
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": [
+        "$[1]",
+        "$[4]",
+        "$[7]"
+      ]
     },
     {
       "name": "array data",
-      "selector" : "$[?length(@.a)>=2]",
-      "document" : [{"a": [1,2,3]}, {"a": [1]}],
-      "result": [
-        {"a": [1,2,3]}
+      "selector": "$[?length(@.a)>=2]",
+      "document": [
+        {
+          "a": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "a": [
+            1
+          ]
+        }
       ],
-      "tags": ["function", "length"]
+      "result": [
+        {
+          "a": [
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": [
+        "$[0]"
+      ]
     },
     {
       "name": "missing data",
-      "selector" : "$[?length(@.a)>=2]",
-      "document" : [{"d": "f"}],
+      "selector": "$[?length(@.a)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
       "result": [],
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": []
     },
     {
       "name": "number arg",
-      "selector" : "$[?length(1)>=2]",
-      "document" : [{"d": "f"}],
+      "selector": "$[?length(1)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
       "result": [],
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": []
     },
     {
       "name": "true arg",
-      "selector" : "$[?length(true)>=2]",
-      "document" : [{"d": "f"}],
+      "selector": "$[?length(true)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
       "result": [],
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": []
     },
     {
       "name": "false arg",
-      "selector" : "$[?length(false)>=2]",
-      "document" : [{"d": "f"}],
+      "selector": "$[?length(false)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
       "result": [],
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": []
     },
     {
       "name": "null arg",
-      "selector" : "$[?length(null)>=2]",
-      "document" : [{"d": "f"}],
+      "selector": "$[?length(null)>=2]",
+      "document": [
+        {
+          "d": "f"
+        }
+      ],
       "result": [],
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": []
     },
     {
       "name": "result must be compared",
-      "selector" : "$[?length(@.a)]",
+      "selector": "$[?length(@.a)]",
       "invalid_selector": true,
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "no params",
-      "selector" : "$[?length()==1]",
+      "selector": "$[?length()==1]",
       "invalid_selector": true,
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "too many params",
-      "selector" : "$[?length(@.a,@.b)==1]",
+      "selector": "$[?length(@.a,@.b)==1]",
       "invalid_selector": true,
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "non-singular query arg",
       "selector": "$[?length(@.*)<3]",
       "invalid_selector": true,
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ]
     },
     {
       "name": "arg is a function expression",
-      "selector" : "$.values[?length(@.a)==length(value($..c))]",
-      "document" : {
+      "selector": "$.values[?length(@.a)==length(value($..c))]",
+      "document": {
         "c": "cd",
-        "values": [{"a": "ab"}, {"a": "d"}]
+        "values": [
+          {
+            "a": "ab"
+          },
+          {
+            "a": "d"
+          }
+        ]
       },
       "result": [
-        {"a": "ab"}
+        {
+          "a": "ab"
+        }
       ],
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": [
+        "$['values'][0]"
+      ]
     },
     {
       "name": "arg is special nothing",
-      "selector" : "$[?length(value(@.a))>0]",
-      "document" : [
-          {"a": "ab"},
-          {"c": "d"},
-          {"a": null}
+      "selector": "$[?length(value(@.a))>0]",
+      "document": [
+        {
+          "a": "ab"
+        },
+        {
+          "c": "d"
+        },
+        {
+          "a": null
+        }
       ],
       "result": [
-        {"a": "ab"}
+        {
+          "a": "ab"
+        }
       ],
-      "tags": ["function", "length"]
+      "tags": [
+        "function",
+        "length"
+      ],
+      "result_paths": [
+        "$[0]"
+      ]
     }
   ]
 }

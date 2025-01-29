@@ -2,247 +2,547 @@
   "tests": [
     {
       "name": "space between root and bracket",
-      "selector" : "$ ['a']",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$ ['a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "newline between root and bracket",
-      "selector" : "$\n['a']",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$\n['a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "tab between root and bracket",
-      "selector" : "$\t['a']",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$\t['a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "return between root and bracket",
-      "selector" : "$\r['a']",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$\r['a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "space between bracket and bracket",
-      "selector" : "$['a'] ['b']",
-      "document" : {"a": {"b": "ab"} },
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'] ['b']",
+      "document": {
+        "a": {
+          "b": "ab"
+        }
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']['b']"
+      ]
     },
     {
       "name": "newline between bracket and bracket",
-      "selector" : "$['a'] \n['b']",
-      "document" : {"a": {"b": "ab"} },
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'] \n['b']",
+      "document": {
+        "a": {
+          "b": "ab"
+        }
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']['b']"
+      ]
     },
     {
       "name": "tab between bracket and bracket",
-      "selector" : "$['a'] \t['b']",
-      "document" : {"a": {"b": "ab"} },
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'] \t['b']",
+      "document": {
+        "a": {
+          "b": "ab"
+        }
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']['b']"
+      ]
     },
     {
       "name": "return between bracket and bracket",
-      "selector" : "$['a'] \r['b']",
-      "document" : {"a": {"b": "ab"} },
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'] \r['b']",
+      "document": {
+        "a": {
+          "b": "ab"
+        }
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']['b']"
+      ]
     },
     {
       "name": "space between root and dot",
-      "selector" : "$ .a",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$ .a",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "newline between root and dot",
-      "selector" : "$\n.a",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$\n.a",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "tab between root and dot",
-      "selector" : "$\t.a",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$\t.a",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "return between root and dot",
-      "selector" : "$\r.a",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$\r.a",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "space between dot and name",
-      "selector" : "$. a",
+      "selector": "$. a",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "newline between dot and name",
-      "selector" : "$.\na",
+      "selector": "$.\na",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "tab between dot and name",
-      "selector" : "$.\ta",
+      "selector": "$.\ta",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "return between dot and name",
-      "selector" : "$.\ra",
+      "selector": "$.\ra",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "space between recursive descent and name",
-      "selector" : "$.. a",
+      "selector": "$.. a",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "newline between recursive descent and name",
-      "selector" : "$..\na",
+      "selector": "$..\na",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "tab between recursive descent and name",
-      "selector" : "$..\ta",
+      "selector": "$..\ta",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "return between recursive descent and name",
-      "selector" : "$..\ra",
+      "selector": "$..\ra",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "space between bracket and selector",
-      "selector" : "$[ 'a']",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$[ 'a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "newline between bracket and selector",
-      "selector" : "$[\n'a']",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$[\n'a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "tab between bracket and selector",
-      "selector" : "$[\t'a']",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$[\t'a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "return between bracket and selector",
-      "selector" : "$[\r'a']",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$[\r'a']",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "space between selector and bracket",
-      "selector" : "$['a' ]",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$['a' ]",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "newline between selector and bracket",
-      "selector" : "$['a'\n]",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'\n]",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "tab between selector and bracket",
-      "selector" : "$['a'\t]",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'\t]",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "return between selector and bracket",
-      "selector" : "$['a'\r]",
-      "document" : {"a": "ab"},
-      "result": [ "ab" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'\r]",
+      "document": {
+        "a": "ab"
+      },
+      "result": [
+        "ab"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']"
+      ]
     },
     {
       "name": "space between selector and comma",
-      "selector" : "$['a' ,'b']",
-      "document" : {"a": "ab", "b": "bc"},
-      "result": [ "ab", "bc" ],
-      "tags": ["whitespace"]
+      "selector": "$['a' ,'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']",
+        "$['b']"
+      ]
     },
     {
       "name": "newline between selector and comma",
-      "selector" : "$['a'\n,'b']",
-      "document" : {"a": "ab", "b": "bc"},
-      "result": [ "ab", "bc" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'\n,'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']",
+        "$['b']"
+      ]
     },
     {
       "name": "tab between selector and comma",
-      "selector" : "$['a'\t,'b']",
-      "document" : {"a": "ab", "b": "bc"},
-      "result": [ "ab", "bc" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'\t,'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']",
+        "$['b']"
+      ]
     },
     {
       "name": "return between selector and comma",
-      "selector" : "$['a'\r,'b']",
-      "document" : {"a": "ab", "b": "bc"},
-      "result": [ "ab", "bc" ],
-      "tags": ["whitespace"]
+      "selector": "$['a'\r,'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']",
+        "$['b']"
+      ]
     },
     {
       "name": "space between comma and selector",
-      "selector" : "$['a', 'b']",
-      "document" : {"a": "ab", "b": "bc"},
-      "result": [ "ab", "bc" ],
-      "tags": ["whitespace"]
+      "selector": "$['a', 'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']",
+        "$['b']"
+      ]
     },
     {
       "name": "newline between comma and selector",
-      "selector" : "$['a',\n'b']",
-      "document" : {"a": "ab", "b": "bc"},
-      "result": [ "ab", "bc" ],
-      "tags": ["whitespace"]
+      "selector": "$['a',\n'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']",
+        "$['b']"
+      ]
     },
     {
       "name": "tab between comma and selector",
-      "selector" : "$['a',\t'b']",
-      "document" : {"a": "ab", "b": "bc"},
-      "result": [ "ab", "bc" ],
-      "tags": ["whitespace"]
+      "selector": "$['a',\t'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']",
+        "$['b']"
+      ]
     },
     {
       "name": "return between comma and selector",
-      "selector" : "$['a',\r'b']",
-      "document" : {"a": "ab", "b": "bc"},
-      "result": [ "ab", "bc" ],
-      "tags": ["whitespace"]
+      "selector": "$['a',\r'b']",
+      "document": {
+        "a": "ab",
+        "b": "bc"
+      },
+      "result": [
+        "ab",
+        "bc"
+      ],
+      "tags": [
+        "whitespace"
+      ],
+      "result_paths": [
+        "$['a']",
+        "$['b']"
+      ]
     }
   ]
 }

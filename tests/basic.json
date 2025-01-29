@@ -12,19 +12,26 @@
           "first",
           "second"
         ]
+      ],
+      "result_paths": [
+        "$"
       ]
     },
     {
       "name": "no leading whitespace",
       "selector": " $",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "no trailing whitespace",
       "selector": "$ ",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "name shorthand",
@@ -35,6 +42,9 @@
       },
       "result": [
         "A"
+      ],
+      "result_paths": [
+        "$['a']"
       ]
     },
     {
@@ -46,6 +56,9 @@
       },
       "result": [
         "A"
+      ],
+      "result_paths": [
+        "$['☺']"
       ]
     },
     {
@@ -57,6 +70,9 @@
       },
       "result": [
         "A"
+      ],
+      "result_paths": [
+        "$['_']"
       ]
     },
     {
@@ -76,7 +92,8 @@
         "a": "A",
         "b": "B"
       },
-      "result": []
+      "result": [],
+      "result_paths": []
     },
     {
       "name": "name shorthand, array data",
@@ -85,7 +102,8 @@
         "first",
         "second"
       ],
-      "result": []
+      "result": [],
+      "result_paths": []
     },
     {
       "name": "wildcard shorthand, object data",
@@ -94,13 +112,26 @@
         "a": "A",
         "b": "B"
       },
-      "results": [[
-        "A",
-        "B"
-      ],[
-        "B",
-        "A"
-      ]]
+      "results": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "A"
+        ]
+      ],
+      "results_paths": [
+        [
+          "$['a']",
+          "$['b']"
+        ],
+        [
+          "$['b']",
+          "$['a']"
+        ]
+      ]
     },
     {
       "name": "wildcard shorthand, array data",
@@ -112,6 +143,10 @@
       "result": [
         "first",
         "second"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
       ]
     },
     {
@@ -124,6 +159,10 @@
       "result": [
         "first",
         "second"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
       ]
     },
     {
@@ -139,13 +178,26 @@
           "b": "By"
         }
       },
-      "results": [[
-        "Ax",
-        "Ay"
-      ],[
-        "Ay",
-        "Ax"
-      ]]
+      "results": [
+        [
+          "Ax",
+          "Ay"
+        ],
+        [
+          "Ay",
+          "Ax"
+        ]
+      ],
+      "results_paths": [
+        [
+          "$['x']['a']",
+          "$['y']['a']"
+        ],
+        [
+          "$['y']['a']",
+          "$['x']['a']"
+        ]
+      ]
     },
     {
       "name": "multiple selectors",
@@ -165,13 +217,19 @@
       "result": [
         0,
         2
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[2]"
       ]
     },
     {
       "name": "multiple selectors, space instead of comma",
       "selector": "$[0 2]",
       "invalid_selector": true,
-      "tags": ["whitespace"]
+      "tags": [
+        "whitespace"
+      ]
     },
     {
       "name": "selector, leading comma",
@@ -200,6 +258,9 @@
       ],
       "result": [
         1
+      ],
+      "result_paths": [
+        "$[1]"
       ]
     },
     {
@@ -211,6 +272,9 @@
       },
       "result": [
         1
+      ],
+      "result_paths": [
+        "$['a']"
       ]
     },
     {
@@ -232,6 +296,11 @@
         1,
         5,
         6
+      ],
+      "result_paths": [
+        "$[1]",
+        "$[5]",
+        "$[6]"
       ]
     },
     {
@@ -254,6 +323,12 @@
         0,
         1,
         2
+      ],
+      "result_paths": [
+        "$[1]",
+        "$[0]",
+        "$[1]",
+        "$[2]"
       ]
     },
     {
@@ -274,6 +349,10 @@
       "result": [
         1,
         1
+      ],
+      "result_paths": [
+        "$[1]",
+        "$[1]"
       ]
     },
     {
@@ -303,6 +382,19 @@
         8,
         9,
         1
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]",
+        "$[4]",
+        "$[5]",
+        "$[6]",
+        "$[7]",
+        "$[8]",
+        "$[9]",
+        "$[1]"
       ]
     },
     {
@@ -322,6 +414,18 @@
           "B",
           "A",
           "A"
+        ]
+      ],
+      "results_paths": [
+        [
+          "$['a']",
+          "$['b']",
+          "$['a']"
+        ],
+        [
+          "$['b']",
+          "$['a']",
+          "$['a']"
         ]
       ]
     },
@@ -353,6 +457,20 @@
         9,
         0,
         1
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]",
+        "$[4]",
+        "$[5]",
+        "$[6]",
+        "$[7]",
+        "$[8]",
+        "$[9]",
+        "$[0]",
+        "$[1]"
       ]
     },
     {
@@ -370,6 +488,14 @@
         0,
         1,
         2
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[0]",
+        "$[1]",
+        "$[2]"
       ]
     },
     {
@@ -379,114 +505,399 @@
     },
     {
       "name": "descendant segment, index",
-      "selector" : "$..[1]",
-      "document" : {"o": [0, 1, [2, 3]]},
+      "selector": "$..[1]",
+      "document": {
+        "o": [
+          0,
+          1,
+          [
+            2,
+            3
+          ]
+        ]
+      },
       "result": [
         1,
         3
+      ],
+      "result_paths": [
+        "$['o'][1]",
+        "$['o'][2][1]"
       ]
     },
     {
       "name": "descendant segment, name shorthand",
-      "selector" : "$..a",
-      "document" : {"o": [{"a": "b"}, {"a":"c"}]},
+      "selector": "$..a",
+      "document": {
+        "o": [
+          {
+            "a": "b"
+          },
+          {
+            "a": "c"
+          }
+        ]
+      },
       "result": [
         "b",
         "c"
+      ],
+      "result_paths": [
+        "$['o'][0]['a']",
+        "$['o'][1]['a']"
       ]
     },
     {
       "name": "descendant segment, wildcard shorthand, array data",
-      "selector" : "$..*",
-      "document" : [0, 1],
+      "selector": "$..*",
+      "document": [
+        0,
+        1
+      ],
       "result": [
         0,
         1
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
       ]
     },
     {
       "name": "descendant segment, wildcard selector, array data",
-      "selector" : "$..[*]",
-      "document" : [0, 1],
+      "selector": "$..[*]",
+      "document": [
+        0,
+        1
+      ],
       "result": [
         0,
         1
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
       ]
     },
     {
       "name": "descendant segment, wildcard selector, nested arrays",
-      "selector" : "$..[*]",
-      "document" : [[[1]],[2]],
+      "selector": "$..[*]",
+      "document": [
+        [
+          [
+            1
+          ]
+        ],
+        [
+          2
+        ]
+      ],
       "results": [
-        [[[1]],[2],[1],1,2],
-        [[[1]],[2],[1],2,1]
+        [
+          [
+            [
+              1
+            ]
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ],
+          1,
+          2
+        ],
+        [
+          [
+            [
+              1
+            ]
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ],
+          2,
+          1
+        ]
+      ],
+      "results_paths": [
+        [
+          "$[0]",
+          "$[1]",
+          "$[0][0]",
+          "$[0][0][0]",
+          "$[1][0]"
+        ],
+        [
+          "$[0]",
+          "$[1]",
+          "$[0][0]",
+          "$[1][0]",
+          "$[0][0][0]"
+        ]
       ]
     },
     {
       "name": "descendant segment, wildcard selector, nested objects",
-      "selector" : "$..[*]",
-      "document" : {"a": {"c": {"e": 1}}, "b": {"d": 2}},
+      "selector": "$..[*]",
+      "document": {
+        "a": {
+          "c": {
+            "e": 1
+          }
+        },
+        "b": {
+          "d": 2
+        }
+      },
       "results": [
-        [{"c": {"e": 1}}, {"d": 2}, {"e": 1}, 1, 2],
-        [{"c": {"e": 1}}, {"d": 2}, {"e": 1}, 2, 1],
-        [{"c": {"e": 1}}, {"d": 2}, 2, {"e": 1}, 1],
-        [{"d": 2}, {"c": {"e": 1}}, {"e": 1}, 1, 2],
-        [{"d": 2}, {"c": {"e": 1}}, {"e": 1}, 2, 1],
-        [{"d": 2}, {"c": {"e": 1}}, 2, {"e": 1}, 1]
+        [
+          {
+            "c": {
+              "e": 1
+            }
+          },
+          {
+            "d": 2
+          },
+          {
+            "e": 1
+          },
+          1,
+          2
+        ],
+        [
+          {
+            "c": {
+              "e": 1
+            }
+          },
+          {
+            "d": 2
+          },
+          {
+            "e": 1
+          },
+          2,
+          1
+        ],
+        [
+          {
+            "c": {
+              "e": 1
+            }
+          },
+          {
+            "d": 2
+          },
+          2,
+          {
+            "e": 1
+          },
+          1
+        ],
+        [
+          {
+            "d": 2
+          },
+          {
+            "c": {
+              "e": 1
+            }
+          },
+          {
+            "e": 1
+          },
+          1,
+          2
+        ],
+        [
+          {
+            "d": 2
+          },
+          {
+            "c": {
+              "e": 1
+            }
+          },
+          {
+            "e": 1
+          },
+          2,
+          1
+        ],
+        [
+          {
+            "d": 2
+          },
+          {
+            "c": {
+              "e": 1
+            }
+          },
+          2,
+          {
+            "e": 1
+          },
+          1
+        ]
+      ],
+      "results_paths": [
+        [
+          "$['a']",
+          "$['b']",
+          "$['a']['c']",
+          "$['a']['c']['e']",
+          "$['b']['d']"
+        ],
+        [
+          "$['a']",
+          "$['b']",
+          "$['a']['c']",
+          "$['b']['d']",
+          "$['a']['c']['e']"
+        ],
+        [
+          "$['a']",
+          "$['b']",
+          "$['b']['d']",
+          "$['a']['c']",
+          "$['a']['c']['e']"
+        ],
+        [
+          "$['b']",
+          "$['a']",
+          "$['a']['c']",
+          "$['a']['c']['e']",
+          "$['b']['d']"
+        ],
+        [
+          "$['b']",
+          "$['a']",
+          "$['a']['c']",
+          "$['b']['d']",
+          "$['a']['c']['e']"
+        ],
+        [
+          "$['b']",
+          "$['a']",
+          "$['b']['d']",
+          "$['a']['c']",
+          "$['a']['c']['e']"
+        ]
       ]
     },
     {
       "name": "descendant segment, wildcard shorthand, object data",
-      "selector" : "$..*",
-      "document" : {"a": "b"},
+      "selector": "$..*",
+      "document": {
+        "a": "b"
+      },
       "result": [
         "b"
+      ],
+      "result_paths": [
+        "$['a']"
       ]
     },
     {
       "name": "descendant segment, wildcard shorthand, nested data",
-      "selector" : "$..*",
-      "document" : {
-        "o": [{"a": "b"}]
+      "selector": "$..*",
+      "document": {
+        "o": [
+          {
+            "a": "b"
+          }
+        ]
       },
       "result": [
         [
           {
-            "a" : "b"
+            "a": "b"
           }
         ],
         {
-          "a" : "b"
+          "a": "b"
         },
         "b"
+      ],
+      "result_paths": [
+        "$['o']",
+        "$['o'][0]",
+        "$['o'][0]['a']"
       ]
     },
     {
       "name": "descendant segment, multiple selectors",
-      "selector" : "$..['a','d']",
-      "document" : [{"a": "b", "d": "e"}, {"a":"c", "d": "f"}],
+      "selector": "$..['a','d']",
+      "document": [
+        {
+          "a": "b",
+          "d": "e"
+        },
+        {
+          "a": "c",
+          "d": "f"
+        }
+      ],
       "result": [
         "b",
         "e",
         "c",
         "f"
+      ],
+      "result_paths": [
+        "$[0]['a']",
+        "$[0]['d']",
+        "$[1]['a']",
+        "$[1]['d']"
       ]
     },
     {
       "name": "descendant segment, object traversal, multiple selectors",
-      "selector" : "$..['a','d']",
-      "document" : {"x": {"a": "b", "d": "e"}, "y": {"a":"c", "d": "f"}},
-      "results": [[
-        "b",
-        "e",
-        "c",
-        "f"
-      ],[
-        "c",
-        "f",
-        "b",
-        "e"
-      ]]
+      "selector": "$..['a','d']",
+      "document": {
+        "x": {
+          "a": "b",
+          "d": "e"
+        },
+        "y": {
+          "a": "c",
+          "d": "f"
+        }
+      },
+      "results": [
+        [
+          "b",
+          "e",
+          "c",
+          "f"
+        ],
+        [
+          "c",
+          "f",
+          "b",
+          "e"
+        ]
+      ],
+      "results_paths": [
+        [
+          "$['x']['a']",
+          "$['x']['d']",
+          "$['y']['a']",
+          "$['y']['d']"
+        ],
+        [
+          "$['y']['a']",
+          "$['y']['d']",
+          "$['x']['a']",
+          "$['x']['d']"
+        ]
+      ]
     },
     {
       "name": "bald descendant segment",
