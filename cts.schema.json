@@ -40,6 +40,12 @@
         },
         "tags": {
           "$ref": "#/$defs/tags"
+        },
+        "result_paths": {
+          "$ref": "#/$defs/result_paths"
+        },
+        "results_paths": {
+          "$ref": "#/$defs/results_paths"
         }
       },
       "required": [
@@ -50,21 +56,25 @@
         {
           "required": [
             "document",
-            "result"
+            "result",
+            "result_paths"
           ],
           "properties": {
             "invalid_selector": false,
-            "results": false
+            "results": false,
+            "results_paths": false
           }
         },
         {
           "required": [
             "document",
-            "results"
+            "results",
+            "results_paths"
           ],
           "properties": {
             "invalid_selector": false,
-            "result": false
+            "result": false,
+            "result_paths": false
           }
         },
         {
@@ -74,7 +84,9 @@
           "properties": {
             "document": false,
             "result": false,
-            "results": false
+            "results": false,
+            "result_paths": false,
+            "results_paths": false
           }
         }
       ]
@@ -112,7 +124,19 @@
       "type": "boolean",
       "const": true,
       "description": "The flag indicating that the selector is not a valid JSONPath selector expression"
+    },
+    "result_paths": {
+      "description": "The expected normalized JSONPath query strings of applying the selector to the document, contains all the normalized JSONPath query strings of matched values",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "results_paths": {
+      "description": "An array of possible expected normalized JSONPath query strings of applying the selector to the document, each element of which contains all the normalized JSONPath query strings of matched values",
+      "type": "array",
+      "items": {"$ref": "#/$defs/result_paths"},
+      "minItems": 2
     }
   }
 }
-
