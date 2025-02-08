@@ -1911,6 +1911,20 @@
       "result_paths": []
     },
     {
+      "name": "followed by name selector",
+      "selector": "$[?@.a==1].b.x",
+      "document": [
+        {
+          "a": 1,
+          "b": { "x": 2 }
+        }
+      ],
+      "result": [ 2 ],
+      "result_paths": [
+        "$[0]['b']['x']"
+      ]
+    },
+    {
       "name": "relative non-singular query, index, equal",
       "selector": "$[?(@[0, 0]==42)]",
       "invalid_selector": true,
