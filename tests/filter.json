@@ -404,6 +404,21 @@
       ]
     },
     {
+      "name": "equals, absent from index selector equals absent from name selector",
+      "selector": "$[?@.absent==@.list[9]]",
+      "document": [
+        {
+          "list": [1]
+        }
+      ],
+      "result": [
+        { "list": [1] }
+      ],
+      "result_paths": [
+        "$[0]"
+      ]
+    },
+    {
       "name": "deep equality, arrays",
       "selector": "$[?@.a==@.b]",
       "document": [
