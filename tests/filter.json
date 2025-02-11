@@ -1925,6 +1925,20 @@
       ]
     },
     {
+      "name": "followed by child segment that selects multiple elements",
+      "selector": "$[?@.z=='_']['x','y']",
+      "document": [
+        {
+          "x": 1, "y": null, "z": "_"
+        }
+      ],
+      "result": [ 1, null ],
+      "result_paths": [
+        "$[0]['x']",
+        "$[0]['y']"
+      ]
+    },
+    {
       "name": "relative non-singular query, index, equal",
       "selector": "$[?(@[0, 0]==42)]",
       "invalid_selector": true,
