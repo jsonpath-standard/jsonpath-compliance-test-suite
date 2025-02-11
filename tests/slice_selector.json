@@ -524,6 +524,55 @@
       ]
     },
     {
+      "name": "in serial, on nested array",
+      "selector": "$[1:3][1:2]",
+      "document": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        [
+          "d",
+          "e",
+          "f"
+        ],
+        [
+          "g",
+          "h",
+          "i"
+        ]
+      ],
+      "result": [
+        "e",
+        "h"
+      ],
+      "result_paths": [
+        "$[1][1]",
+        "$[2][1]"
+      ],
+      "tags": [
+        "slice"
+      ]
+    },
+    {
+      "name": "in serial, on flat array",
+      "selector": "$[1:3][::]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": [],
+      "result_paths": [],
+      "tags": [
+        "slice"
+      ]
+    },
+    {
       "name": "too many colons",
       "selector": "$[1:2:3:4]",
       "invalid_selector": true,
