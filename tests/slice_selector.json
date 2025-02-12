@@ -573,6 +573,35 @@
       ]
     },
     {
+      "name": "negative from, negative to, positive step",
+      "selector": "$[-5:-2]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        5,
+        6,
+        7
+      ],
+      "result_paths": [
+        "$[5]",
+        "$[6]",
+        "$[7]"
+      ],
+      "tags": [
+        "slice"
+      ]
+    },
+    {
       "name": "too many colons",
       "selector": "$[1:2:3:4]",
       "invalid_selector": true,
