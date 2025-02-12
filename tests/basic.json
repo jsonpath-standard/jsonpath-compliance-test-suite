@@ -920,6 +920,16 @@
       "name": "bald descendant segment",
       "selector": "$..",
       "invalid_selector": true
+    },
+    {
+      "name": "current node identifier without filter selector",
+      "selector": "$[@.a]",
+      "invalid_selector": true
+    },
+    {
+      "name": "root node identifier in brackets without filter selector",
+      "selector": "$[$.a]",
+      "invalid_selector": true
     }
   ]
 }
