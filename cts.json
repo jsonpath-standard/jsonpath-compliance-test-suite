@@ -923,6 +923,16 @@
       "invalid_selector": true
     },
     {
+      "name": "basic, current node identifier without filter selector",
+      "selector": "$[@.a]",
+      "invalid_selector": true
+    },
+    {
+      "name": "basic, root node identifier in brackets without filter selector",
+      "selector": "$[$.a]",
+      "invalid_selector": true
+    },
+    {
       "name": "filter, existence, without segments",
       "selector": "$[?@]",
       "document": {
@@ -1323,6 +1333,27 @@
         "$[2]",
         "$[3]",
         "$[4]"
+      ]
+    },
+    {
+      "name": "filter, equals, absent from index selector equals absent from name selector",
+      "selector": "$[?@.absent==@.list[9]]",
+      "document": [
+        {
+          "list": [
+            1
+          ]
+        }
+      ],
+      "result": [
+        {
+          "list": [
+            1
+          ]
+        }
+      ],
+      "result_paths": [
+        "$[0]"
       ]
     },
     {
@@ -6399,6 +6430,35 @@
       ],
       "result": [],
       "result_paths": [],
+      "tags": [
+        "slice"
+      ]
+    },
+    {
+      "name": "slice selector, negative from, negative to, positive step",
+      "selector": "$[-5:-2]",
+      "document": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "result": [
+        5,
+        6,
+        7
+      ],
+      "result_paths": [
+        "$[5]",
+        "$[6]",
+        "$[7]"
+      ],
       "tags": [
         "slice"
       ]
