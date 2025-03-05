@@ -1,8 +1,7 @@
 # JSONPath Compliance Test Suite
 
-**WORK IN PROGRESS**
-
-This Compliance Test Suite follows, and usually lags behind, the [internet draft](https://github.com/ietf-wg-jsonpath/draft-ietf-jsonpath-jsonpath).
+This Compliance Test Suite may be used to test implementations of JSONPath
+[RFC 9535](https://www.rfc-editor.org/rfc/rfc9535).
 
 See [cts.json](cts.json) for the Compliance Test Suite.
 
