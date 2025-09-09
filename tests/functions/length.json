@@ -253,7 +253,7 @@
       ]
     },
     {
-      "name": "functions, length, non-singular query arg, multiple index selectors",
+      "name": "non-singular query arg, multiple index selectors",
       "selector": "$[?length(@[1, 2])<3]",
       "invalid_selector": true,
       "tags": [
@@ -262,7 +262,7 @@
       ]
     },
     {
-      "name": "functions, length, non-singular query arg, multiple name selectors",
+      "name": "non-singular query arg, multiple name selectors",
       "selector": "$[?length(@['a', 'b'])<3]",
       "invalid_selector": true,
       "tags": [
