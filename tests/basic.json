@@ -565,6 +565,57 @@
       ]
     },
     {
+      "name": "name shorthand, true",
+      "selector": "$.true",
+      "document": {
+        "true": "A",
+        "_foo": "B"
+      },
+      "result": [
+        "A"
+      ],
+      "result_paths": [
+        "$['true']"
+      ],
+      "tags": [
+        "boundary"
+      ]
+    },
+    {
+      "name": "name shorthand, false",
+      "selector": "$.false",
+      "document": {
+        "false": "A",
+        "_foo": "B"
+      },
+      "result": [
+        "A"
+      ],
+      "result_paths": [
+        "$['false']"
+      ],
+      "tags": [
+        "boundary"
+      ]
+    },
+    {
+      "name": "name shorthand, null",
+      "selector": "$.null",
+      "document": {
+        "null": "A",
+        "_foo": "B"
+      },
+      "result": [
+        "A"
+      ],
+      "result_paths": [
+        "$['null']"
+      ],
+      "tags": [
+        "boundary"
+      ]
+    },
+    {
       "name": "descendant segment, wildcard shorthand, array data",
       "selector": "$..*",
       "document": [
