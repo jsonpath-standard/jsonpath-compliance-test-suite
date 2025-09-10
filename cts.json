@@ -7629,6 +7629,24 @@
       ]
     },
     {
+      "name": "functions, length, non-singular query arg, multiple index selectors",
+      "selector": "$[?length(@[1, 2])<3]",
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "length"
+      ]
+    },
+    {
+      "name": "functions, length, non-singular query arg, multiple name selectors",
+      "selector": "$[?length(@['a', 'b'])<3]",
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "length"
+      ]
+    },
+    {
       "name": "functions, match, found match",
       "selector": "$[?match(@.a, 'a.*')]",
       "document": [
