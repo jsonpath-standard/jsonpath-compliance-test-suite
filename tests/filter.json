@@ -3674,6 +3674,58 @@
       ]
     },
     {
+      "name": "quoted True, double quotes",
+      "selector": "$[?@.a==\"True\"]",
+      "document": [
+        {
+          "a": "True"
+        },
+        {
+          "a": true
+        },
+        {
+          "a": "SomethingElse"
+        }
+      ],
+      "result": [
+        {
+          "a": "True"
+        }
+      ],
+      "result_paths": [
+        "$[0]"
+      ],
+      "tags": [
+        "case"
+      ]
+    },
+    {
+      "name": "quoted True, single quotes",
+      "selector": "$[?@.a=='True']",
+      "document": [
+        {
+          "a": "True"
+        },
+        {
+          "a": true
+        },
+        {
+          "a": "SomethingElse"
+        }
+      ],
+      "result": [
+        {
+          "a": "True"
+        }
+      ],
+      "result_paths": [
+        "$[0]"
+      ],
+      "tags": [
+        "case"
+      ]
+    },
+    {
       "name": "false, incorrectly capitalized",
       "selector": "$[?@==False]",
       "invalid_selector": true,
@@ -3682,9 +3734,113 @@
       ]
     },
     {
+      "name": "quoted False, double quotes",
+      "selector": "$[?@.a==\"False\"]",
+      "document": [
+        {
+          "a": "False"
+        },
+        {
+          "a": false
+        },
+        {
+          "a": "SomethingElse"
+        }
+      ],
+      "result": [
+        {
+          "a": "False"
+        }
+      ],
+      "result_paths": [
+        "$[0]"
+      ],
+      "tags": [
+        "case"
+      ]
+    },
+    {
+      "name": "quoted False, single quotes",
+      "selector": "$[?@.a=='False']",
+      "document": [
+        {
+          "a": "False"
+        },
+        {
+          "a": false
+        },
+        {
+          "a": "SomethingElse"
+        }
+      ],
+      "result": [
+        {
+          "a": "False"
+        }
+      ],
+      "result_paths": [
+        "$[0]"
+      ],
+      "tags": [
+        "case"
+      ]
+    },
+    {
       "name": "null, incorrectly capitalized",
       "selector": "$[?@==Null]",
       "invalid_selector": true,
+      "tags": [
+        "case"
+      ]
+    },
+    {
+      "name": "quoted Null, double quotes",
+      "selector": "$[?@.a==\"Null\"]",
+      "document": [
+        {
+          "a": "Null"
+        },
+        {
+          "a": null
+        },
+        {
+          "a": "SomethingElse"
+        }
+      ],
+      "result": [
+        {
+          "a": "Null"
+        }
+      ],
+      "result_paths": [
+        "$[0]"
+      ],
+      "tags": [
+        "case"
+      ]
+    },
+    {
+      "name": "quoted Null, single quotes",
+      "selector": "$[?@.a=='Null']",
+      "document": [
+        {
+          "a": "Null"
+        },
+        {
+          "a": null
+        },
+        {
+          "a": "SomethingElse"
+        }
+      ],
+      "result": [
+        {
+          "a": "Null"
+        }
+      ],
+      "result_paths": [
+        "$[0]"
+      ],
       "tags": [
         "case"
       ]
