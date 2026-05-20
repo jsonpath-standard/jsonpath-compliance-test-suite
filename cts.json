@@ -8020,7 +8020,8 @@
       ],
       "tags": [
         "function",
-        "length"
+        "length",
+        "value"
       ]
     },
     {
@@ -8047,7 +8048,8 @@
       ],
       "tags": [
         "function",
-        "length"
+        "length",
+        "value"
       ]
     },
     {
@@ -8383,7 +8385,8 @@
       ],
       "tags": [
         "function",
-        "match"
+        "match",
+        "value"
       ]
     },
     {
@@ -8903,7 +8906,8 @@
       ],
       "tags": [
         "function",
-        "search"
+        "search",
+        "value"
       ]
     },
     {
@@ -9857,8 +9861,8 @@
         "$[1]"
       ],
       "tags": [
+        "count",
         "function",
-        "search",
         "whitespace"
       ]
     },

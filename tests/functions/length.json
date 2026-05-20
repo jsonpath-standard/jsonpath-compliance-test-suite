@@ -222,7 +222,8 @@
       ],
       "tags": [
         "function",
-        "length"
+        "length",
+        "value"
       ]
     },
     {
@@ -249,7 +250,8 @@
       ],
       "tags": [
         "function",
-        "length"
+        "length",
+        "value"
       ]
     },
     {
