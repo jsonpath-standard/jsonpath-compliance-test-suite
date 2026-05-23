@@ -5,21 +5,18 @@ on:
       - main
   pull_request:
 
+permissions: {}
+
 jobs:
   build-cts:
     runs-on: ubuntu-latest
-
     permissions:
-      # Allow the job to push the changed file to the repository
-      # For pull requests from forks this seems to be implicitly changed to 'read', as desired, see
-      # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#how-the-permissions-are-calculated-for-a-workflow-job
-      contents: write
+      contents: read
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Setup Node.js
-      id: setup-node
       uses: actions/setup-node@v4
       with:
         node-version: 'lts/*'
@@ -39,13 +36,38 @@ jobs:
           exit 1
         fi
 
-    # Commit and push changes; has no effect if the file did not change
-    # Important: The push event will not trigger any other workflows, see
-    # https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#commits-made-by-this-action-do-not-trigger-new-workflow-runs
-    - name: Commit & push changes
-      # Only run for push events on `main` branch
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: stefanzweifel/git-auto-commit-action@v5
+    - name: Upload cts.json artifact
+      uses: actions/upload-artifact@v4
       with:
-        commit_message: 'Update `cts.json`'
-        file_pattern: 'cts.json'
+        name: cts-json
+        path: cts.json
+        if-no-files-found: error
+
+  # Privileged job which pushes cts.json changes to the repository
+  push-cts-changes:
+    # Only run for push events on `main` branch
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    needs: build-cts
+    runs-on: ubuntu-latest
+    permissions:
+      # Allow the job to push the changed file to the repository
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Download artifact from previous job
+      - name: Download cts.json artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: cts-json
+
+      # Commit and push changes; has no effect if the file did not change
+      # Important: The push event will not trigger any other workflows, see
+      # https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#commits-made-by-this-action-do-not-trigger-new-workflow-runs
+      - name: Commit & push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update `cts.json`'
+          file_pattern: 'cts.json'
