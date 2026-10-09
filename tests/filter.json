@@ -1160,6 +1160,22 @@
       ]
     },
     {
+      "name": "less than or equal to true, number",
+      "selector": "$[?@.a<=true]",
+      "document": [
+        {
+          "a": 0,
+          "d": "e"
+        },
+        {
+          "a": 1,
+          "d": "f"
+        }
+      ],
+      "result": [],
+      "result_paths": []
+    },
+    {
       "name": "less than or equal to false",
       "selector": "$[?@.a<=false]",
       "document": [
@@ -1309,6 +1325,22 @@
         },
         {
           "a": "c",
+          "d": "f"
+        }
+      ],
+      "result": [],
+      "result_paths": []
+    },
+    {
+      "name": "greater than false, number",
+      "selector": "$[?@.a>false]",
+      "document": [
+        {
+          "a": 0,
+          "d": "e"
+        },
+        {
+          "a": 1,
           "d": "f"
         }
       ],
