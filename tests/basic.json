@@ -62,6 +62,20 @@
       ]
     },
     {
+      "name": "name shorthand, supplementary plane character",
+      "selector": "$.😀",
+      "document": {
+        "😀": "A",
+        "b": "B"
+      },
+      "result": [
+        "A"
+      ],
+      "result_paths": [
+        "$['😀']"
+      ]
+    },
+    {
       "name": "name shorthand, underscore",
       "selector": "$._",
       "document": {
@@ -83,6 +97,11 @@
     {
       "name": "name shorthand, number",
       "selector": "$.1",
+      "invalid_selector": true
+    },
+    {
+      "name": "name shorthand, hyphen",
+      "selector": "$.a-b",
       "invalid_selector": true
     },
     {
@@ -256,6 +275,11 @@
     {
       "name": "selector, trailing comma",
       "selector": "$[0,]",
+      "invalid_selector": true
+    },
+    {
+      "name": "selector, trailing comma, space",
+      "selector": "$[0, ]",
       "invalid_selector": true
     },
     {
