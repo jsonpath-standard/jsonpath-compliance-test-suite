@@ -506,6 +506,38 @@
       ]
     },
     {
+      "name": "double quotes, escaped é, lower case hex e",
+      "selector": "$[\"\\u00e9\"]",
+      "document": {
+        "é": "A"
+      },
+      "result": [
+        "A"
+      ],
+      "result_paths": [
+        "$['é']"
+      ],
+      "tags": [
+        "unicode"
+      ]
+    },
+    {
+      "name": "double quotes, escaped control character",
+      "selector": "$[\"\\u001f\"]",
+      "document": {
+        "\u001f": "A"
+      },
+      "result": [
+        "A"
+      ],
+      "result_paths": [
+        "$['\\u001f']"
+      ],
+      "tags": [
+        "unicode"
+      ]
+    },
+    {
       "name": "double quotes, surrogate pair 𝄞",
       "selector": "$[\"\\uD834\\uDD1E\"]",
       "document": {
@@ -1190,6 +1222,38 @@
       ],
       "result_paths": [
         "$['☺']"
+      ],
+      "tags": [
+        "unicode"
+      ]
+    },
+    {
+      "name": "single quotes, escaped é, lower case hex e",
+      "selector": "$['\\u00e9']",
+      "document": {
+        "é": "A"
+      },
+      "result": [
+        "A"
+      ],
+      "result_paths": [
+        "$['é']"
+      ],
+      "tags": [
+        "unicode"
+      ]
+    },
+    {
+      "name": "single quotes, escaped control character",
+      "selector": "$['\\u001f']",
+      "document": {
+        "\u001f": "A"
+      },
+      "result": [
+        "A"
+      ],
+      "result_paths": [
+        "$['\\u001f']"
       ],
       "tags": [
         "unicode"
