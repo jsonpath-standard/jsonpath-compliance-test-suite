@@ -478,6 +478,58 @@
         "function",
         "search"
       ]
+    },
+    {
+      "name": "alternation",
+      "selector": "$[?search(@, 'ab|cd')]",
+      "document": [
+        "xabx",
+        "xcdx",
+        "xacx"
+      ],
+      "result": [
+        "xabx",
+        "xcdx"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "search"
+      ]
+    },
+    {
+      "name": "single-char escapes in character class",
+      "selector": "$[?search(@, '[\\\\n\\\\r\\\\t\\\\-\\\\^]')]",
+      "document": [
+        "a\nb",
+        "a\rb",
+        "a\tb",
+        "a-b",
+        "a^b",
+        "anrtb",
+        "a\\b"
+      ],
+      "result": [
+        "a\nb",
+        "a\rb",
+        "a\tb",
+        "a-b",
+        "a^b"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]",
+        "$[4]"
+      ],
+      "tags": [
+        "function",
+        "search"
+      ]
     }
   ]
 }

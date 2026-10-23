@@ -421,6 +421,151 @@
       ]
     },
     {
+      "name": "anchored at the start",
+      "selector": "$[?match(@, 'bc')]",
+      "document": [
+        "abc",
+        "bc"
+      ],
+      "result": [
+        "bc"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "anchored at the end",
+      "selector": "$[?match(@, 'ab')]",
+      "document": [
+        "abc",
+        "ab"
+      ],
+      "result": [
+        "ab"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "not matched before a trailing newline",
+      "selector": "$[?match(@, 'ab')]",
+      "document": [
+        "ab\n",
+        "ab"
+      ],
+      "result": [
+        "ab"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "alternation",
+      "selector": "$[?match(@, 'ab|cd')]",
+      "document": [
+        "ab",
+        "cd",
+        "ac",
+        "abcd"
+      ],
+      "result": [
+        "ab",
+        "cd"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "alternation, anchored at the start",
+      "selector": "$[?match(@, 'ab|cd')]",
+      "document": [
+        "xcd",
+        "ab"
+      ],
+      "result": [
+        "ab"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "alternation, anchored at the end",
+      "selector": "$[?match(@, 'ab|cd')]",
+      "document": [
+        "abx",
+        "cd"
+      ],
+      "result": [
+        "cd"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "single-char escapes in character class",
+      "selector": "$[?match(@, '[\\\\n\\\\r\\\\t\\\\-\\\\^]')]",
+      "document": [
+        "\n",
+        "\r",
+        "\t",
+        "-",
+        "^",
+        "n",
+        "r",
+        "t",
+        "\\"
+      ],
+      "result": [
+        "\n",
+        "\r",
+        "\t",
+        "-",
+        "^"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]",
+        "$[4]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
       "name": "explicit caret",
       "selector": "$[?match(@, '^ab.*')]",
       "document": [

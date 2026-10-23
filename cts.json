@@ -8675,6 +8675,151 @@
       ]
     },
     {
+      "name": "functions, match, anchored at the start",
+      "selector": "$[?match(@, 'bc')]",
+      "document": [
+        "abc",
+        "bc"
+      ],
+      "result": [
+        "bc"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, anchored at the end",
+      "selector": "$[?match(@, 'ab')]",
+      "document": [
+        "abc",
+        "ab"
+      ],
+      "result": [
+        "ab"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, not matched before a trailing newline",
+      "selector": "$[?match(@, 'ab')]",
+      "document": [
+        "ab\n",
+        "ab"
+      ],
+      "result": [
+        "ab"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, alternation",
+      "selector": "$[?match(@, 'ab|cd')]",
+      "document": [
+        "ab",
+        "cd",
+        "ac",
+        "abcd"
+      ],
+      "result": [
+        "ab",
+        "cd"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, alternation, anchored at the start",
+      "selector": "$[?match(@, 'ab|cd')]",
+      "document": [
+        "xcd",
+        "ab"
+      ],
+      "result": [
+        "ab"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, alternation, anchored at the end",
+      "selector": "$[?match(@, 'ab|cd')]",
+      "document": [
+        "abx",
+        "cd"
+      ],
+      "result": [
+        "cd"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, single-char escapes in character class",
+      "selector": "$[?match(@, '[\\\\n\\\\r\\\\t\\\\-\\\\^]')]",
+      "document": [
+        "\n",
+        "\r",
+        "\t",
+        "-",
+        "^",
+        "n",
+        "r",
+        "t",
+        "\\"
+      ],
+      "result": [
+        "\n",
+        "\r",
+        "\t",
+        "-",
+        "^"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]",
+        "$[4]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
       "name": "functions, match, explicit caret",
       "selector": "$[?match(@, '^ab.*')]",
       "document": [
@@ -9189,6 +9334,58 @@
       "result_paths": [
         "$[1]",
         "$[3]"
+      ],
+      "tags": [
+        "function",
+        "search"
+      ]
+    },
+    {
+      "name": "functions, search, alternation",
+      "selector": "$[?search(@, 'ab|cd')]",
+      "document": [
+        "xabx",
+        "xcdx",
+        "xacx"
+      ],
+      "result": [
+        "xabx",
+        "xcdx"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "search"
+      ]
+    },
+    {
+      "name": "functions, search, single-char escapes in character class",
+      "selector": "$[?search(@, '[\\\\n\\\\r\\\\t\\\\-\\\\^]')]",
+      "document": [
+        "a\nb",
+        "a\rb",
+        "a\tb",
+        "a-b",
+        "a^b",
+        "anrtb",
+        "a\\b"
+      ],
+      "result": [
+        "a\nb",
+        "a\rb",
+        "a\tb",
+        "a-b",
+        "a^b"
+      ],
+      "result_paths": [
+        "$[0]",
+        "$[1]",
+        "$[2]",
+        "$[3]",
+        "$[4]"
       ],
       "tags": [
         "function",
