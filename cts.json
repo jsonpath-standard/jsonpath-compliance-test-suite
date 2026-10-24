@@ -35,6 +35,11 @@
       ]
     },
     {
+      "name": "basic, empty query",
+      "selector": "",
+      "invalid_selector": true
+    },
+    {
       "name": "basic, name shorthand",
       "selector": "$.a",
       "document": {
@@ -1006,6 +1011,34 @@
       "name": "basic, root node identifier in brackets without filter selector",
       "selector": "$[$.a]",
       "invalid_selector": true
+    },
+    {
+      "name": "basic, root identifier followed by number",
+      "selector": "$1",
+      "invalid_selector": true
+    },
+    {
+      "name": "basic, wildcard shorthand without dot",
+      "selector": "$*",
+      "invalid_selector": true
+    },
+    {
+      "name": "basic, repeated root identifier",
+      "selector": "$$",
+      "invalid_selector": true
+    },
+    {
+      "name": "basic, unclosed bracketed selection",
+      "selector": "$[*",
+      "invalid_selector": true
+    },
+    {
+      "name": "basic, function call outside filter selector",
+      "selector": "$.a.length()",
+      "invalid_selector": true,
+      "tags": [
+        "function"
+      ]
     },
     {
       "name": "filter, existence, without segments",
@@ -4718,6 +4751,26 @@
       "tags": [
         "whitespace"
       ]
+    },
+    {
+      "name": "filter, unclosed filter selector, no expression",
+      "selector": "$[?",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, unclosed filter selector",
+      "selector": "$[?@.a==1",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, empty filter expression",
+      "selector": "$[?]",
+      "invalid_selector": true
+    },
+    {
+      "name": "filter, unclosed parenthesized expression",
+      "selector": "$[?(@.a==1]",
+      "invalid_selector": true
     },
     {
       "name": "filter, true, incorrectly capitalized",
@@ -8539,6 +8592,15 @@
     {
       "name": "functions, match, too many params",
       "selector": "$[?match(@.a,@.b,@.c)==1]",
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, missing closing parenthesis",
+      "selector": "$[?match(@.a, 'a.*']",
       "invalid_selector": true,
       "tags": [
         "function",

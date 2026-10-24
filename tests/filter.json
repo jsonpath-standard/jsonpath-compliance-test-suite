@@ -3698,6 +3698,26 @@
       ]
     },
     {
+      "name": "unclosed filter selector, no expression",
+      "selector": "$[?",
+      "invalid_selector": true
+    },
+    {
+      "name": "unclosed filter selector",
+      "selector": "$[?@.a==1",
+      "invalid_selector": true
+    },
+    {
+      "name": "empty filter expression",
+      "selector": "$[?]",
+      "invalid_selector": true
+    },
+    {
+      "name": "unclosed parenthesized expression",
+      "selector": "$[?(@.a==1]",
+      "invalid_selector": true
+    },
+    {
       "name": "true, incorrectly capitalized",
       "selector": "$[?@==True]",
       "invalid_selector": true,
