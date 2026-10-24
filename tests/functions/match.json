@@ -292,6 +292,15 @@
       ]
     },
     {
+      "name": "missing closing parenthesis",
+      "selector": "$[?match(@.a, 'a.*']",
+      "invalid_selector": true,
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
       "name": "arg is a function expression",
       "selector": "$.values[?match(@.a, value($..['regex']))]",
       "document": {

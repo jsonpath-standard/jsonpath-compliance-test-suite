@@ -34,6 +34,11 @@
       ]
     },
     {
+      "name": "empty query",
+      "selector": "",
+      "invalid_selector": true
+    },
+    {
       "name": "name shorthand",
       "selector": "$.a",
       "document": {
@@ -1005,6 +1010,34 @@
       "name": "root node identifier in brackets without filter selector",
       "selector": "$[$.a]",
       "invalid_selector": true
+    },
+    {
+      "name": "root identifier followed by number",
+      "selector": "$1",
+      "invalid_selector": true
+    },
+    {
+      "name": "wildcard shorthand without dot",
+      "selector": "$*",
+      "invalid_selector": true
+    },
+    {
+      "name": "repeated root identifier",
+      "selector": "$$",
+      "invalid_selector": true
+    },
+    {
+      "name": "unclosed bracketed selection",
+      "selector": "$[*",
+      "invalid_selector": true
+    },
+    {
+      "name": "function call outside filter selector",
+      "selector": "$.a.length()",
+      "invalid_selector": true,
+      "tags": [
+        "function"
+      ]
     }
   ]
 }
