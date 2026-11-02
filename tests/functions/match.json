@@ -421,21 +421,23 @@
       ]
     },
     {
-      "name": "explicit caret",
+      "name": "caret is an ordinary character",
       "selector": "$[?match(@, '^ab.*')]",
       "document": [
         "abc",
         "axc",
         "ab",
-        "xab"
+        "xab",
+        "^abc",
+        "^ab"
       ],
       "result": [
-        "abc",
-        "ab"
+        "^abc",
+        "^ab"
       ],
       "result_paths": [
-        "$[0]",
-        "$[2]"
+        "$[4]",
+        "$[5]"
       ],
       "tags": [
         "function",
@@ -443,16 +445,58 @@
       ]
     },
     {
-      "name": "explicit dollar",
+      "name": "dollar is an ordinary character",
       "selector": "$[?match(@, '.*bc$')]",
       "document": [
         "abc",
         "axc",
         "ab",
-        "abcx"
+        "abcx",
+        "abc$",
+        "xbc$"
       ],
       "result": [
-        "abc"
+        "abc$",
+        "xbc$"
+      ],
+      "result_paths": [
+        "$[4]",
+        "$[5]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "caret in the middle",
+      "selector": "$[?match(@, 'a^b')]",
+      "document": [
+        "a^b",
+        "ab",
+        "b"
+      ],
+      "result": [
+        "a^b"
+      ],
+      "result_paths": [
+        "$[0]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "dollar in the middle",
+      "selector": "$[?match(@, 'a$b')]",
+      "document": [
+        "a$b",
+        "ab",
+        "a"
+      ],
+      "result": [
+        "a$b"
       ],
       "result_paths": [
         "$[0]"

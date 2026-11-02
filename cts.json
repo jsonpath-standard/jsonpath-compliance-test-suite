@@ -8675,21 +8675,23 @@
       ]
     },
     {
-      "name": "functions, match, explicit caret",
+      "name": "functions, match, caret is an ordinary character",
       "selector": "$[?match(@, '^ab.*')]",
       "document": [
         "abc",
         "axc",
         "ab",
-        "xab"
+        "xab",
+        "^abc",
+        "^ab"
       ],
       "result": [
-        "abc",
-        "ab"
+        "^abc",
+        "^ab"
       ],
       "result_paths": [
-        "$[0]",
-        "$[2]"
+        "$[4]",
+        "$[5]"
       ],
       "tags": [
         "function",
@@ -8697,16 +8699,58 @@
       ]
     },
     {
-      "name": "functions, match, explicit dollar",
+      "name": "functions, match, dollar is an ordinary character",
       "selector": "$[?match(@, '.*bc$')]",
       "document": [
         "abc",
         "axc",
         "ab",
-        "abcx"
+        "abcx",
+        "abc$",
+        "xbc$"
       ],
       "result": [
-        "abc"
+        "abc$",
+        "xbc$"
+      ],
+      "result_paths": [
+        "$[4]",
+        "$[5]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, caret in the middle",
+      "selector": "$[?match(@, 'a^b')]",
+      "document": [
+        "a^b",
+        "ab",
+        "b"
+      ],
+      "result": [
+        "a^b"
+      ],
+      "result_paths": [
+        "$[0]"
+      ],
+      "tags": [
+        "function",
+        "match"
+      ]
+    },
+    {
+      "name": "functions, match, dollar in the middle",
+      "selector": "$[?match(@, 'a$b')]",
+      "document": [
+        "a$b",
+        "ab",
+        "a"
+      ],
+      "result": [
+        "a$b"
       ],
       "result_paths": [
         "$[0]"
@@ -9189,6 +9233,44 @@
       "result_paths": [
         "$[1]",
         "$[3]"
+      ],
+      "tags": [
+        "function",
+        "search"
+      ]
+    },
+    {
+      "name": "functions, search, caret is an ordinary character",
+      "selector": "$[?search(@, '^b')]",
+      "document": [
+        "abc",
+        "bc",
+        "a^bc"
+      ],
+      "result": [
+        "a^bc"
+      ],
+      "result_paths": [
+        "$[2]"
+      ],
+      "tags": [
+        "function",
+        "search"
+      ]
+    },
+    {
+      "name": "functions, search, dollar is an ordinary character",
+      "selector": "$[?search(@, 'b$')]",
+      "document": [
+        "ab",
+        "ab$c",
+        "b"
+      ],
+      "result": [
+        "ab$c"
+      ],
+      "result_paths": [
+        "$[1]"
       ],
       "tags": [
         "function",
