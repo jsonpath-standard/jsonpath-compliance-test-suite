@@ -478,6 +478,44 @@
         "function",
         "search"
       ]
+    },
+    {
+      "name": "caret is an ordinary character",
+      "selector": "$[?search(@, '^b')]",
+      "document": [
+        "abc",
+        "bc",
+        "a^bc"
+      ],
+      "result": [
+        "a^bc"
+      ],
+      "result_paths": [
+        "$[2]"
+      ],
+      "tags": [
+        "function",
+        "search"
+      ]
+    },
+    {
+      "name": "dollar is an ordinary character",
+      "selector": "$[?search(@, 'b$')]",
+      "document": [
+        "ab",
+        "ab$c",
+        "b"
+      ],
+      "result": [
+        "ab$c"
+      ],
+      "result_paths": [
+        "$[1]"
+      ],
+      "tags": [
+        "function",
+        "search"
+      ]
     }
   ]
 }
